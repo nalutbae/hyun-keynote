@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>1-3. 코딩업무의 패러다임 변화와 에이전틱 도구 · 1회차 에이전틱 코딩</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="./hyun-keynote.css" />
+</head>
+<body>
+
+<div class="toolbar">
+  <button id="btnPresent">Present (P)</button>
+  <button id="btnNotes">Notes (N)</button>
+  <button id="btnPrint">Print PDF</button>
+</div>
+<div class="helpbar"><span class="blink">▸</span>&nbsp; ←/→ navigate · P present · N notes · ESC overview · Cmd+P export PDF</div>
+
+<main class="deck" id="deck">
+
+<section id="part-03-cover" class="slide layout-cover" data-num="1">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>2026</span>
+  </div>
+  <div class="body">
+    <div>
+      <div class="eyebrow">PART 3 · 에이전틱 코딩의 시대</div>
+      <h1 class="chapter-full-title">1-3. 코딩업무의 패러다임 변화와 에이전틱 도구</h1>
+      <p class="subtitle">전통적 코딩에서 에이전틱 코딩으로, 그리고 바이브 코딩까지</p>
+    </div>
+    <div class="by">
+      <div class="who">
+        <span class="name">에이전틱 코딩 · 1회차</span>
+        <span class="role">Part 3 · 패러다임 변화와 에이전틱 도구</span>
+      </div>
+      <div class="stamp toc-area" aria-label="목차">
+        <span class="toc-label">목차</span>
+        <a class="toc-chapter" href="#part-03-cover">1-3. 코딩업무의 패러다임 변화와 에이전틱 도구</a>
+        <a class="toc-module" href="#mod-1-3-1">1-3-1. 패러다임 변화</a>
+        <a class="toc-module" href="#mod-1-3-2">1-3-2. 바이브 코딩</a>
+        <a class="toc-module" href="#mod-1-3-3">1-3-3. AI 모델 비교</a>
+        <a class="toc-module" href="#mod-1-3-4">1-3-4. Hermes Agent 소개</a>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>COVER</span><span><span class="num">01</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="1">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 01 / 15</span></div>
+  <h4>오프닝 · 00:00–02:00</h4>
+  <p>파트 3에 오신 것을 환영합니다. 앞선 파트에서 개발 용어와 개발 환경을 배웠다면, 이제 본격적으로 "코딩은 어떻게 바뀌고 있는가"를 다룹니다.</p>
+  <p>"여러분, 파트 1에서 에이전틱 코딩이라는 말을 잠깐 들었죠? 오늘이 바로 그 에이전틱 코딩의 세계로 들어가는 문을 여는 시간입니다. 전통적 코딩이 어떻게 변했고, AI가 어떻게 코딩을 바꾸고 있는지, 그리고 우리가 쓸 도구는 무엇인지 하나씩 짚어가겠습니다."</p>
+  <p>목차를 간단히 소개하고, 전체 흐름을 예고합니다. 약 40분 소요.</p>
+</aside>
+
+<section id="mod-1-3-1" class="slide layout-divider" data-num="2">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>PART 1-3-1</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-3-1</div>
+    <h2>패러다임 변화</h2>
+    <div class="lede">전통적 코딩에서 에이전틱 코딩으로</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">02</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="2">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 02 / 15</span></div>
+  <h4>모듈 전환 · 02:00–03:00</h4>
+  <p>첫 번째 모듈은 패러다임 변화입니다. "패러다임"이라는 말이 어렵게 들릴 수 있지만, 쉽게 말하면 "일하는 방식이 근본적으로 바뀌었다"는 뜻입니다.</p>
+  <p>"지금까지 코딩이라 하면 키보드로 직접 코드를 쳐야 하는 것으로 알고 계셨죠? 그 방식이 완전히 바뀌고 있습니다. 그 변화의 핵심을 이해하는 것이 이 모듈의 목표입니다."</p>
+</aside>
+
+<section class="slide layout-statement" data-num="3">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-3-1</span>
+  </div>
+  <div class="body">
+    <h2>코드는 AI가 짜고, 우리는 흐름을 통제한다</h2>
+    <div class="lede"><strong>이것이 에이전틱 코딩의 철학이다.</strong><span class="br"></span>AI가 만든 코드가 우리 은행의 대출 심사 기준에 맞는지, 보안상 안전한지 판단하는 감독관 역할은 바로 수강생님이 하셔야 합니다.</div>
+  </div>
+  <div class="meta-bottom"><span>1-3-1. 패러다임 변화</span><span><span class="num">03</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="3">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 03 / 15</span></div>
+  <h4>핵심 철학 · 03:00–08:00</h4>
+  <p>이 문장을 천천히 읽고, 수강생에게 묻습니다: "AI가 코드를 짠다면 우리는 뭘 해야 할까요?"</p>
+  <p>은행 비유로 설명합니다: "은행에서 행원이 대출 심사를 직접 하던 시절이 있었죠. 하지만 지금은 시스템이 1차 심사를 하고, 담당자가 그 결과를 검토하고 승인합니다. 에이전틱 코딩도 같은 원리입니다. AI가 1차 초안을 만들고, 사람이 그것을 검증하고 승인하는 구조입니다."</p>
+  <p>강조: "감독관이 되려면, 코드를 읽을 수 있어야 합니다. 그래서 파이썬을 배우는 것입니다."</p>
+</aside>
+
+<section class="slide layout-compare" data-num="4">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-3-1</span>
+  </div>
+  <div class="body">
+    <h2>코딩 패러다임의 변화</h2>
+    <div class="grid">
+      <div class="col">
+        <div class="tag">전통적 코딩</div>
+        <h3>문법을 외우고 직접 타이핑</h3>
+        <p>개발자가 직접 코드를 작성하는 방식</p>
+        <ul>
+          <li>개발자가 직접 코드 작성</li>
+          <li>에러 나면 구글링</li>
+          <li>수일~수주 소요</li>
+          <li>진입 장벽 매우 높음</li>
+        </ul>
+      </div>
+      <div class="vline"></div>
+      <div class="col">
+        <div class="tag">에이전틱 코딩</div>
+        <h3>AI에게 말로 지시하고 결과 검토</h3>
+        <p>자연어로 AI에게 요청하는 방식</p>
+        <ul>
+          <li>자연어로 요청</li>
+          <li>AI가 스스로 검색·수정</li>
+          <li>수분~수시간 소요</li>
+          <li>진입 장벽 낮음</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-3-1. 패러다임 변화</span><span><span class="num">04</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="4">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 04 / 15</span></div>
+  <h4>비교 설명 · 08:00–13:00</h4>
+  <p>양쪽을 하나씩 읽어줍니다. 특히 "수일~수주" vs "수분~수시간"의 차이를 강조합니다.</p>
+  <p>"전통적 코딩은 문법을 외우고, 에러가 나면 구글링을 하고, 수정하고, 다시 실행하는 과정을 반복합니다. 며칠, 심하면 몇 주가 걸리죠."</p>
+  <p>"에이전틱 코딩은 '이런 기능이 필요해'라고 AI에게 말하면, AI가 코드를 짜고, 검색도 하고, 에러도 스스로 수정합니다. 몇 분에서 몇 시간이면 끝납니다."</p>
+  <p>은행 비유: "수기 장부 작성 vs 전산 시스템 입력이라고 생각하시면 됩니다. 결과물은 같아도, 도달하는 속도와 노력이 완전히 다릅니다."</p>
+  <p>주의: "하지만 빠르다고 해서 검증이 필요 없는 것은 아닙니다. 다음 슬라이드에서 그 이유를 설명합니다."</p>
+</aside>
+
+<section class="slide layout-statement" data-num="5">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-3-1</span>
+  </div>
+  <div class="body">
+    <h2>감독관은 대본을 읽을 줄 알아야 한다</h2>
+    <div class="lede"><strong>AI가 다 해주는데 왜 파이썬을 배우나요?</strong><span class="br"></span>코드를 읽을 수 없으면 결과를 검증할 수 없습니다. 보안 문제, 비즈니스 로직 오류, 작은 버그 수정 — 이것을 판단하는 것은 결국 사람입니다.</div>
+  </div>
+  <div class="meta-bottom"><span>1-3-1. 패러다임 변화</span><span><span class="num">05</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="5">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 05 / 15</span></div>
+  <h4>왜 파이썬을 배우는가 · 13:00–17:00</h4>
+  <p>"가장 많이 받는 질문입니다. AI가 다 해주면 우리가 왜 코딩을 배워야 하냐고요."</p>
+  <p>비유: "연극 감독을 생각해봅시다. 감독은 직접 연기를 하지 않습니다. 하지만 대본을 읽고, 배우의 연기가 맞는지 판단하려면 대본을 이해할 수 있어야 합니다. 안 그러면 배우가 대사를 틀려도 모르죠."</p>
+  <p>실제 사례: "AI가 만든 코드에 보안 구멍이 있을 수 있습니다. 대출 심사 로직이 틀릴 수 있습니다. 이것을 코드를 안 읽으면 절대 발견할 수 없습니다."</p>
+  <p>"그래서 우리가 배우는 것은 '코드를 짜는 능력'이 아니라 '코드를 읽고 검증하는 능력'입니다. 파이썬 기초만으로도 충분합니다."</p>
+</aside>
+
+<section id="mod-1-3-2" class="slide layout-divider" data-num="6">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>PART 1-3-2</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-3-2</div>
+    <h2>바이브 코딩</h2>
+    <div class="lede">바이브 코딩: 감으로 코드를 만드는 시대</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">06</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="6">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 06 / 15</span></div>
+  <h4>모듈 전환 · 17:00–18:00</h4>
+  <p>"패러다임 변화를 이해했으니, 이제 그 변화의 극단적인 형태인 '바이브 코딩'에 대해 이야기해봅시다. 재미있는 이름이죠?"</p>
+  <p>"Vibe Coding — 감으로 코딩한다는 뜻입니다. 2025년 초에 세계적인 AI 연구자가 이 단어를 만들었는데, 우리가 배울 에이전틱 코딩과 어떤 관계가 있는지 알아봅시다."</p>
+</aside>
+
+<section class="slide layout-quote" data-num="7">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-3-2</span>
+  </div>
+  <div class="body">
+    <div class="quote">요즘 내 코딩 방식은 바이브 코딩이라고 부를 수 있겠다. 나는 함수를 직접 작성하지 않는다. 그저 자연어로 원하는 것을 설명하고 AI가 코드를 만든다.</div>
+    <div class="attr">Andrej Karpathy · OpenAI 공동창립자 · <span class="src">2025년 2월</span></div>
+  </div>
+  <div class="meta-bottom"><span>1-3-2. 바이브 코딩</span><span><span class="num">07</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="7">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 07 / 15</span></div>
+  <h4>Karpathy 인용 · 18:00–20:00</h4>
+  <p>문장을 천천히 읽어줍니다.</p>
+  <p>"Andrej Karpathy는 누구냐면, 세계 최고의 AI 연구소인 OpenAI를 만든 사람 중 하나입니다. 스탠퍼드 대학에서 AI를 가르치기도 한, 이 분야의 최고 권위자입니다."</p>
+  <p>"이런 사람조차 '나는 함수를 직접 작성하지 않는다'고 말합니다. 2025년 2월에 트위터에 올린 글인데, 전 세계 개발자 커뮤니티에 엄청난 파장을 일으켰습니다."</p>
+  <p>"바이브 코딩이라는 말이 여기서 시작되었습니다. 감(vibe)으로 코드를 만든다는 의미입니다."</p>
+</aside>
+
+<section class="slide layout-table" data-num="8">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-3-2</span>
+  </div>
+  <div class="body">
+    <h2>바이브 코딩의 장단점</h2>
+    <table>
+      <thead><tr><th>항목</th><th>장점</th><th>단점</th></tr></thead>
+      <tbody>
+        <tr><td class="k">진입 장벽</td><td>매우 낮음 — 자연어로 가능</td><td>결과 검증 불가</td></tr>
+        <tr><td class="k">속도</td><td>빠름 — AI가 즉시 생성</td><td>작은 버그 수정 어려움</td></tr>
+        <tr><td class="k">프로토타입</td><td>수분~수시간 완성</td><td>비즈니스 로직 오해 위험</td></tr>
+        <tr><td class="k">품질 관리</td><td>프롬프트 품질에 비례</td><td>AI가 보안 문제 무시 가능</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="meta-bottom"><span>1-3-2. 바이브 코딩</span><span><span class="num">08</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="8">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 08 / 15</span></div>
+  <h4>장단점 분석 · 20:00–24:00</h4>
+  <p>표를 한 줄씩 읽어줍니다.</p>
+  <ul>
+    <li>진입 장벽: "영어로, 아니 한국어로만 말해도 코드가 나옵니다. 엄청나죠? 하지만 그 결과가 맞는지 틀린지 확인할 수 없으면 위험합니다."</li>
+    <li>속도: "빠른 건 사실입니다. 하지만 AI가 만든 작은 버그를 수정하려고 할 때, 코드를 모르면 손을 쓸 수 없습니다."</li>
+    <li>프로토타입: "아이디어를 빨리 확인할 때는 최고입니다. 하지만 은행의 대출 심사 기준을 AI가 정확히 이해했는지는 사람이 확인해야 합니다."</li>
+    <li>품질 관리: "프롬프트를 잘 쓸수록 좋은 결과가 나옵니다. 하지만 AI는 보안 문제를 간과할 수 있습니다. 은행 시스템에서 이건 치명적이죠."</li>
+  </ul>
+  <p>정리: "바이브 코딩은 시작점입니다. 하지만 우리는 '감으로만' 코딩하는 것이 아니라, 결과를 읽고 검증할 수 있는 에이전틱 코딩을 목표로 합니다."</p>
+</aside>
+
+<section id="mod-1-3-3" class="slide layout-divider" data-num="9">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>PART 1-3-3</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-3-3</div>
+    <h2>AI 모델 비교</h2>
+    <div class="lede">프론티어 모델과 오픈소스 모델</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">09</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="9">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 09 / 15</span></div>
+  <h4>모듈 전환 · 24:00–25:00</h4>
+  <p>"바이브 코딩과 에이전틱 코딩의 차이를 이해했으니, 이제 그 AI가 어떤 모델인지 알아봅시다."</p>
+  <p>"AI라고 다 같은 AI가 아닙니다. 크게 두 가지로 나눌 수 있습니다: 성능이 최고인 상용 모델과, 공개되어 누구나 쓸 수 있는 오픈소스 모델."</p>
+</aside>
+
+<section class="slide layout-grid cols-2" data-num="10">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-3-3</span>
+  </div>
+  <div class="body">
+    <h2>프론티어 모델 vs 오픈소스 모델</h2>
+    <div class="cards">
+      <div class="card"><div class="num">프론티어</div><h3>최고 성능의 상용 AI</h3><p>GPT-4o, Claude 4, Gemini 2.5 Pro 등. API 호출료를 지불하고 사용. 데이터가 서버로 전송되므로 프라이버시 주의 필요.</p></div>
+      <div class="card"><div class="num">오픈소스</div><h3>공개된 무료 AI</h3><p>Llama 4, Qwen 3, DeepSeek 등. 로컬 실행 시 무료이고 프라이버시가 보장됨. 성능은 프론티어에 근접하며 계속 발전 중.</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-3-3. AI 모델 비교</span><span><span class="num">10</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="10">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 10 / 15</span></div>
+  <h4>두 가지 모델 · 25:00–28:00</h4>
+  <ul>
+    <li>프론티어: "스마트폰에 비유하면 아이폰 프로 같은 존재입니다. 가장 비싸고, 가장 성능이 좋지만, 돈을 내야 쓸 수 있고, 내 데이터가 회사 서버로 갑니다."</li>
+    <li>오픈소스: "안드로이드에 비유할 수 있습니다. 누구나 코드를 볼 수 있고, 내 컴퓨터에서 실행하면 비용도 들지 않고 데이터도 밖으로 나가지 않습니다."</li>
+    <li>강조: "은행에서는 특히 프라이버시와 보안이 중요합니다. 고객 정보를 AI 서버로 보내면 안 되죠. 그래서 오픈소스 모델을 로컬에서 쓰는 것이 은행 업무에 적합할 수 있습니다."</li>
+  </ul>
+</aside>
+
+<section class="slide layout-table" data-num="11">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-3-3</span>
+  </div>
+  <div class="body">
+    <h2>주요 AI 모델 비교</h2>
+    <table>
+      <thead><tr><th>모델</th><th>개발사</th><th>특징</th><th>비용</th></tr></thead>
+      <tbody>
+        <tr><td class="k">GPT-4o</td><td>OpenAI</td><td>범용 최강 — 멀티모달 지원</td><td>중간~높음</td></tr>
+        <tr><td class="k">Claude 4 Sonnet</td><td>Anthropic</td><td>코딩 특화 — 긴 맥락 처리</td><td>중간~높음</td></tr>
+        <tr><td class="k">Gemini 2.5 Pro</td><td>Google</td><td>멀티모달 — 대규모 문서 분석</td><td>중간</td></tr>
+        <tr><td class="k">Llama 4</td><td>Meta</td><td>오픈소스 대표 — 커뮤니티 생태계</td><td>무료~낮음</td></tr>
+        <tr><td class="k">DeepSeek-R1</td><td>DeepSeek</td><td>추론 특화 — 수학·논리 문제 강점</td><td>낮음</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="meta-bottom"><span>1-3-3. AI 모델 비교</span><span><span class="num">11</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="11">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 11 / 15</span></div>
+  <h4>모델 비교 · 28:00–32:00</h4>
+  <p>표를 한 줄씩 간단히 설명합니다. 너무 깊이 들어가지 않습니다.</p>
+  <ul>
+    <li>GPT-4o: "가장 많이 들어보셨을 모델입니다. 챗GPT의 엔진이죠."</li>
+    <li>Claude 4 Sonnet: "코딩에 특히 강한 모델입니다. 우리가 사용할 Hermes Agent도 Claude를 백엔드로 쓸 수 있습니다."</li>
+    <li>Gemini 2.5 Pro: "구글이 만든 모델로, 이미지와 문서를 함께 처리하는 데 강합니다."</li>
+    <li>Llama 4: "메타(페이스북 모회사)가 공개한 무료 모델입니다. 내 컴퓨터에서 실행할 수 있습니다."</li>
+    <li>DeepSeek-R1: "중국 스타트업이 만든 모델인데, 수학과 논리 추론에 강합니다."</li>
+  </ul>
+  <p>"이 수업에서는 모든 모델을 다 써보지는 않습니다. 핵심은 'AI 모델에도 종류가 있고, 목적에 따라 선택해야 한다'는 것만 기억하시면 됩니다."</p>
+</aside>
+
+<section id="mod-1-3-4" class="slide layout-divider" data-num="12">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>PART 1-3-4</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-3-4</div>
+    <h2>Hermes Agent 소개</h2>
+    <div class="lede">우리가 사용할 AI 코딩 하네스</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">12</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="12">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 12 / 15</span></div>
+  <h4>모듈 전환 · 32:00–33:00</h4>
+  <p>"마지막 모듈입니다. AI 모델이 무엇인지 알았으니, 이제 우리가 실제로 사용할 도구를 소개합니다."</p>
+  <p>"Hermes Agent — 이것이 우리가 앞으로 함께할 AI 코딩 하네스입니다. 하네스라는 말은 파트 1에서 배웠죠? AI가 안전하게 작동하도록 제약과 가이드를 제공하는 프레임워크입니다."</p>
+</aside>
+
+<section class="slide layout-grid cols-3" data-num="13">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-3-4</span>
+  </div>
+  <div class="body">
+    <h2>Hermes Agent의 3가지 핵심 기능</h2>
+    <div class="cards">
+      <div class="card"><div class="num">도구 사용</div><h3>Tool Use</h3><p>파일 읽기/쓰기, 터미널 명령 실행, 웹 검색 등 AI가 직접 도구를 조작하여 작업을 수행합니다.</p></div>
+      <div class="card"><div class="num">메모리</div><h3>Memory</h3><p>이전 대화 내용과 작업 맥락을 기억하여 일관된 작업을 수행합니다. 은행 업무의 '인수인계 노트'와 같은 역할입니다.</p></div>
+      <div class="card"><div class="num">자동화</div><h3>Cron & Skills</h3><p>정해진 시간에 자동 실행, 반복 작업의 프로시저를 저장해 재사용합니다. 매크로와 같은 역할입니다.</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-3-4. Hermes Agent 소개</span><span><span class="num">13</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="13">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 13 / 15</span></div>
+  <h4>핵심 기능 · 33:00–37:00</h4>
+  <ul>
+    <li>Tool Use: "가장 중요한 기능입니다. AI가 텍스트만 출력하는 것이 아니라, 실제로 파일을 만들고, 터미널에서 명령을 실행하고, 웹에서 정보를 찾을 수 있습니다. 손과 발이 있는 AI라고 생각하시면 됩니다."</li>
+    <li>Memory: "은행에서 인수인계 노트를 쓰죠? Hermes Agent도 대화의 맥락을 기억합니다. '아까 말한 그 파일'이라고 하면 알아듣습니다."</li>
+    <li>Cron & Skills: "반복 작업을 자동화합니다. 매일 아침 특정 리포트를 생성하거나, 특정 패턴의 작업을 한 번에 실행하는 것이 가능합니다. 엑셀 매크로를 떠올리시면 됩니다."</li>
+  </ul>
+  <p>데모 준비: "잠시 후 직접 설치하고 써볼 테니, 지금은 '이런 기능이 있구나' 하고 넘어갑시다."</p>
+</aside>
+
+<section class="slide layout-statement" data-num="14">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-3-4</span>
+  </div>
+  <div class="body">
+    <h2>비개발자가 가장 자연스럽게 시작할 수 있는 진입점</h2>
+    <div class="lede"><strong>Hermes Agent를 선택한 이유</strong><span class="br"></span>익숙한 채팅 인터페이스로 AI에게 요청하고, 결과를 확인하며, 점차 코드를 이해해가는 학습 경로가 우리 커리큘럼의 철학과 일치하기 때문입니다.</div>
+  </div>
+  <div class="meta-bottom"><span>1-3-4. Hermes Agent 소개</span><span><span class="num">14</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="14">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 14 / 15</span></div>
+  <h4>왜 Hermes Agent인가 · 37:00–39:00</h4>
+  <p>"왜 Hermes Agent를 선택했는지 설명드리겠습니다."</p>
+  <p>"여러 AI 코딩 도구가 있습니다. Cursor, GitHub Copilot, Windsurf... 하지만 이런 도구들은 개발자를 위해 만들어졌습니다. VS Code를 켜야 하고, 단축키를 알아야 하고, 코딩 문법을 이미 아는 사람을 위한 도구죠."</p>
+  <p>"Hermes Agent는 다릅니다. 카카오톡이나 슬랙처럼 채팅으로 대화하듯 AI에게 요청합니다. 결과도 채팅창에서 확인합니다. 익숙한 방식이죠."</p>
+  <p>"그리고 점차 코드를 이해하게 되면, 더 복잡한 요청도 가능합니다. 이게 '학습 경로'입니다. 처음부터 코드를 짜야 하는 것이 아니라, 채팅으로 시작해서 점점 깊어지는 것입니다."</p>
+  <p>"우리 커리큘럼의 철학과 정확히 맞아떨어집니다."</p>
+</aside>
+
+<section class="slide layout-statement" data-num="15">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-END</span>
+  </div>
+  <div class="body">
+    <h2>도구를 알았으면, 이제 직접 써봐야 합니다</h2>
+    <div class="lede">다음 파트에서는 Hermes Agent를 설치하고, 첫 번째 에이전틱 코딩을 직접 실습합니다.</div>
+  </div>
+  <div class="meta-bottom"><span>PART 3 END</span><span><span class="num">15</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="15">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 15 / 15</span></div>
+  <h4>마무리 · 39:00–40:00</h4>
+  <p>"여기까지가 파트 3, 코딩업무의 패러다임 변화와 에이전틱 도구였습니다."</p>
+  <p>간단 복습:
+  <ul>
+    <li>"전통적 코딩과 에이전틱 코딩의 차이?" → "직접 타이핑 vs AI에게 말로 지시"</li>
+    <li>"바이브 코딩이란?" → "감으로 코드를 만드는 방식, 카파시가 만든 말"</li>
+    <li>"프론티어와 오픈소스의 차이?" → "상용 vs 무료, 서버 전송 vs 로컬 실행"</li>
+    <li>"Hermes Agent의 세 가지 기능?" → "도구 사용, 메모리, 자동화"</li>
+  </ul>
+  </p>
+  <p>전환: "이제 잠시 쉬는 시간을 갖고, 다음 파트에서는 Hermes Agent를 직접 설치하고 첫 번째 에이전틱 코딩을 실습하겠습니다. 노트북이 준비되어 있는지 확인해 주세요!"</p>
+</aside>
+
+</main>
+
+<script src="./presenter.js"></script>
+</body>
+</html>

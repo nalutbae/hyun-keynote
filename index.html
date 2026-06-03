@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Hyun 프리젠테이션 아카이브 — 슬라이드 데크를 카테고리별로 탐색합니다." />
+<title>HYUN KEYNOTE — 강의 프리젠테이션 아카이브</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" />
+<style>
+:root{
+  --bg:#FFFFFF;--bg-2:#F7F3EF;--ink:#0A0A0A;--ink-2:#3A3A38;--ink-3:#78746E;
+  --rule:#0A0A0A;--rule-soft:#D8D2CC;--accent:#C15F3C;--accent-dark:#8F3E27;
+  --green:#4F6651;--blue:#3B5F8A;
+  --mono:'JetBrains Mono','SF Mono',ui-monospace,Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:'ss01','case','tnum'}
+a{color:inherit;text-decoration:none}
+
+.page{min-height:100vh;display:flex;flex-direction:column}
+.shell{width:min(1200px,calc(100vw - 48px));margin:0 auto}
+
+/* ── Top line ── */
+.topline{border-bottom:1.5px solid var(--rule);padding:36px 0 18px}
+.topline-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+.mark{width:14px;height:14px;border:1.5px solid var(--ink);border-radius:50%;position:relative;flex:0 0 auto}
+.mark::after{content:'';position:absolute;top:50%;left:50%;width:5px;height:5px;background:var(--accent);border-radius:50%;transform:translate(-50%,-50%)}
+
+/* ── Hero ── */
+.hero{padding:80px 0 64px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+h1{font-size:clamp(44px,7vw,88px);line-height:.96;letter-spacing:-.045em;font-weight:800;max-width:860px;word-break:keep-all;text-wrap:balance}
+.summary{font-size:19px;line-height:1.58;color:var(--ink-2);max-width:780px;margin-top:28px}
+
+/* ── Categories ── */
+.categories{padding-bottom:80px}
+.category{margin-bottom:64px}
+.category-header{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:14px;border-bottom:1.5px solid var(--rule)}
+.category-icon{width:36px;height:36px;border:1.5px solid var(--rule);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex:0 0 auto;background:var(--bg-2)}
+.category-label{flex:1}
+.category-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.category-title{font-size:24px;font-weight:750;letter-spacing:-.02em;line-height:1.2}
+.category-desc{font-size:14px;color:var(--ink-3);margin-top:4px;max-width:600px;line-height:1.5}
+.category-count{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+
+/* ── Item list ── */
+.list{border-top:1px solid var(--rule-soft)}
+.item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center;border-bottom:1px solid var(--rule-soft);padding:22px 0}
+.item:focus-within{outline:3px solid #FAEEE9;outline-offset:4px}
+.item-main{min-width:0}
+.item-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.item-title{font-size:20px;line-height:1.22;letter-spacing:-.015em;font-weight:700}
+.item-desc{font-size:14px;color:var(--ink-3);margin-top:6px;line-height:1.45;max-width:560px}
+.item-meta{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:10px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.item-link{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--rule);padding:10px 14px;font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;background:#fff;transition:background .14s,color .14s,border-color .14s;white-space:nowrap}
+.item-link:hover,.item-link:focus-visible{background:var(--accent);border-color:var(--accent);color:#fff;outline:none}
+
+/* ── Footer ── */
+.footer{margin-top:auto;border-top:1.5px solid var(--rule);padding:18px 0 36px}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.footer-copy{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+
+/* ── Empty state ── */
+.empty{text-align:center;padding:32px 0;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);border:1px dashed var(--rule-soft)}
+
+/* ── Responsive ── */
+@media(max-width:760px){
+  .shell{width:min(100% - 28px,1200px)}
+  .hero{padding:52px 0 40px}
+  h1{font-size:clamp(36px,9vw,56px)}
+  .category-header{flex-wrap:wrap;gap:10px}
+  .item{grid-template-columns:1fr;gap:16px;padding:18px 0}
+  .item-title{font-size:17px}
+  .item-link{justify-content:center;width:100%}
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:8px}
+}
+</style>
+</head>
+<body>
+<main class="page">
+
+  <!-- ── Top line ── -->
+  <header class="topline">
+    <div class="shell topline-inner">
+      <div class="brand"><span class="mark"></span> HYUN KEYNOTE</div>
+      <div></div>
+    </div>
+  </header>
+
+  <!-- ── Hero ── -->
+  <section class="shell hero">
+    <div class="eyebrow">Presentation Archive</div>
+    <h1>프리젠테이션<span style="color:var(--accent)">.</span></h1>
+    <p class="summary">카테고리별로 구성된 슬라이드 데크 아카이브입니다. 브라우저에서 바로 열리며, 키보드(←/→)로 탐색하고 P로 발표 모드, N으로 발표자 노트를 확인할 수 있습니다.</p>
+  </section>
+
+  <!-- ── Categories ── -->
+  <section class="shell categories">
+
+    <!-- ─── Category: 에이전틱 코딩 ─── -->
+    <article class="category">
+      <div class="category-header">
+        <div class="category-icon">🤖</div>
+        <div class="category-label">
+          <div class="category-kicker">Category 01</div>
+          <div class="category-title">에이전틱 코딩</div>
+          <div class="category-desc">파이썬과 AI 에이전트를 활용한 실무 자동화 학습 과정.</div>
+        </div>
+        <div class="category-count">1회차</div>
+      </div>
+      <div class="list">
+        <article class="item">
+          <div class="item-main">
+            <div class="item-kicker">1회차 · 3시간</div>
+            <h2 class="item-title">개발 패러다임의 변화와 필수 기초</h2>
+            <div class="item-desc">개발 용어 정리, Git &amp; GitHub 실습, 에이전틱 코딩 시대 배경, Hermes Agent 첫 실습. 4파트 54슬라이드.</div>
+            <div class="item-meta"><span>54 Slides</span><span>4 Parts</span><span>한국어</span></div>
+          </div>
+          <a class="item-link" href="./agentic-coding/index.html">열기 →</a>
+        </article>
+      </div>
+    </article>
+
+    <!-- ─── Category: Fastcampus (공개 강의) ─── -->
+    <!-- <article class="category">
+      <div class="category-header">
+        <div class="category-icon">⚡</div>
+        <div class="category-label">
+          <div class="category-kicker">Category 02</div>
+          <div class="category-title">공개 강의 · 컨퍼런스</div>
+          <div class="category-desc">컨퍼런스 발표, 밋업, 공개 세미나 슬라이드 데크.</div>
+        </div>
+        <div class="category-count">Coming Soon</div>
+      </div>
+      <div class="list">
+        <div class="empty">아직 등록된 프리젠테이션이 없습니다</div>
+      </div>
+    </article> -->
+
+    <!-- ─── Category: 내부 워크숍 ─── -->
+    <!-- <article class="category">
+      <div class="category-header">
+        <div class="category-icon">🔧</div>
+        <div class="category-label">
+          <div class="category-kicker">Category 03</div>
+          <div class="category-title">내부 워크숍 · 트레이닝</div>
+          <div class="category-desc">팀 내부 기술 공유, 온보딩 자료, 워크숍 발표 자료.</div>
+        </div>
+        <div class="category-count">Coming Soon</div>
+      </div>
+      <div class="list">
+        <div class="empty">아직 등록된 프리젠테이션이 없습니다</div>
+      </div>
+    </article> -->
+
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand"><span class="mark"></span> HYUN KEYNOTE</div>
+      <div class="footer-copy">© 2026 정태현</div>
+    </div>
+  </footer>
+
+</main>
+</body>
+</html>

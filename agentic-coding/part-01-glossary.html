@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>1-1. 개발 용어 사전 · 1회차 에이전틱 코딩</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="./hyun-keynote.css" />
+</head>
+<body>
+
+<div class="toolbar">
+  <button id="btnPresent">Present (P)</button>
+  <button id="btnNotes">Notes (N)</button>
+  <button id="btnPrint">Print PDF</button>
+</div>
+<div class="helpbar"><span class="blink">▸</span>&nbsp; ←/→ navigate · P present · N notes · ESC overview · Cmd+P export PDF</div>
+
+<main class="deck" id="deck">
+
+<section id="part-01-cover" class="slide layout-cover" data-num="1">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>2026</span>
+  </div>
+  <div class="body">
+    <div>
+      <div class="eyebrow">PART 1 · 개발 용어 사전</div>
+      <h1 class="chapter-full-title">1-1. 개발 용어 사전: 생소하지만 필수 용어</h1>
+      <p class="subtitle">코딩을 시작하기 전, 반드시 알아야 할 기초 용어를 은행 업무에 비유해 이해합니다</p>
+    </div>
+    <div class="by">
+      <div class="who">
+        <span class="name">에이전틱 코딩 · 1회차</span>
+        <span class="role">Part 1 · 개발 용어 사전</span>
+      </div>
+      <div class="stamp toc-area" aria-label="목차">
+        <span class="toc-label">목차</span>
+        <a class="toc-chapter" href="#part-01-cover">1-1. 개발 용어 사전: 생소하지만 필수 용어</a>
+        <a class="toc-module" href="#mod-1-1">1-1-1. 코딩 & 프로그래밍 기초</a>
+        <a class="toc-module" href="#mod-1-2">1-1-2. 개발 환경 & 도구</a>
+        <a class="toc-module" href="#mod-1-3">1-1-3. 버전 관리 & 에이전틱 AI</a>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>COVER</span><span><span class="num">01</span> / 13</span></div>
+</section>
+<aside class="notes" data-for="1">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 01 / 13</span></div>
+  <h4>오프닝</h4>
+  <p>1회차 첫 파트입니다. 수강생은 처음 코딩을 접하는 은행 직원이므로, 용어 설명은 항상 일상적 비유로 연결합니다.</p>
+  <p>"오늘 정말 고생 많으실 겁니다. 생소한 영어 단어가 많이 나올 텐데, 하나하나 은행 업무에 빗대어 설명해 드릴 테니 겁먹지 마세요."</p>
+  <p>전체 용어집은 1회차 교재로 따로 배부되니, 이 발표에서는 가장 중요한 것만 짚고 넘어갑니다.</p>
+</aside>
+
+<section id="mod-1-1" class="slide layout-divider" data-num="2">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>PART 1-1</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-1</div>
+    <h2>코딩 & 프로그래밍 기초</h2>
+    <div class="lede">목표: 코딩의 가장 기본이 되는 7개 용어를 은행 업무에 빗대어 이해한다.</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">02</span> / 13</span></div>
+</section>
+<aside class="notes" data-for="2">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 02 / 13</span></div>
+  <h4>모듈 전환 · 00:00-02:00</h4>
+  <p>"코딩을 배우기 전에 가장 먼저 넘어야 할 산이 있습니다. 바로 용어입니다. 개발자들이 쓰는 말이 일상 언어와 달라서, 그 뜻을 모르면 뒤에 나오는 모든 설명이 외계어로 들립니다."</p>
+  <p>하지만 한 가지 기억해주세요: 우리가 배울 파이썬은 영어 문장처럼 읽히는 언어입니다. 용어만 넘기면 코딩 자체는 생각보다 쉽습니다.</p>
+</aside>
+
+<section class="slide layout-statement" data-num="3">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-1</span>
+  </div>
+  <div class="body">
+    <h2>소스코드는 사람이 쓰고 컴퓨터가 읽는 설계도</h2>
+    <div class="lede"><strong>모든 프로그램은 글자로 시작된다</strong><span class="br"></span>파이썬 코드는 영어 문장처럼 읽을 수 있다. 우리가 직접 쓰거나, AI가 써주는 것이나, 둘 다 결국 소스코드다.</div>
+  </div>
+  <div class="meta-bottom"><span>1-1. 코딩 & 프로그래밍 기초</span><span><span class="num">03</span> / 13</span></div>
+</section>
+<aside class="notes" data-for="3">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 03 / 13</span></div>
+  <h4>핵심 개념 · 02:00-05:00</h4>
+  <p>"소스코드라고 하면 뭔가 복잡해 보이지만, 결국 텍스트 파일입니다. 메모장으로도 열 수 있는, 사람이 읽을 수 있는 글자입니다."</p>
+  <p>비유: "건축 설계도가 글과 도면으로 되어 있듯, 소스코드도 프로그램의 설계도입니다. 다만 이 설계도를 컴퓨터가 이해할 수 있도록 특정 규칙(문법)에 맞춰 쓴 것이죠."</p>
+  <p>핵심 포인트: "앞으로 AI가 써주는 코드도 결국 소스코드입니다. 우리가 읽고 수정할 수 있는 텍스트라는 점이 중요합니다."</p>
+</aside>
+
+<section class="slide layout-grid cols-3" data-num="4">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-1</span>
+  </div>
+  <div class="body">
+    <h2>코딩의 세 기둥: 실행, 디버깅, 변수</h2>
+    <div class="cards">
+      <div class="card"><div class="num">실행</div><h3>Execute / Run</h3><p>작성한 코드를 컴퓨터가 읽고 수행하는 것. VS Code에서 ▷ 버튼이나 터미널 명령어로 실행한다.</p></div>
+      <div class="card"><div class="num">디버깅</div><h3>Debugging</h3><p>코드에서 오류를 찾아 고치는 작업. 컴퓨터 안에 날아든 벌레(bug)를 제거했다는 실제 일화에서 유래.</p></div>
+      <div class="card"><div class="num">변수</div><h3>Variable</h3><p>데이터를 담아두는 상자. <code>이름 = '김은행'</code>처럼 값을 넣고 필요할 때 꺼내 쓴다.</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-1. 코딩 & 프로그래밍 기초</span><span><span class="num">04</span> / 13</span></div>
+</section>
+<aside class="notes" data-for="4">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 04 / 13</span></div>
+  <h4>세 기둥 · 05:00-10:00</h4>
+  <ul>
+    <li>실행: "코드를 짰으면 실행해봐야죠. 실행 버튼을 누르면 컴퓨터가 코드를 한 줄씩 읽고 수행합니다."</li>
+    <li>디버깅: "1947년 하버드 대학교 컴퓨터 안에 나방이 껴서 오류가 났는데, 연구원이 나방을 빼내며 '디버깅(debugging)'이라고 적은 것이 어원입니다."</li>
+    <li>변수: "변수는 은행으로 치면 계좌와 같습니다. '김은행'이라는 이름으로 돈(데이터)을 넣어두고, 필요할 때 찾는 것이죠."</li>
+  </ul>
+</aside>
+
+<section class="slide layout-statement" data-num="5">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-1</span>
+  </div>
+  <div class="body">
+    <h2>파이썬은 영어 문장처럼 읽히는 언어</h2>
+    <div class="lede"><strong>1991년 네덜란드의 귀도 반 로섬이 만든 언어</strong><span class="br"></span>문법이 간결하여 초보자가 배우기 가장 쉬운 언어. 데이터 분석, 자동화, AI 분야에서 세계 최고 점유율.</div>
+  </div>
+  <div class="meta-bottom"><span>1-1. 코딩 & 프로그래밍 기초</span><span><span class="num">05</span> / 13</span></div>
+</section>
+<aside class="notes" data-for="5">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 05 / 13</span></div>
+  <h4>파이썬 소개 · 10:00-15:00</h4>
+  <p>"왜 파이썬이냐고요? 다른 언어는 세미콜론(;)이나 중괄호{}가 필수인데, 파이썬은 들여쓰기만으로 구조를 표현합니다. 영어 문장을 읽듯이 읽을 수 있죠."</p>
+  <p>예시를 화이트보드나 스크린에 적어보세요:</p>
+  <p><code>print("안녕하세요")</code> → 화면에 "안녕하세요" 출력</p>
+  <p><code>name = "김은행"</code> → 'name'이라는 상자에 "김은행" 저장</p>
+  <p>"이게 전부입니다. 정말 간단하죠? AI가 짜주는 코드도 결국 이런 형태입니다."</p>
+</aside>
+
+<section id="mod-1-2" class="slide layout-divider" data-num="6">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>PART 1-2</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-2</div>
+    <h2>개발 환경 & 도구</h2>
+    <div class="lede">목표: 코드를 작성하고 실행하는 공간과 도구를 이해한다.</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">06</span> / 13</span></div>
+</section>
+<aside class="notes" data-for="6">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 06 / 13</span></div>
+  <h4>모듈 전환 · 15:00-16:00</h4>
+  <p>"방금 코딩의 기본 용어를 배웠습니다. 이제 그 코드를 어디에 쓰고, 어떻게 실행하는지 알아봅시다."</p>
+  <p>전환: "요리를 하려면 주방이 필요하듯, 코딩을 하려면 개발 환경이 필요합니다."</p>
+</aside>
+
+<section class="slide layout-grid cols-3" data-num="7">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-2</span>
+  </div>
+  <div class="body">
+    <h2>개발 환경의 세 가지 핵심 도구</h2>
+    <div class="cards">
+      <div class="card"><div class="num">IDE</div><h3>VS Code</h3><p>코드 작성, 실행, 디버깅을 한 곳에서. 전 세계 개발자의 74%가 사용하는 무료 코드 편집기.</p></div>
+      <div class="card"><div class="num">패키지</div><h3>Library / Package</h3><p>다른 사람이 미리 만들어둔 코드 묶음. 마트에서 파는 시판용 만두피처럼, 바로 가져다 쓴다.</p></div>
+      <div class="card"><div class="num">가상환경</div><h3>Virtual Env</h3><p>프로젝트마다 독립된 공간. 이탈리아 요리와 한식을 동시에 하면 냄새가 섞이듯, 가상환경은 각 요리에 독립된 주방을 제공.</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-2. 개발 환경 & 도구</span><span><span class="num">07</span> / 13</span></div>
+</section>
+<aside class="notes" data-for="7">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 07 / 13</span></div>
+  <h4>세 가지 도구 · 16:00-22:00</h4>
+  <ul>
+    <li>VS Code: "메모장으로도 코딩은 할 수 있습니다. 하지만 맨손으로 요리하는 것과 주방 도구가 있는 것의 차이죠. VS Code는 완비된 주방입니다."</li>
+    <li>패키지/라이브러리: "매번 밀가루 반죽을 치대지 않고 마트에서 파는 만두피를 사서 쓰면 되죠? 파이썬에도 엑셀 처리, 웹 크롤링, AI 모델 같은 만두피가 있습니다."</li>
+    <li>가상환경: "한 컴퓨터에서 여러 프로젝트를 하면 패키지 버전이 충돌할 수 있습니다. 가상환경은 각 프로젝트에 독립된 주방을 만들어줍니다."</li>
+  </ul>
+</aside>
+
+<section class="slide layout-statement" data-num="8">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-2</span>
+  </div>
+  <div class="body">
+    <h2>환경변수(.env)는 금고 비밀번호의 보관함</h2>
+    <div class="lede"><strong>코드 안에 비밀번호를 적지 않는다</strong><span class="br"></span>API 키, 비밀번호 등 민감한 값은 코드와 분리된 .env 파일에 보관한다. 은행 금고 비밀번호를 장부가 아닌 별도 보관함에 넣는 것과 같다.</div>
+  </div>
+  <div class="meta-bottom"><span>1-2. 개발 환경 & 도구</span><span><span class="num">08</span> / 13</span></div>
+</section>
+<aside class="notes" data-for="8">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 08 / 13</span></div>
+  <h4>환경변수 · 22:00-25:00</h4>
+  <ul>
+    <li>".env 파일의 개념이 매우 중요합니다. AI가 코드를 짤 때 실수로 비밀번호를 코드 안에 적을 수 있습니다. 우리가 감독관으로서 확인해야 할 포인트 중 하나죠."</li>
+    <li>비유: "은행에서 금고 비밀번호를 장부에 적어둘 사람은 없겠죠? 마찬가지로 개발에서도 비밀번호는 코드와 분리된 별도의 보관함에 넣습니다."</li>
+    <li>".gitignore 파일에 .env를 등록하는 것도 까먹으면 안 됩니다. 다음 파트 Git 실습에서 직접 해볼 것입니다."</li>
+  </ul>
+</aside>
+
+<section id="mod-1-3" class="slide layout-divider" data-num="9">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>PART 1-3</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-3</div>
+    <h2>버전 관리 & 에이전틱 AI</h2>
+    <div class="lede">목표: Git과 에이전틱 코딩의 핵심 용어를 이해한다.</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">09</span> / 13</span></div>
+</section>
+<aside class="notes" data-for="9">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 09 / 13</span></div>
+  <h4>모듈 전환 · 25:00-26:00</h4>
+  <p>"이제 마지막 모듈입니다. 방금까지 코드를 '어디에' 쓰는지 배웠다면, 이번에는 코드를 '어떻게 관리'하고 'AI와 함께 어떻게' 쓰는지 배웁니다."</p>
+  <p>전환: "다음 파트에서 Git을 직접 설치하고 실습할 테니, 여기서는 개념만 잡고 넘어갑니다."</p>
+</aside>
+
+<section class="slide layout-grid cols-2" data-num="10">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-3</span>
+  </div>
+  <div class="body">
+    <h2>Git과 GitHub: 코드의 타임머신과 클라우드</h2>
+    <div class="cards">
+      <div class="card"><div class="num">Git</div><h3>코드의 타임머신</h3><p>파일이 바뀔 때마다 스냅샷을 찍듯 변경 이력을 기록. 실수해도 언제든 과거로 돌아갈 수 있다. 리누스 토르발스가 2005년에 만듦.</p></div>
+      <div class="card"><div class="num">GitHub</div><h3>코드의 클라우드 저장소</h3><p>Git으로 관리하는 코드를 인터넷에 올려 백업·공유. 네이버 MYBOX의 개발자 버전. 강사와 코드를 공유하며 첨삭받는 공간.</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-3. 버전 관리 & 에이전틱 AI</span><span><span class="num">10</span> / 13</span></div>
+</section>
+<aside class="notes" data-for="10">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 10 / 13</span></div>
+  <h4>Git & GitHub · 26:00-30:00</h4>
+  <ul>
+    <li>Git: "대출심사_최종.xlsx, 대출심사_최종_진짜최종.xlsx... 이런 파일명 보신 적 있으시죠? 코딩에서도 똑같은 문제가 발생합니다. Git은 이걸 해결하는 타임머신입니다."</li>
+    <li>GitHub: "Git이 내 컴퓨터의 타임머신이라면, GitHub은 인터넷에 백업하는 클라우드 저장소입니다. 네이버 MYBOX나 구글 드라이브의 개발자 버전이죠."</li>
+    <li>중요: "다음 파트에서 직접 설치하고 실습합니다. 지금은 '이런 게 있구나' 하고 감만 잡으시면 됩니다."</li>
+  </ul>
+</aside>
+
+<section class="slide layout-grid cols-3" data-num="11">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-3</span>
+  </div>
+  <div class="body">
+    <h2>에이전틱 코딩의 세 가지 핵심 용어</h2>
+    <div class="cards">
+      <div class="card"><div class="num">에이전틱 코딩</div><h3>Agentic Coding</h3><p>AI 에이전트에게 자연어로 업무를 지시하면, AI가 스스로 판단·검색·실행하여 결과를 내는 개발 방식.</p></div>
+      <div class="card"><div class="num">프롬프트</div><h3>Prompt Engineering</h3><p>AI에게 최적의 지시를 작성하는 기술. 좋은 프롬프트가 좋은 결과물을 만든다.</p></div>
+      <div class="card"><div class="num">하네스</div><h3>Harness</h3><p>에이전트가 안전하게 작동하도록 제약과 가이드를 제공하는 프레임워크. 자동차의 차선과 신호등 같은 역할.</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-3. 버전 관리 & 에이전틱 AI</span><span><span class="num">11</span> / 13</span></div>
+</section>
+<aside class="notes" data-for="11">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 11 / 13</span></div>
+  <h4>에이전틱 AI 개념 · 30:00-37:00</h4>
+  <ul>
+    <li>에이전틱 코딩: "이 과정의 핵심 개념입니다. 전통적 코딩은 내가 직접 코드를 타이핑하는 것이고, 에이전틱 코딩은 AI 에이전트에게 '이 일 해줘'라고 말로 지시하는 것입니다."</li>
+    <li>프롬프트 엔지니어링: "은행 창구에 신청서를 낼 때 양식을 제대로 써야 하듯, AI에게도 지시를 정확하게 써야 합니다. 그 기술이 프롬프트 엔지니어링입니다."</li>
+    <li>하네스: "자동차가 도로 위에서 안전하게 달리려면 차선, 신호등, 속도 제한이 필요하죠? 하네스는 AI 에이전트에게 같은 역할을 합니다. 안전하게, 목적지에 도달하도록 가이드하는 것입니다."</li>
+  </ul>
+</aside>
+
+<section class="slide layout-table" data-num="12">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-3</span>
+  </div>
+  <div class="body">
+    <h2>오늘 꼭 기억해야 할 TOP 5</h2>
+    <table>
+      <thead><tr><th>번호</th><th>용어</th><th>한줄 설명</th></tr></thead>
+      <tbody>
+        <tr><td class="k">1</td><td>에이전틱 코딩</td><td>AI에게 말로 지시하면 AI가 알아서 코드를 짜고 실행하는 방식</td></tr>
+        <tr><td class="k">2</td><td>Git / GitHub</td><td>코드 타임머신(Git) + 클라우드 백업(GitHub)</td></tr>
+        <tr><td class="k">3</td><td>API</td><td>프로그램끼리 대화하는 창구</td></tr>
+        <tr><td class="k">4</td><td>라이브러리</td><td>남이 만들어둔 코드 만두피</td></tr>
+        <tr><td class="k">5</td><td>환경변수(.env)</td><td>비밀번호 별도 보관함</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="meta-bottom"><span>1-3. 버전 관리 & 에이전틱 AI</span><span><span class="num">12</span> / 13</span></div>
+</section>
+<aside class="notes" data-for="12">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 12 / 13</span></div>
+  <h4>정리 · 37:00-40:00</h4>
+  <p>다섯 가지를 빠르게 복습합니다. 수강생이 먼저 설명해보게 하는 것도 좋습니다.</p>
+  <ul>
+    <li>"에이전틱 코딩이 뭔지 아시는 분?" → "AI에게 말로 지시하면 AI가 알아서 코드를 짜고 실행하는 방식"</li>
+    <li>"Git이 뭔지 아시는 분?" → "코드의 타임머신. 언제든 과거로 돌아갈 수 있는 버전 관리"</li>
+    <li>"API는?" → "은행 창구처럼 프로그램끼리 대화하는 통로"</li>
+    <li>"라이브러리?" → "만두피처럼 남이 만들어둔 코드 묶음"</li>
+    <li>".env?" → "금고 비밀번호의 별도 보관함"</li>
+  </ul>
+  <p>이 다섯 개만 기억하시면 오늘 파트 1은 성공입니다.</p>
+</aside>
+
+<section class="slide layout-statement" data-num="13">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-END</span>
+  </div>
+  <div class="body">
+    <h2>용어는 앞으로 계속 등장합니다</h2>
+    <div class="lede">완벽하게 외울 필요는 없습니다. <em>'어, 그거 이런 뜻이었지?'</em> 하고 다시 돌아올 수 있으면 됩니다. 다음 파트에서는 Git을 직접 설치하고 실습합니다.</div>
+  </div>
+  <div class="meta-bottom"><span>PART 1 END</span><span><span class="num">13</span> / 13</span></div>
+</section>
+<aside class="notes" data-for="13">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 13 / 13</span></div>
+  <h4>마무리 · 40:00-42:00</h4>
+  <p>"여기까지가 파트 1, 개발 용어 사전이었습니다. 머릿속에 다 남지 않아도 괜찮습니다. 교재로 따로 드린 용어집을 언제든 다시 보실 수 있으니까요."</p>
+  <p>전환: "이제 잠시 쉬는 시간을 갖고, 파트 2에서는 Git을 직접 설치하고 GitHub에 가입하는 실습을 하겠습니다. 인터넷이 잘 되는지 확인해 주세요!"</p>
+</aside>
+
+</main>
+
+<script src="./presenter.js"></script>
+</body>
+</html>

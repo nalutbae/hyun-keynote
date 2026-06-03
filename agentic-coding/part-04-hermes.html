@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>1-4. Hermes Agent 실습 · 1회차 에이전틱 코딩</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="./hyun-keynote.css" />
+</head>
+<body>
+
+<div class="toolbar">
+  <button id="btnPresent">Present (P)</button>
+  <button id="btnNotes">Notes (N)</button>
+  <button id="btnPrint">Print PDF</button>
+</div>
+<div class="helpbar"><span class="blink">▸</span>&nbsp; ←/→ navigate · P present · N notes · ESC overview · Cmd+P export PDF</div>
+
+<main class="deck" id="deck">
+
+<section id="part-04-cover" class="slide layout-cover" data-num="1">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>2026</span>
+  </div>
+  <div class="body">
+    <div>
+      <div class="eyebrow">PART 4 · Hermes Agent 실습</div>
+      <h1 class="chapter-full-title">1-4. Hermes Agent로 첫 번째 에이전틱 코딩</h1>
+      <p class="subtitle">AI에게 업무를 지시하고, 결과를 확인하고, 코드를 해부한다</p>
+    </div>
+    <div class="by">
+      <div class="who">
+        <span class="name">에이전틱 코딩 · 1회차</span>
+        <span class="role">Part 4 · Hermes Agent 실습</span>
+      </div>
+      <div class="stamp toc-area" aria-label="목차">
+        <span class="toc-label">목차</span>
+        <a class="toc-chapter" href="#part-04-cover">1-4. Hermes Agent로 첫 번째 에이전틱 코딩</a>
+        <a class="toc-module" href="#mod-4-1">1-4-1. Hermes Agent 시작</a>
+        <a class="toc-module" href="#mod-4-2">1-4-2. 첫 번째 실습</a>
+        <a class="toc-module" href="#mod-4-3">1-4-3. 코드 해부</a>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>COVER</span><span><span class="num">01</span> / 12</span></div>
+</section>
+<aside class="notes" data-for="1">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 01 / 12</span></div>
+  <h4>오프닝</h4>
+  <p>파트 4에 오신 것을 환영합니다. 지금까지 용어, Git, 에이전틱 코딩 개념을 배웠다면, 이번에는 직접 손으로 AI에게 업무를 지시하고 결과를 받아보는 시간입니다.</p>
+  <p>"드디어 기다리시던 실습 파트입니다. 오늘 우리가 할 일은 세 가지입니다. 첫째, Hermes Agent를 설치하고 실행합니다. 둘째, AI에게 코드를 만들어달라고 요청합니다. 셋째, AI가 만든 코드를 한 줄씩 해부하며 파이썬을 이해합니다."</p>
+  <p>이 파트는 약 50분 소요 예정이며, 중간에 직접 타이핑하고 실행하는 실습 시간이 포함됩니다.</p>
+</aside>
+
+<section id="mod-4-1" class="slide layout-divider" data-num="2">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>PART 4-1</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-4-1</div>
+    <h2>Hermes Agent를 시작한다</h2>
+    <div class="lede">목표: Hermes Agent를 설치하고, AI와 첫 대화를 나눈다.</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">02</span> / 12</span></div>
+</section>
+<aside class="notes" data-for="2">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 02 / 12</span></div>
+  <h4>모듈 전환 · 00:00-02:00</h4>
+  <p>"지금까지 이론만 배우느라 손이 근질거리셨죠? 이제 직접 AI 에이전트를 띄우고 말을 걸어볼 차례입니다."</p>
+  <p>전환: "첫 번째 모듈에서는 Hermes Agent를 설치하고 실행하는 과정을一步一步 밟아가겠습니다. 어렵지 않으니 천천히 따라오세요."</p>
+  <p>주의: "설치 과정에서 오류가 나면 바로 손 들어주세요. 같이 해결하겠습니다."</p>
+</aside>
+
+<section class="slide layout-grid cols-3" data-num="3">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-4-1</span>
+  </div>
+  <div class="body">
+    <h2>Hermes Agent 설치 3단계</h2>
+    <div class="cards">
+      <div class="card"><div class="num">1</div><h3>Python 설치</h3><p>python.org에서 3.12 버전을 다운로드합니다. 설치 시 <strong>Add to PATH</strong> 체크는 필수입니다. 체크하지 않으면 터미널에서 Python을 찾지 못합니다.</p></div>
+      <div class="card"><div class="num">2</div><h3>Hermes Agent 설치</h3><p>터미널(명령 프롬프트)에서 <code>pip install hermes-agent</code>을 입력합니다. pip은 Python 패키지 관리자로, 앱스토어 같은 역할을 합니다.</p></div>
+      <div class="card"><div class="num">3</div><h3>API 키 설정</h3><p>프로젝트 폴더에 <code>.env</code> 파일을 만들고 API 키를 입력합니다. 금고 비밀번호를 별도 보관함에 넣는 것과 같은 원리입니다.</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-4-1. Hermes Agent 시작</span><span><span class="num">03</span> / 12</span></div>
+</section>
+<aside class="notes" data-for="3">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 03 / 12</span></div>
+  <h4>설치 3단계 · 02:00-15:00</h4>
+  <ul>
+    <li>Python 설치: "먼저 Python을 설치해야 합니다. 웹브라우저에서 python.org에 접속하세요. 3.12 버전을 다운로드합니다. 여기서 가장 중요한 것은 설치 화면에서 'Add to PATH'를 반드시 체크하는 것입니다. 체크하지 않으면 나중에 터미널에서 Python을 찾지 못해 오류가 납니다."</li>
+    <li>Hermes Agent 설치: "Python이 설치되었으면 터미널을 엽니다. Windows는 명령 프롬프트, Mac은 터미널 앱을 실행하세요. 그리고 'pip install hermes-agent'를 입력하고 엔터를 누릅니다. pip은 Python의 앱스토어라고 생각하시면 됩니다."</li>
+    <li>API 키 설정: "마지막으로 API 키를 설정합니다. .env 파일에 API 키를 적어넣는데, 이것은 아까 배운 환경변수 개념과 같습니다. 비밀번호를 코드에 직접 적지 않고 별도 보관함에 넣는 것이죠."</li>
+  </ul>
+  <p>실시간으로 설치를 따라하며 진행합니다. 오류가 발생하면 즉시 도움을 줍니다.</p>
+</aside>
+
+<section class="slide layout-statement" data-num="4">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-4-1</span>
+  </div>
+  <div class="body">
+    <h2>AI에게 말로 업무를 지시한다</h2>
+    <div class="lede">Hermes Agent를 시작하고, <em>'안녕, 오늘부터 내 업무를 도와줘!'</em>라고 입력해 보세요. AI가 반갑게 인사하면, 여러분은 이제 에이전틱 개발자의 첫걸음을 뗀 것입니다.</div>
+  </div>
+  <div class="meta-bottom"><span>1-4-1. Hermes Agent 시작</span><span><span class="num">04</span> / 12</span></div>
+</section>
+<aside class="notes" data-for="4">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 04 / 12</span></div>
+  <h4>첫 대화 · 15:00-22:00</h4>
+  <p>"이제 Hermes Agent를 실행하고 첫 인사를 건네봅시다. 터미널에서 'hermes'를 입력하면 대화창이 열립니다."</p>
+  <p>실습: 수강생에게 직접 인사를 입력해보게 합니다. "안녕, 오늘부터 내 업무를 도와줘!"라고 입력하면 AI가 반응합니다.</p>
+  <p>"첫 인사가 잘 되셨나요? 축하합니다. 여러분은 방금 AI 에이전트와 첫 대화를 나누었습니다. 이것이 에이전틱 코딩의 시작입니다. 앞으로는 이 대화창에서 모든 지시를 내리게 됩니다."</p>
+  <p>강조: "에이전틱 코딩에서는 키보드로 코드를 직접 타이핑하지 않습니다. 자연어로 지시를 내리고, AI가 코드를 작성합니다."</p>
+</aside>
+
+<section id="mod-4-2" class="slide layout-divider" data-num="5">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>PART 4-2</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-4-2</div>
+    <h2>AI에게 자동화 코드를 요청한다</h2>
+    <div class="lede">목표: Hermes Agent에게 첫 번째 코딩 과제를 지시하고 결과물을 받는다.</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">05</span> / 12</span></div>
+</section>
+<aside class="notes" data-for="5">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 05 / 12</span></div>
+  <h4>모듈 전환 · 22:00-23:00</h4>
+  <p>"인사는 잘 하셨죠? 이제 본격적으로 AI에게 일을 시켜보겠습니다."</p>
+  <p>전환: "방금 AI와 인사를 나눴다면, 이제 AI에게 실제 업무를 지시할 차례입니다. 두 번째 모듈에서는 인사 스크립트를 만들어달라고 요청할 것입니다."</p>
+  <p>"실습이니까 복잡한 것을 요청하지 않습니다. 아주 간단한 것부터 시작해서, 점점 어려운 것을 요청해볼 것입니다."</p>
+</aside>
+
+<section class="slide layout-statement" data-num="6">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-4-2</span>
+  </div>
+  <div class="body">
+    <h2>"인사 스크립트를 만들어줘"</h2>
+    <div class="lede">Hermes Agent에게 <code>greeting.py</code> 파일 생성을 요청합니다. 현재 날짜와 시간을 출력하고, 1부터 10까지 짝수만 출력하는 간단한 스크립트입니다.</div>
+  </div>
+  <div class="meta-bottom"><span>1-4-2. 첫 번째 실습</span><span><span class="num">06</span> / 12</span></div>
+</section>
+<aside class="notes" data-for="6">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 06 / 12</span></div>
+  <h4>첫 번째 실습 · 23:00-30:00</h4>
+  <p>"이제 Hermes Agent에게 직접 지시를 내려보겠습니다. 다음과 같이 입력하세요."</p>
+  <p><code>greeting.py라는 파일을 만들어줘. 현재 날짜와 시간을 출력하고, 1부터 10까지 짝수만 출력하는 코드를 작성해줘.</code></p>
+  <p>실습 포인트:</p>
+  <ul>
+    <li>모든 수강생이 같은 프롬프트를 입력하게끔 가이드합니다.</li>
+    <li>AI가 코드를 작성하는 과정을 같이 지켜봅니다. "AI가 파일을 만들고 코드를 작성하는 것을 보세요."</li>
+    <li>완성되면 파일이 제대로 생성되었는지 확인합니다.</li>
+  </ul>
+  <p>"어떻게 됐나요? 파일이 생성되었나요? 코드가 화면에 보이시죠? 이것이 바로 에이전틱 코딩입니다. 우리는 코드를 직접 타이핑하지 않았지만, 결과물을 얻었습니다."</p>
+</aside>
+
+<section class="slide layout-grid cols-2" data-num="7">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-4-2</span>
+  </div>
+  <div class="body">
+    <h2>AI가 만든 코드 해부: 기초 개념</h2>
+    <div class="cards">
+      <div class="card"><div class="num">import</div><h3>from datetime import datetime</h3><p>라이브러리에서 날짜/시간 기능을 가져온다. 마트에서 만두피를 사오는 것과 같다. 직접 만들지 않고 이미 만들어진 도구를 가져와 쓴다.</p></div>
+      <div class="card"><div class="num">f-string</div><h3>f"현재 시간: {datetime.now()}"</h3><p>문자열 안에 변수를 넣는 방식. { } 안의 값을 계산해서 문자열에 끼워 넣는다. 엑셀의 & 연결 연산자와 비슷한 역할을 한다.</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-4-2. 첫 번째 실습</span><span><span class="num">07</span> / 12</span></div>
+</section>
+<aside class="notes" data-for="7">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 07 / 12</span></div>
+  <h4>코드 해부 1 · 30:00-36:00</h4>
+  <p>"AI가 만든 코드를 한 줄씩 해부해봅시다. 이게 오늘 가장 중요한 활동입니다."</p>
+  <ul>
+    <li>import: "첫 번째 줄의 'from datetime import datetime'은 무슨 뜻일까요? 아까 배운 라이브러리 개념이 여기 나옵니다. datetime이라는 라이브러리에서 날짜/시간 기능만 가져오라는 뜻입니다. 만두피를 직접 만들지 않고 마트에서 사오는 것과 같죠."</li>
+    <li>f-string: "f"현재 시간: {datetime.now()}"에서 f가 앞에 붙은 것을 보세요. 이것을 f-string이라고 합니다. 문자열 안에 { } 중괄호로 변수나 계산식을 넣을 수 있습니다. 엑셀에서 =A1&"년" 처럼 텍스트를 연결하는 것과 같은 원리입니다."</li>
+  </ul>
+  <p>"여기서 포인트는, 우리가 코드를 직접 짠 게 아니라는 것입니다. 하지만 AI가 만든 코드를 해부하면서 파이썬 문법을 자연스럽게 배우고 있습니다."</p>
+</aside>
+
+<section class="slide layout-grid cols-2" data-num="8">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-4-2</span>
+  </div>
+  <div class="body">
+    <h2>AI가 만든 코드 해부: 제어문</h2>
+    <div class="cards">
+      <div class="card"><div class="num">for</div><h3>for i in range(1, 11):</h3><p>1부터 10까지 반복하는 <code>for</code> 반복문. <code>range(1, 11)</code>은 1 이상 11 미만의 숫자를 생성한다. 11은 포함되지 않는다.</p></div>
+      <div class="card"><div class="num">if</div><h3>if i % 2 == 0:</h3><p>i를 2로 나눈 나머지가 0이면 짝수. <code>%</code> 연산자는 나머지를 구한다. 조건이 참일 때만 다음 줄이 실행된다.</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-4-2. 첫 번째 실습</span><span><span class="num">08</span> / 12</span></div>
+</section>
+<aside class="notes" data-for="8">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 08 / 12</span></div>
+  <h4>코드 해부 2 · 36:00-42:00</h4>
+  <p>"이번에는 반복문과 조건문을 해부합니다."</p>
+  <ul>
+    <li>for문: "'for i in range(1, 11):' — 이것은 1부터 10까지 숫자를 하나씩 꺼내서 i에 넣으라는 뜻입니다. range(1, 11)에서 11이 포함되지 않는다는 것을 반드시 기억하세요. 은행에서 1월~11월까지 데이터를 처리할 때도 이 방식을 씁니다."</li>
+    <li>if문: "'if i % 2 == 0:' — 이건 i를 2로 나눈 나머지가 0이면, 즉 짝수이면 다음 줄을 실행하라는 뜻입니다. % 기호는 나머지 연산자입니다. 5 % 2 = 1, 4 % 2 = 0 이렇게 계산됩니다."</li>
+  </ul>
+  <p>비유: "for문은 은행에서 '모든 대출 건을 하나씩 검토하라'는 것과 같고, if문은 '그중에서 연체인 것만 골라라'는 것과 같습니다."</p>
+  <p>"이 두 가지 제어문만으로도 은행 업무의 상당 부분을 자동화할 수 있습니다."</p>
+</aside>
+
+<section id="mod-4-3" class="slide layout-divider" data-num="9">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>PART 4-3</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-4-3</div>
+    <h2>AI가 만든 코드를 이해한다</h2>
+    <div class="lede">목표: 에이전틱 코딩의 학습 방법론을 이해하고, 두 번째 실습 과제를 살펴본다.</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">09</span> / 12</span></div>
+</section>
+<aside class="notes" data-for="9">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 09 / 12</span></div>
+  <h4>모듈 전환 · 42:00-43:00</h4>
+  <p>"여기까지 AI에게 코드를 만들어달라고 요청하고, 그 코드를 한 줄씩 해부했습니다."</p>
+  <p>전환: "이제 마지막 모듈입니다. 우리가 방금 한 일의 의미를 되짚어보고, 앞으로 어떻게 학습할 것인지 방법론을 정리하겠습니다."</p>
+  <p>"에이전틱 코딩은 단순히 AI에게 일을 시키는 것이 아닙니다. AI가 만든 결과물을 내 것으로 만드는 과정이 필수입니다."</p>
+</aside>
+
+<section class="slide layout-statement" data-num="10">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-4-3</span>
+  </div>
+  <div class="body">
+    <h2>에이전틱 코딩 + 역공학 = 우리의 학습법</h2>
+    <div class="lede">우리는 문법서부터 배우지 않습니다. <strong>AI가 만든 결과물을 먼저 보고, 그 코드를 한 줄씩 해부하며 파이썬을 내재화</strong>합니다. 이것이 전통적 학습과 가장 큰 차이입니다.</div>
+  </div>
+  <div class="meta-bottom"><span>1-4-3. 코드 해부</span><span><span class="num">10</span> / 12</span></div>
+</section>
+<aside class="notes" data-for="10">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 10 / 12</span></div>
+  <h4>학습 방법론 · 43:00-48:00</h4>
+  <p>"방금 우리가 한 일을 떠올려보세요. 우리는 파이썬 문법책을 펴고 첫 장부터 읽지 않았습니다."</p>
+  <p>"대신 AI에게 코드를 만들어달라고 했고, 완성된 코드를 한 줄씩 해부했습니다. import, f-string, for, if — 이 모든 것을 완성된 코드에서 배웠습니다."</p>
+  <p>비유: "자동차를 조립하는 방법을 배울 때, 설명서를 처음부터 읽는 것보다 완성된 자동차를 분해해보는 것이 빠르다는 것, 공대생이라면 공감하실 겁니다."</p>
+  <p>이것이 에이전틱 코딩의 학습법:
+    <ol>
+      <li>AI에게 무언가를 만들어달라고 요청한다</li>
+      <li>결과물을 받는다</li>
+      <li>결과물을 한 줄씩 해부하며 원리를 이해한다</li>
+      <li>이해한 것을 바탕으로 더 복잡한 것을 요청한다</li>
+    </ol>
+  </p>
+  <p>"이 선순환이 계속되면, 여러분은 문법서 한 장 안 읽고도 파이썬을 쓸 수 있게 됩니다."</p>
+</aside>
+
+<section class="slide layout-grid cols-3" data-num="11">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-4-3</span>
+  </div>
+  <div class="body">
+    <h2>두 번째 실습에서 배울 것</h2>
+    <div class="cards">
+      <div class="card"><div class="num">함수</div><h3>def classify_risk(grade):</h3><p>입력을 받아 출력을 반환하는 코드 블록. 은행의 위험도 분류 로직도 이렇게 만든다. <code>def</code>는 define의 약자.</p></div>
+      <div class="card"><div class="num">리스트</div><h3>high_risk = []</h3><p>여러 값을 순서대로 담는 상자. 고위험 대출자 목록을 담을 수 있다. <code>[]</code> 빈 대괄호로 빈 목록을 만든다.</p></div>
+      <div class="card"><div class="num">파일 읽기</div><h3>with open(...) as f:</h3><p>CSV 파일을 안전하게 열고 닫기. 은행 데이터를 읽어올 때 필수적인 기능. <code>with</code>는 파일을 쓰고 나면 자동으로 닫아준다.</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-4-3. 코드 해부</span><span><span class="num">11</span> / 12</span></div>
+</section>
+<aside class="notes" data-for="11">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 11 / 12</span></div>
+  <h4>다음 실습 미리보기 · 48:00-52:00</h4>
+  <ul>
+    <li>함수: "지금까지는 AI가 짠 코드를 그대로 실행했습니다. 하지만 함수를 알면 '등급에 따라 위험도를 분류해줘'처럼 입력과 출력이 있는 명령을 내릴 수 있습니다. 은행에서 대출 등급에 따라 위험도를 분류하는 것과 같은 로직입니다."</li>
+    <li>리스트: "high_risk = [] 은 빈 목록을 만드는 코드입니다. 대출자를 하나씩 검토해서 위험한 사람은 이 목록에 추가합니다. 엑셀의 한 열과 비슷하다고 생각하시면 됩니다."</li>
+    <li>파일 읽기: "은행에서 CSV 파일로 된 데이터를 받아서 처리해야 할 때가 많겠죠? 'with open'은 파일을 열고 다 쓰면 자동으로 닫아주는 안전한 방법입니다."</li>
+  </ul>
+  <p>"이 세 가지는 2회차에서 직접 실습할 내용의 핵심입니다. 오늘은 '이런 게 있구나' 하고 넘어가셔도 됩니다."</p>
+</aside>
+
+<section class="slide layout-statement" data-num="12">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 코딩 · 1회차 · KEYNOTE</span>
+    <span>1-END</span>
+  </div>
+  <div class="body">
+    <h2>코드는 AI가 짜고, 우리는 흐름을 통제한다</h2>
+    <div class="lede">오늘 배운 핵심은 이 한 문장입니다. 다음 2회차에서는 AI가 만든 웹페이지 텍스트 추출 코드를 한 줄씩 해부하며 파이썬의 변수, 자료형, 함수를 본격적으로 배웁니다.</div>
+  </div>
+  <div class="meta-bottom"><span>PART 4 END</span><span><span class="num">12</span> / 12</span></div>
+</section>
+<aside class="notes" data-for="12">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 12 / 12</span></div>
+  <h4>마무리 · 52:00-55:00</h4>
+  <p>"오늘 1회차 전체를 관통하는 한 문장이 있습니다. '코드는 AI가 짜고, 우리는 흐름을 통제한다.'"</p>
+  <p>회고:
+    <ul>
+      <li>"파트 1에서 개발 용어를 배웠습니다."</li>
+      <li>"파트 2에서 Git과 GitHub을 설치하고 실습했습니다."</li>
+      <li>"파트 3에서 에이전틱 코딩의 개념을 이해했습니다."</li>
+      <li>"그리고 파트 4에서 직접 AI에게 코드를 만들어달라고 하고, 그 결과물을 해부했습니다."</li>
+    </ul>
+  </p>
+  <p>"2회차에서는 더 복잡한 코드를 AI에게 요청하고, 변수, 자료형, 함수를 본격적으로 배웁니다. 오늘 해부한 import, f-string, for, if가 2회차에서도 계속 등장하니 걱정 마세요."</p>
+  <p>"수고하셨습니다. 다음에 뵙겠습니다!"</p>
+</aside>
+
+</main>
+
+<script src="./presenter.js"></script>
+</body>
+</html>
