@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>1-2. 설치와 운영 · 에르메스 에이전트 기초 가이드</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="./hyun-keynote.css" />
+</head>
+<body>
+
+<div class="toolbar">
+  <button id="btnPresent">Present (P)</button>
+  <button id="btnNotes">Notes (N)</button>
+  <button id="btnPrint">Print PDF</button>
+</div>
+<div class="helpbar"><span class="blink">▸</span>&nbsp; ←/→ navigate · P present · N notes · ESC overview · Cmd+P export PDF</div>
+
+<main class="deck" id="deck">
+
+<!-- SLIDE 01: Cover -->
+<section id="part-02-cover" class="slide layout-cover" data-num="1">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>2026</span>
+  </div>
+  <div class="body">
+    <div>
+      <div class="eyebrow">PART 2 · 설치와 운영</div>
+      <h1 class="chapter-full-title">1-2. 설치와 운영: CLI부터 상시 운영까지</h1>
+      <p class="subtitle">CLI 첫 대화, Provider/Model 설정, Docker/Gateway 판단, 업데이트 점검, 맥미니 상시 운영까지</p>
+    </div>
+    <div class="by">
+      <div class="who">
+        <span class="name">에르메스 에이전트 기초 가이드</span>
+        <span class="role">Part 2 · 설치와 운영</span>
+      </div>
+      <div class="stamp toc-area" aria-label="목차">
+        <span class="toc-label">목차</span>
+        <a class="toc-chapter" href="#part-02-cover">1-2. 설치와 운영</a>
+        <a class="toc-module" href="#mod-2-1">2-2-1. CLI 첫 대화</a>
+        <a class="toc-module" href="#mod-2-2">2-2-2. Provider/Model/Config</a>
+        <a class="toc-module" href="#mod-2-3">2-2-3. Docker/Gateway/상시 운영</a>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>COVER</span><span><span class="num">01</span> / 19</span></div>
+</section>
+<aside class="notes" data-for="1">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 01 / 19</span></div>
+  <h4>오프닝</h4>
+  <p>두 번째 파트에서는 실제로 Hermes Agent를 설치하고 세팅하는 방법, Docker와 Gateway가 언제 필요한지, 업데이트 점검 순서, 맥미니 상시 운영까지 다룹니다.</p>
+  <p>"개념은 잡았으니, 이제 직접 켜보겠습니다."</p>
+</aside>
+
+<!-- SLIDE 02: Section Divider — CLI -->
+<section id="mod-2-1" class="slide layout-divider" data-num="2">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>MODULE 2-1</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 2-1</div>
+    <h2>CLI 첫 대화</h2>
+    <div class="lede">가장 먼저 할 일은 복잡한 설정이 아니라 터미널에서 대화를 시작하는 것</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">02</span> / 19</span></div>
+</section>
+<aside class="notes" data-for="2">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 02 / 19</span></div>
+  <h4>CLI 섹션 전환</h4>
+  <p>Hermes Agent를 처음 설치한 후 가장 먼저 할 일은 터미널에서 대화를 시작하는 것입니다. Gateway, Docker, Cron 모두 CLI 기본 대화가 안정된 후에 붙이는 것입니다.</p>
+</aside>
+
+<!-- SLIDE 03: Statement — First conversation -->
+<section class="slide layout-statement huge" data-num="3">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>2-1</span>
+  </div>
+  <div class="body">
+    <h2>가장 먼저 할 일은 대화하는 것</h2>
+    <div class="lede">CLI에서 <strong>hermes</strong>를 실행하고 짧은 질문을 던져보는 것부터 시작한다<span class="br"></span>모델이 응답하는지, 도구를 호출할 수 있는지, 기본 대화가 <em>안정적으로 이어지는지</em> 먼저 확인한다</div>
+  </div>
+  <div class="meta-bottom"><span>2-1. CLI 첫 대화</span><span><span class="num">03</span> / 19</span></div>
+</section>
+<aside class="notes" data-for="3">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 03 / 19</span></div>
+  <h4>첫 대화</h4>
+  <p>CLI에서 hermes를 실행하고 짧은 질문을 던져보세요. "안녕"이나 "오늘 날씨 어때?" 같은 질문으로 시작합니다.</p>
+  <p>중요한 것은 "복잡한 것을 시도하는 것"이 아니라 "기본 대화가 안정적으로 이어지는지 확인하는 것"입니다.</p>
+</aside>
+
+<!-- SLIDE 04: Grid — CLI validation checklist -->
+<section class="slide layout-grid cols-3" data-num="4">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>2-1</span>
+  </div>
+  <div class="body">
+    <h2>CLI 기본 검증 항목</h2>
+    <div class="cards">
+      <div class="card"><div class="num">01</div><h3>hermes 실행</h3><p>터미널에서 hermes 명령이 정상 실행되는지 확인</p></div>
+      <div class="card"><div class="num">02</div><h3>모델 응답</h3><p>설정한 provider/model이 응답하는지 확인</p></div>
+      <div class="card"><div class="num">03</div><h3>도구 호출</h3><p>기본 toolset에서 파일/웹/터미널 작업이 가능한지 확인</p></div>
+      <div class="card"><div class="num">04</div><h3>config 확인</h3><p>hermes config로 현재 설정이 의도대로 반영되었는지 확인</p></div>
+      <div class="card"><div class="num">05</div><h3>session 유지</h3><p>대화가 끊기지 않고 맥락이 유지되는지 확인</p></div>
+      <div class="card"><div class="num">06</div><h3>에러 처리</h3><p>잘못된 요청에 대해 에러 메시지가 명확한지 확인</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>2-1. CLI 첫 대화</span><span><span class="num">04</span> / 19</span></div>
+</section>
+<aside class="notes" data-for="4">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 04 / 19</span></div>
+  <h4>CLI 검증</h4>
+  <p>CLI 기본 대화가 안정되기 전에 Gateway나 Cron을 붙이면 문제가 어디서 왔는지 알기 어렵습니다.</p>
+  <p>먼저 hermes 실행, 모델 응답, 도구 호출, config, session 유지, 에러 처리까지 기본을 확인하세요.</p>
+</aside>
+
+<!-- SLIDE 05: Section Divider — Provider/Model/Config -->
+<section id="mod-2-2" class="slide layout-divider" data-num="5">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>MODULE 2-2</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 2-2</div>
+    <h2>Provider/Model/Config</h2>
+    <div class="lede">설정을 확인하는 것과 이해하는 것은 다르다 — provider, model, config가 어떻게 연결되는지</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">05</span> / 19</span></div>
+</section>
+<aside class="notes" data-for="5">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 05 / 19</span></div>
+  <h4>Provider 섹션 전환</h4>
+  <p>CLI 기본 대화가 안정되면 다음은 provider/model/config 설정을 이해하는 것입니다.</p>
+  <p>단순히 "설정을 확인했다"가 아니라 "각 설정이 어떻게 연결되어 있는지 이해했다"가 중요합니다.</p>
+</aside>
+
+<!-- SLIDE 06: Grid — Provider settings -->
+<section class="slide layout-grid cols-3" data-num="6">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>2-2</span>
+  </div>
+  <div class="body">
+    <h2>Provider 설정 기준</h2>
+    <div class="cards">
+      <div class="card"><div class="num">API Key</div><h3>인증 정보</h3><p>provider별 API key가 올바르게 설정되었는지 확인. .env 파일에 직접 적지 않는다</p></div>
+      <div class="card"><div class="num">Model</div><h3>모델 선택</h3><p>어떤 모델을 사용하는지, 응답 품질과 속도의 균형을 확인</p></div>
+      <div class="card"><div class="num">Config</div><h3>설정 파일</h3><p>config.yaml이 의도대로 반영되었는지, profile별로 다른 설정이 가능한지 확인</p></div>
+      <div class="card"><div class="num">Toolset</div><h3>도구 권한</h3><p>현재 profile에서 사용 가능한 toolset 범위를 확인</p></div>
+      <div class="card"><div class="num">Routing</div><h3>요청 경로</h3><p>어떤 provider로 요청이 가는지, fallback이 설정되어 있는지 확인</p></div>
+      <div class="card"><div class="num">검증</div><h3>설정 후 확인</h3><p>hermes config check로 설정 상태를 점검하고 문제를 조기 발견</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>2-2. Provider/Model/Config</span><span><span class="num">06</span> / 19</span></div>
+</section>
+<aside class="notes" data-for="6">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 06 / 19</span></div>
+  <h4>Provider 설정</h4>
+  <p>Provider 설정은 API Key, Model, Config, Toolset, Routing, 검증의 여섯 가지 축으로 봐야 합니다.</p>
+  <p>특히 API Key와 Token은 .env 파일에 직접 적지 않고 관리하는 것이 중요합니다.</p>
+</aside>
+
+<!-- SLIDE 07: Statement — Understanding vs Checking -->
+<section class="slide layout-statement" data-num="7">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>2-2</span>
+  </div>
+  <div class="body">
+    <h2>설정을 확인하는 것과 이해하는 것은 다르다</h2>
+    <div class="lede"><strong>hermes config</strong>를 실행해 설정이 나온다고 끝이 아니다<span class="br"></span>어떤 provider가 왜 선택되었는지, <em>fallback은 어떻게 동작하는지</em>,<span class="br"></span>profile별로 다른 설정이 어떻게 분기되는지 이해해야 한다</div>
+  </div>
+  <div class="meta-bottom"><span>2-2. Provider/Model/Config</span><span><span class="num">07</span> / 19</span></div>
+</section>
+<aside class="notes" data-for="7">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 07 / 19</span></div>
+  <h4>확인과 이해의 차이</h4>
+  <p>설정을 확인하는 것과 이해하는 것은 다릅니다. config.yaml이 있다고 해서 그 설정이 왜 그렇게 되어 있는지, 어느 profile이 어느 설정을 사용하는지 모르면 문제가 생겼을 때 원인을 찾기 어렵습니다.</p>
+</aside>
+
+<!-- SLIDE 08: Table — Provider comparison -->
+<section class="slide layout-table" data-num="8">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>2-2</span>
+  </div>
+  <div class="body">
+    <h2>Provider별 특징</h2>
+    <table>
+      <thead><tr><th>항목</th><th>확인할 것</th><th>주의할 점</th></tr></thead>
+      <tbody>
+        <tr><td class="k">OpenAI</td><td>API key, 모델명, 응답 품질</td><td>rate limit와 과금 기준을 함께 본다</td></tr>
+        <tr><td class="k">Anthropic</td><td>API key, 모델 선택, context 길이</td><td>긴 문맥에서 응답 품질 차이가 크다</td></tr>
+        <tr><td class="k">Ollama (로컬)</td><td>설치 상태, 모델 다운로드, GPU</td><td>로컬 모델은 하드웨어 의존도가 높다</td></tr>
+        <tr><td class="k">Config 우선순위</td><td>profile별 다른 설정 분기</td><td>하나의 config만 보고 판단하지 않는다</td></tr>
+        <tr><td class="k">Fallback</td><td>기본 provider 실패 시 대체 경로</td><td>fallback 없이 단일 provider에 의존하면 장애 시 전면 정지</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="meta-bottom"><span>2-2. Provider/Model/Config</span><span><span class="num">08</span> / 19</span></div>
+</section>
+<aside class="notes" data-for="8">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 08 / 19</span></div>
+  <h4>Provider 비교</h4>
+  <p>각 provider는 장단점이 있습니다. OpenAI는 rate limit 과금, Anthropic은 긴 문맥 품질, Ollama는 하드웨어 의존도를 주의해야 합니다.</p>
+  <p>특히 fallback 설정 없이 단일 provider에 의존하면 장애 시 전면 정지됩니다.</p>
+</aside>
+
+<!-- SLIDE 09: Section Divider — Docker/Gateway -->
+<section id="mod-2-3" class="slide layout-divider" data-num="9">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>MODULE 2-3</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 2-3</div>
+    <h2>Docker, Gateway, 상시 운영</h2>
+    <div class="lede">"내 터미널에서 가끔 실행하는 도구"가 아니라 "항상 받을 수 있는 AI 개인비서"로 운영하고 싶을 때</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">09</span> / 19</span></div>
+</section>
+<aside class="notes" data-for="9">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 09 / 19</span></div>
+  <h4>Docker/Gateway 섹션 전환</h4>
+  <p>CLI와 Provider 설정이 안정되면 다음 질문은 "언제 Docker와 Gateway가 필요한가"입니다.</p>
+  <p>처음부터 Docker/Gateway를 붙일 필요는 없습니다. 기본 CLI가 안정된 후, 상시 접속이 필요해질 때 붙이는 편이 안전합니다.</p>
+</aside>
+
+<!-- SLIDE 10: Statement — Why Docker -->
+<section class="slide layout-statement huge" data-num="10">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>2-3</span>
+  </div>
+  <div class="body">
+    <h2>왜 Docker가 필요한가</h2>
+    <div class="lede">중요한 질문은 <strong>"Docker를 쓸 수 있나"</strong>가 아니라 <em>"왜 Docker가 필요한가"</em>다<span class="br"></span>실행 환경 고정, restart 관리, 상태 유지, 재현성, 샌드박스 분리</div>
+  </div>
+  <div class="meta-bottom"><span>2-3. Docker/Gateway/상시 운영</span><span><span class="num">10</span> / 19</span></div>
+</section>
+<aside class="notes" data-for="10">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 10 / 19</span></div>
+  <h4>Docker 필요성</h4>
+  <p>초보자에게 중요한 질문은 "Docker를 쓸 수 있나"가 아니라 "왜 Docker가 필요한가"입니다.</p>
+  <p>서버에서 계속 띄우거나, gateway를 background로 오래 운영하거나, 설정/세션/skill/memory를 한 디렉터리에 모으거나, 위험한 명령 실행을 분리해야 할 때 Docker가 유용합니다.</p>
+</aside>
+
+<!-- SLIDE 11: Table — When Docker is needed -->
+<section class="slide layout-table" data-num="11">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>2-3</span>
+  </div>
+  <div class="body">
+    <h2>Docker가 필요한 경우</h2>
+    <table>
+      <thead><tr><th>상황</th><th>Docker가 유용한 이유</th></tr></thead>
+      <tbody>
+        <tr><td class="k">서버에서 계속 띄우고 싶다</td><td>실행 환경과 dependency를 고정할 수 있다</td></tr>
+        <tr><td class="k">gateway를 background로 오래 운영</td><td>restart policy와 volume 관리가 쉽다</td></tr>
+        <tr><td class="k">설정/세션/skill/memory를 한 곳에</td><td>host volume을 mount해 상태를 유지할 수 있다</td></tr>
+        <tr><td class="k">여러 환경에서 같은 방식으로 배포</td><td>image 기반으로 재현성이 좋아진다</td></tr>
+        <tr><td class="k">위험한 명령 실행을 분리</td><td>sandbox/terminal backend 설계와 연결할 수 있다</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="meta-bottom"><span>2-3. Docker/Gateway/상시 운영</span><span><span class="num">11</span> / 19</span></div>
+</section>
+<aside class="notes" data-for="11">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 11 / 19</span></div>
+  <h4>Docker 사용 사례</h4>
+  <p>Docker가 필요한 다섯 가지 상황입니다. 모두 "안정적인 운영"과 "재현성"이 공통 주제입니다.</p>
+  <p>개인 실습에서는 Docker 없이도 충분하지만, 상시 운영으로 넘어가면 Docker의 장점이 커집니다.</p>
+</aside>
+
+<!-- SLIDE 12: Statement — Personal vs Production -->
+<section class="slide layout-statement" data-num="12">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>2-3</span>
+  </div>
+  <div class="body">
+    <h2>개인 실습과 상시 운영은 다르게 설계한다</h2>
+    <div class="lede">CLI에서 한 번 응답하는 것과 <strong>Slack AI 비서로 상시 운영하는 것은 다른 문제</strong>다<span class="br"></span><em>처음부터 상시 운영 구조로 가지 않아도 된다</em><span class="br"></span>다만 상시 운영으로 넘어가는 순간부터는 <strong>설치 가이드가 아니라 운영 체크리스트</strong>가 필요하다</div>
+  </div>
+  <div class="meta-bottom"><span>2-3. Docker/Gateway/상시 운영</span><span><span class="num">12</span> / 19</span></div>
+</section>
+<aside class="notes" data-for="12">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 12 / 19</span></div>
+  <h4>실습과 운영의 차이</h4>
+  <p>커뮤니티에서 반복된 질문은 "일단 켜졌는데 계속 써도 되는가"였습니다.</p>
+  <p>처음부터 상시 운영 구조로 가지 않아도 되지만, 상시 운영으로 넘어가는 순간부터는 체크리스트가 필요합니다.</p>
+</aside>
+
+<!-- SLIDE 13: Table — Operation configurations -->
+<section class="slide layout-table" data-num="13">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>2-3</span>
+  </div>
+  <div class="body">
+    <h2>운영 형태별 적합한 구성</h2>
+    <table>
+      <thead><tr><th>운영 형태</th><th>적합한 구성</th><th>판단 기준</th></tr></thead>
+      <tbody>
+        <tr><td class="k">하루짜리 실습</td><td>local CLI</td><td>설치/모델 응답/간단한 tool 호출만 확인</td></tr>
+        <tr><td class="k">개인 업무 보조</td><td>local CLI + 제한된 toolset</td><td>파일 접근 범위와 위험 명령 승인 기준</td></tr>
+        <tr><td class="k">Slack 상시 비서</td><td>gateway + profile별 env/config</td><td>누가 호출할 수 있는지, 어느 채널로 답하는지</td></tr>
+        <tr><td class="k">팀 자동화</td><td>gateway + cron + 로그/복구 기준</td><td>delivery target, 실패 알림, 재시작 방법 문서화</td></tr>
+        <tr><td class="k">위험한 실행 작업</td><td>Docker/remote backend</td><td>host 파일과 credential 보호</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="meta-bottom"><span>2-3. Docker/Gateway/상시 운영</span><span><span class="num">13</span> / 19</span></div>
+</section>
+<aside class="notes" data-for="13">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 13 / 19</span></div>
+  <h4>운영 형태별 구성</h4>
+  <p>실습에서 팀 자동화까지 다섯 가지 운영 형태와 각각에 적합한 구성입니다.</p>
+  <p>중요한 것은 순서입니다. CLI가 불안정한데 Gateway를 붙이면 문제가 어디서 왔는지 모릅니다.</p>
+</aside>
+
+<!-- SLIDE 14: Grid — Before Docker/Gateway checklist -->
+<section class="slide layout-grid cols-3" data-num="14">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>2-3</span>
+  </div>
+  <div class="body">
+    <h2>Docker/Gateway를 붙이기 전 체크리스트</h2>
+    <div class="cards">
+      <div class="card"><div class="num">01</div><h3>CLI 기본 chat</h3><p>CLI에서 기본 chat이 먼저 작동하는가?</p></div>
+      <div class="card"><div class="num">02</div><h3>Provider/Model</h3><p>hermes model로 provider와 model 설정이 끝났는가?</p></div>
+      <div class="card"><div class="num">03</div><h3>도구 권한</h3><p>도구 권한과 toolset 범위를 확인했는가?</p></div>
+      <div class="card"><div class="num">04</div><h3>요청 범위</h3><p>메시징 플랫폼에서 받을 요청의 범위를 정했는가?</p></div>
+      <div class="card"><div class="num">05</div><h3>Delivery target</h3><p>cron이 보낼 결과의 delivery target을 정했는가?</p></div>
+      <div class="card"><div class="num">06</div><h3>로그와 복구</h3><p>로그와 복구 순서를 문서로 남겼는가?</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>2-3. Docker/Gateway/상시 운영</span><span><span class="num">14</span> / 19</span></div>
+</section>
+<aside class="notes" data-for="14">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 14 / 19</span></div>
+  <h4>사전 체크리스트</h4>
+  <p>Docker/Gateway를 붙이기 전에 여섯 가지를 확인해야 합니다.</p>
+  <p>특히 API key, token, webhook 같은 보호해야 할 정보를 공유 문서에 남기지 않는 것이 중요합니다.</p>
+</aside>
+
+<!-- SLIDE 15: Section Divider — Update & Operations -->
+<section class="slide layout-divider" data-num="15">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>UPDATE & OPS</span>
+  </div>
+  <div class="body">
+    <div class="part">UPDATE & OPS</div>
+    <h2>업데이트와 상시 운영</h2>
+    <div class="lede">업데이트는 명령 하나가 아니라 "운영 흐름이 그대로 살아 있는지 검증하는 절차"</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">15</span> / 19</span></div>
+</section>
+<aside class="notes" data-for="15">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 15 / 19</span></div>
+  <h4>업데이트 섹션 전환</h4>
+  <p>Hermes Agent 업데이트는 최신 기능을 받는 일인 동시에 운영 중인 AI 개인비서 환경을 흔들 수 있는 작업입니다.</p>
+  <p>혼자 CLI로만 쓰는 환경이라면 단순하지만, gateway, cron, Skill, MCP를 쓰고 있다면 확인할 것이 많아집니다.</p>
+</aside>
+
+<!-- SLIDE 16: Grid — Update checklist -->
+<section class="slide layout-grid cols-3" data-num="16">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>UPDATE</span>
+  </div>
+  <div class="body">
+    <h2>업데이트 전 체크리스트</h2>
+    <div class="cards">
+      <div class="card"><div class="num">01</div><h3>현재 버전</h3><p>지금 어떤 Hermes Agent 버전을 쓰는지 확인한다</p></div>
+      <div class="card"><div class="num">02</div><h3>변경점 확인</h3><p>공식 문서/GitHub에서 관련 변경 사항을 본다</p></div>
+      <div class="card"><div class="num">03</div><h3>gateway 상태</h3><p>Slack/Telegram/Discord 등 사용 중인 gateway가 있는지 확인한다</p></div>
+      <div class="card"><div class="num">04</div><h3>cron 목록</h3><p>자동 실행 중인 job이 있는지 확인한다</p></div>
+      <div class="card"><div class="num">05</div><h3>config 백업</h3><p>config.yaml과 .env의 경계를 확인하고 secret을 공개하지 않는다</p></div>
+      <div class="card"><div class="num">06</div><h3>rollback 기준</h3><p>실패하면 어디까지 되돌릴지 정한다</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>업데이트 점검</span><span><span class="num">16</span> / 19</span></div>
+</section>
+<aside class="notes" data-for="16">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 16 / 19</span></div>
+  <h4>업데이트 전 체크리스트</h4>
+  <p>업데이트 전에는 "지금 잘 되는 기준 상태"를 남겨야 합니다. 그래야 업데이트 후 문제가 생겼을 때 원래도 안 되던 문제인지 업데이트로 생긴 문제인지 구분할 수 있습니다.</p>
+</aside>
+
+<!-- SLIDE 17: Statement — Validation is not done when process is alive -->
+<section class="slide layout-statement" data-num="17">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>UPDATE</span>
+  </div>
+  <div class="body">
+    <h2>검증은 "프로세스가 살아 있다"에서 끝나면 안 된다</h2>
+    <div class="lede">gateway가 살아 있어도 <strong>Slack thread로 답이 돌아오지 않을 수 있다</strong><span class="br"></span>cron job이 등록되어 있어도 <em>fresh session prompt가 새 환경에서 실패할 수 있다</em><span class="br"></span>CLI → Provider → Toolset → Gateway → Cron 순서로 <strong>한 층씩 검증</strong>한다</div>
+  </div>
+  <div class="meta-bottom"><span>업데이트 점검</span><span><span class="num">17</span> / 19</span></div>
+</section>
+<aside class="notes" data-for="17">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 17 / 19</span></div>
+  <h4>검증의 중요성</h4>
+  <p>검증은 "프로세스가 살아 있다"에서 끝나면 안 됩니다. gateway가 살아 있어도 Slack thread로 답이 돌아오지 않을 수 있고, cron job이 등록되어 있어도 fresh session에서 실패할 수 있습니다.</p>
+  <p>CLI → Provider → Toolset → Gateway → Cron 순서로 한 층씩 검증하는 것이 안전합니다.</p>
+</aside>
+
+<!-- SLIDE 18: Table — Mac mini operations -->
+<section class="slide layout-table" data-num="18">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>OPS</span>
+  </div>
+  <div class="body">
+    <h2>맥미니 상시 운영 점검표</h2>
+    <table>
+      <thead><tr><th>점검 항목</th><th>남길 내용</th><th>주의할 점</th></tr></thead>
+      <tbody>
+        <tr><td class="k">실행 주체</td><td>어느 macOS 사용자/profile에서 실행되는가</td><td>개인 홈 경로 전체를 공개하지 않는다</td></tr>
+        <tr><td class="k">시작 방식</td><td>tmux, launchd/LaunchAgent, Docker 중 무엇인가</td><td>tmux를 gateway 자동 복구 방식처럼 쓰지 않는다</td></tr>
+        <tr><td class="k">로그 위치</td><td>gateway log/error log를 어디서 보는가</td><td>토큰이 찍힌 로그를 그대로 공유하지 않는다</td></tr>
+        <tr><td class="k">절전 정책</td><td>시스템 잠자기/네트워크 유지/재부팅 후 복구 기준</td><td>화면 꺼짐과 시스템 잠자기를 혼동하지 않는다</td></tr>
+        <tr><td class="k">채널 검증</td><td>Slack/Telegram/Discord에서 실제 답이 오는가</td><td>process status만 보고 정상으로 판단하지 않는다</td></tr>
+        <tr><td class="k">복구 순서</td><td>restart 전에 무엇을 확인할 것인가</td><td>원인 없이 반복 restart만 하지 않는다</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="meta-bottom"><span>맥미니 상시 운영</span><span><span class="num">18</span> / 19</span></div>
+</section>
+<aside class="notes" data-for="18">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 18 / 19</span></div>
+  <h4>맥미니 상시 운영</h4>
+  <p>맥미니를 전용 Hermes Agent host로 쓰려면 한 번 성공한 설정을 기준선으로 남겨야 합니다.</p>
+  <p>"맥미니가 켜져 있다"가 기준이 아니라, "맞는 profile의 gateway가 자동 시작되고, 로그를 확인할 수 있으며, 실제 Slack thread로 delivery가 돌아온다"가 기준입니다.</p>
+</aside>
+
+<!-- SLIDE 19: Closing — Layer by layer -->
+<section class="slide layout-cover closing" data-num="19">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>CLOSING</span>
+  </div>
+  <div class="body">
+    <div>
+      <div class="eyebrow">PART 2 · 핵심 원칙</div>
+      <h1>한 층씩,<br>안정되면<br>다음 층을</h1>
+      <p class="subtitle">CLI가 안정되면 Gateway, Gateway가 안정되면 Cron<br>한 번에 모든 기능을 켜지 말고, 작동 범위를 한 층씩 넓혀라</p>
+    </div>
+    <div class="by">
+      <div class="who">
+        <span class="name">에르메스 에이전트 기초 가이드</span>
+        <span class="role">Part 2 · 설치와 운영</span>
+      </div>
+      <div class="stamp toc-area">
+        <span class="toc-label">다시 보기</span>
+        <a class="toc-chapter" href="./part-01-concept.html">Part 1 · 개념과 비교</a>
+        <a class="toc-module" href="#mod-2-1">2-2-1. CLI 첫 대화</a>
+        <a class="toc-module" href="#mod-2-2">2-2-2. Provider/Model/Config</a>
+        <a class="toc-module" href="#mod-2-3">2-2-3. Docker/Gateway/상시 운영</a>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>CLOSING</span><span><span class="num">19</span> / 19</span></div>
+</section>
+<aside class="notes" data-for="19">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 19 / 19</span></div>
+  <h4>마무리</h4>
+  <p>Hermes Agent 운영은 기능을 한 번에 켜는 일이 아니라, 작동 범위를 한 층씩 넓히는 일입니다.</p>
+  <p>CLI가 불안정한데 Gateway를 붙이면 문제가 메시징인지 provider인지 모델인지 알기 어렵습니다. Gateway가 불안정한데 Cron을 붙이면 예약 실행 문제인지 delivery 문제인지 헷갈립니다.</p>
+  <p>한 층씩, 안정되면 다음 층을. 이것이 Hermes Agent 운영의 핵심 원칙입니다.</p>
+</aside>
+
+</main>
+
+<script src="./presenter.js"></script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>1-1. 개념과 비교 · 에르메스 에이전트 기초 가이드</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="./hyun-keynote.css" />
+</head>
+<body>
+
+<div class="toolbar">
+  <button id="btnPresent">Present (P)</button>
+  <button id="btnNotes">Notes (N)</button>
+  <button id="btnPrint">Print PDF</button>
+</div>
+<div class="helpbar"><span class="blink">▸</span>&nbsp; ←/→ navigate · P present · N notes · ESC overview · Cmd+P export PDF</div>
+
+<main class="deck" id="deck">
+
+<!-- SLIDE 01: Cover -->
+<section id="part-01-cover" class="slide layout-cover" data-num="1">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>2026</span>
+  </div>
+  <div class="body">
+    <div>
+      <div class="eyebrow">PART 1 · 개념과 비교</div>
+      <h1 class="chapter-full-title">1-1. 개념과 비교: 에르메스 에이전트가 무엇이며, 다른 도구와 어떻게 다른가</h1>
+      <p class="subtitle">Hermes Agent의 핵심 개념, 실행 방식, 다른 AI 에이전트와의 비교, 채널과 통신 구조까지</p>
+    </div>
+    <div class="by">
+      <div class="who">
+        <span class="name">에르메스 에이전트 기초 가이드</span>
+        <span class="role">Part 1 · 개념과 비교</span>
+      </div>
+      <div class="stamp toc-area" aria-label="목차">
+        <span class="toc-label">목차</span>
+        <a class="toc-chapter" href="#part-01-cover">1-1. 개념과 비교</a>
+        <a class="toc-module" href="#mod-1-1">1-1-1. Hermes Agent란?</a>
+        <a class="toc-module" href="#mod-1-2">1-1-2. 다른 도구와의 비교</a>
+        <a class="toc-module" href="#mod-1-3">1-1-3. 채널과 통신</a>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>COVER</span><span><span class="num">01</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="1">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 01 / 16</span></div>
+  <h4>오프닝</h4>
+  <p>에르메스 에이전트 기초 가이드 첫 번째 파트입니다. Hermes Agent가 무엇인지, 다른 도구와 어떻게 다른지, 어떤 채널에서 쓸 수 있는지까지 개념을 정리합니다.</p>
+  <p>"오늘은 Hermes Agent가 어떤 도구인지, 왜 다른 AI 에이전트와 구분해서 봐야 하는지 짚어보겠습니다."</p>
+</aside>
+
+<!-- SLIDE 02: Section Divider — Hermes Agent란? -->
+<section id="mod-1-1" class="slide layout-divider" data-num="2">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>MODULE 1-1</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-1</div>
+    <h2>Hermes Agent란?</h2>
+    <div class="lede">AI 개인비서 운영 환경 — memory, skills, cron, MCP, gateway, messaging, delegation을 묶어 장기 업무 자동화 흐름을 운영하는 시스템</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">02</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="2">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 02 / 16</span></div>
+  <h4>모듈 전환</h4>
+  <p>Hermes Agent는 단순한 챗봇이 아닙니다. 여러 도구와 역할을 묶어 장기 업무 흐름을 운영하는 환경입니다.</p>
+  <p>"에르메스 에이전트를 한마디로 정의하면 'AI 개인비서 운영 환경'입니다. 단일 모델이 아니라, 여러 채널과 도구와 역할을 조율하는 오케스트레이터에 가깝습니다."</p>
+</aside>
+
+<!-- SLIDE 03: Statement — Definition -->
+<section class="slide layout-statement huge" data-num="3">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-1</span>
+  </div>
+  <div class="body">
+    <h2>어떤 업무 단위를 중심에 두는가</h2>
+    <div class="lede">차이는 <strong>"누가 더 똑똑한가"</strong>가 아니라 <em>어떤 업무 단위를 중심에 두는가</em>에서 생긴다<span class="br"></span>Claude Code와 Codex는 코드 작업에 깊게 파고들고, Hermes Agent는 여러 업무가 이어지는 <strong>흐름을 오래 굴리는 쪽</strong>에 초점을 둔다</div>
+  </div>
+  <div class="meta-bottom"><span>1-1. Hermes Agent란?</span><span><span class="num">03</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="3">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 03 / 16</span></div>
+  <h4>핵심 정의</h4>
+  <p>Hermes Agent를 다른 도구와 비교하기 전에 가장 중요한 질문은 "무엇이 더 좋나"가 아니라 "어떤 일을 맡길 것인가"입니다.</p>
+  <p>코드 작업이 중심이면 Claude Code/Codex, 업무 흐름이 중심이면 Hermes Agent가 먼저입니다.</p>
+</aside>
+
+<!-- SLIDE 04: Grid — Four execution modes -->
+<section class="slide layout-grid cols-4" data-num="4">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-1</span>
+  </div>
+  <div class="body">
+    <h2>Hermes Agent의 네 가지 실행 방식</h2>
+    <div class="cards">
+      <div class="card"><div class="num">01</div><h3>CLI Chat</h3><p>터미널에서 직접 대화. 설치 확인, 기본 검증, 간단한 질문에 적합</p></div>
+      <div class="card"><div class="num">02</div><h3>Gateway</h3><p>Slack/Telegram/Discord에서 always-on으로 요청을 받아 처리</p></div>
+      <div class="card"><div class="num">03</div><h3>Cron</h3><p>정해진 시간에 자동 실행. 조사, 보고, 점검을 반복 작업으로 운영</p></div>
+      <div class="card"><div class="num">04</div><h3>Delegation</h3><p>역할형 에이전트에 작업을 위임. 조사/정리/실행/이미지 등 분업</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-1. Hermes Agent란?</span><span><span class="num">04</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="4">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 04 / 16</span></div>
+  <h4>네 가지 실행 방식</h4>
+  <p>Hermes Agent는 한 가지 방식으로만 동작하지 않습니다. CLI로 시작해서 Gateway로 always-on 운영, Cron으로 자동화, Delegation으로 역할 분업까지 확장됩니다.</p>
+  <p>중요한 것은 이 네 가지가 개별 기능이 아니라 하나의 운영 흐름으로 이어진다는 점입니다.</p>
+</aside>
+
+<!-- SLIDE 05: Statement — Memory & Self-improvement -->
+<section class="slide layout-statement" data-num="5">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-1</span>
+  </div>
+  <div class="body">
+    <h2>기억 구조와 자기 개선 루프</h2>
+    <div class="lede">이번에 배운 작업 기준을 <strong>다음에도 재사용</strong>할 수 있는가<span class="br"></span>Skill 보강 후보, 메일 자동화 기준, 크론 오류 복구 절차 — <em>실패 패턴을 누적하는 구조</em>가 오래 쓸수록 차이를 만든다</div>
+  </div>
+  <div class="meta-bottom"><span>1-1. Hermes Agent란?</span><span><span class="num">05</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="5">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 05 / 16</span></div>
+  <h4>기억과 자기 개선</h4>
+  <p>Hermes Agent와 다른 에이전트를 비교할 때 가장 크게 느껴지는 차이는 기억 구조와 자기 개선 루프입니다.</p>
+  <p>WikiDocs 발행에서 이미지 경로 검증을 놓쳤다면 그건 단순한 실수가 아니라 Skill 보강 후보가 됩니다. 매번 새로 똑똑해지는 것이 아니라 사용자의 업무 방식과 실패 패턴을 기준/절차/검증 루프로 누적합니다.</p>
+</aside>
+
+<!-- SLIDE 06: Section Divider — Comparison -->
+<section id="mod-1-2" class="slide layout-divider" data-num="6">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>MODULE 1-2</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-2</div>
+    <h2>다른 도구와의 비교</h2>
+    <div class="lede">Claude Code, Codex, OpenClaw — 각 도구가 어떤 업무 단위에 강한지 기준을 나눈다</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">06</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="6">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 06 / 16</span></div>
+  <h4>비교 섹션 전환</h4>
+  <p>이제 다른 AI 에이전트 도구들과 Hermes Agent를 비교해보겠습니다. "무엇이 더 좋나"가 아니라 "어떤 일을 맡길 것인가"로 비교하는 것이 핵심입니다.</p>
+</aside>
+
+<!-- SLIDE 07: Table — Comparison overview -->
+<section class="slide layout-table" data-num="7">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-2</span>
+  </div>
+  <div class="body">
+    <h2>한눈에 보는 비교</h2>
+    <table>
+      <thead><tr><th>도구</th><th>주 용도</th><th>강점</th><th>Hermes와의 관계</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Claude Code</td><td>코드 작성/리팩터링/PR</td><td>코딩 CLI, 긴 코드 작업과 리뷰</td><td>Hermes가 외부 코딩 에이전트로 위임 가능</td></tr>
+        <tr><td class="k">Codex</td><td>코드 수정/자동 구현</td><td>git repo 기반 작업</td><td>autonomous-ai-agents Skill에서 호출 후보</td></tr>
+        <tr><td class="k">OpenClaw</td><td>로컬 AI 집사 경험</td><td>체감형 자동화</td><td>같은 계열, Hermes는 장기 운영 구조 강조</td></tr>
+        <tr><td class="k">Hermes Agent</td><td>업무 자동화/memory/Skill/cron</td><td>여러 채널과 역할을 묶는 운영 시스템</td><td>코딩 에이전트까지 포함해 조율</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="meta-bottom"><span>1-2. 다른 도구와의 비교</span><span><span class="num">07</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="7">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 07 / 16</span></div>
+  <h4>비교 표</h4>
+  <p>각 도구의 주 용도와 강점이 다릅니다. Claude Code는 코딩, Codex는 코드 수정, OpenClaw는 로컬 체감형 자동화, Hermes Agent는 업무 흐름 조율에 강합니다.</p>
+  <p>Hermes Agent는 경쟁자라기보다 어떤 일을 어떤 실행 방식에 맡길지 결정하는 상위 운영 흐름에 가깝습니다.</p>
+</aside>
+
+<!-- SLIDE 08: Statement — Not exaggerating differences -->
+<section class="slide layout-statement" data-num="8">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-2</span>
+  </div>
+  <div class="body">
+    <h2>차이를 과장하지 않고 설명하는 법</h2>
+    <div class="lede">모두 <strong>LLM이 도구를 호출해 사용자의 일을 돕는 AI 에이전트</strong> 계열에 있다<span class="br"></span>차이는 "누가 더 똑똑한가"보다 <em>어떤 업무 단위를 중심에 두는가</em>에서 생긴다<span class="br"></span>코드 작업이 중심이면 <strong>Claude Code/Codex</strong>, 업무 흐름이 중심이면 <strong>Hermes Agent</strong></div>
+  </div>
+  <div class="meta-bottom"><span>1-2. 다른 도구와의 비교</span><span><span class="num">08</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="8">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 08 / 16</span></div>
+  <h4>차이를 정직하게</h4>
+  <p>Hermes Agent를 완전히 다른 종류의 도구로 볼 필요는 없습니다. 모두 LLM이 도구를 호출하는 AI 에이전트입니다.</p>
+  <p>차이는 용도에서 옵니다. 코드가 중심이면 코딩 에이전트, 업무 흐름이 중심이면 Hermes Agent를 먼저 보면 됩니다.</p>
+</aside>
+
+<!-- SLIDE 09: Grid — When to use Claude Code/Codex -->
+<section class="slide layout-grid cols-2" data-num="9">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-2</span>
+  </div>
+  <div class="body">
+    <h2>Claude Code/Codex를 먼저 쓸 때</h2>
+    <div class="cards">
+      <div class="card"><div class="num">코드 수정</div><h3>코드베이스 안에서 버그를 고쳐야 한다</h3><p>파일을 읽고 수정하고 테스트를 돌리는 개발 작업이 중심일 때</p></div>
+      <div class="card"><div class="num">PR 리뷰</div><h3>코드 품질 판단이 중요하다</h3><p>리팩터링이나 PR 리뷰처럼 코드 품질 판단이 핵심일 때</p></div>
+      <div class="card"><div class="num">명확한 범위</div><h3>작업 범위가 하나의 repo 안에 있다</h3><p>수정 범위가 하나의 git repository 안에서 비교적 분명할 때</p></div>
+      <div class="card"><div class="num">빠른 실행</div><h3>코드 수정 자체가 목표다</h3><p>Hermes Agent를 앞에 둘 필요 없이 코딩 에이전트에 직접 맡기는 편이 빠를 때</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-2. 다른 도구와의 비교</span><span><span class="num">09</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="9">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 09 / 16</span></div>
+  <h4>코딩 에이전트가 적합한 경우</h4>
+  <p>코드 수정이 목표라면 코딩 에이전트가 더 빠르고 효율적입니다. Hermes Agent를 거치지 않고 직접 맡기는 편이 낫습니다.</p>
+</aside>
+
+<!-- SLIDE 10: Grid — When to use Hermes Agent -->
+<section class="slide layout-grid cols-3" data-num="10">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-2</span>
+  </div>
+  <div class="body">
+    <h2>Hermes Agent를 먼저 쓸 때</h2>
+    <div class="cards">
+      <div class="card"><div class="num">01</div><h3>메시징 창구</h3><p>Slack/Telegram에서 요청을 받고 싶다</p></div>
+      <div class="card"><div class="num">02</div><h3>역할 분업</h3><p>조사/정리/실행/이미지 제작처럼 역할을 나워야 한다</p></div>
+      <div class="card"><div class="num">03</div><h3>다중 저장소</h3><p>memory, skill, Obsidian, WikiDocs, GitHub에 나눠 남겨야 한다</p></div>
+      <div class="card"><div class="num">04</div><h3>정기 자동화</h3><p>매일 정해진 시간에 cron으로 조사나 보고를 돌리고 싶다</p></div>
+      <div class="card"><div class="num">05</div><h3>외부 연동</h3><p>Google Workspace, MCP, gateway, 외부 API를 업무 흐름에 붙인다</p></div>
+      <div class="card"><div class="num">06</div><h3>업무 오케스트레이션</h3><p>코딩, 콘텐츠, 문서화, 리서치, 운영 체크리스트까지 이어야 한다</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-2. 다른 도구와의 비교</span><span><span class="num">10</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="10">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 10 / 16</span></div>
+  <h4>Hermes Agent가 적합한 경우</h4>
+  <p>Hermes Agent는 단일 코딩 도구보다 "메인 창구와 오케스트레이터"에 가깝습니다. 사용자는 Hermes에게 요청하고, Hermes는 필요하면 코딩 에이전트, 조사형 에이전트, 정리형 에이전트를 나눠 씁니다.</p>
+</aside>
+
+<!-- SLIDE 11: Statement — They work together -->
+<section class="slide layout-statement" data-num="11">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-2</span>
+  </div>
+  <div class="body">
+    <h2>실제 운영에서는 함께 쓴다</h2>
+    <div class="lede"><strong>1.</strong> Hermes Agent가 요청 의도와 공개 범위를 정리한다<span class="br"></span><strong>2.</strong> 조사형 에이전트가 현재 문서와 공식 문서를 확인한다<span class="br"></span><strong>3.</strong> 정리형 에이전트가 읽기 쉬운 구조를 다시 쓴다<span class="br"></span><strong>4.</strong> 실행형 에이전트가 파일 수정, 검증, 발행 반영을 맡는다<span class="br"></span><strong>5.</strong> 코드 변경이 필요하면 <em>Claude Code/Codex에 위임</em>한다<span class="br"></span><strong>6.</strong> 결과는 WikiDocs나 GitHub 기록으로 남는다</div>
+  </div>
+  <div class="meta-bottom"><span>1-2. 다른 도구와의 비교</span><span><span class="num">11</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="11">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 11 / 16</span></div>
+  <h4>함께 쓰는 예시</h4>
+  <p>"GitHub 저장소의 문서 구조를 고치고 WikiDocs에 반영해줘"라는 요청은 여러 층으로 나뉩니다.</p>
+  <p>Hermes Agent는 경쟁자가 아니라 조율자입니다. 어떤 일을 어떤 실행 방식에 맡길지 결정하는 상위 운영 흐름에 가깝습니다.</p>
+</aside>
+
+<!-- SLIDE 12: Section Divider — Channels -->
+<section id="mod-1-3" class="slide layout-divider" data-num="12">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>MODULE 1-3</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-3</div>
+    <h2>채널과 통신</h2>
+    <div class="lede">어디서 부를 것인가 — CLI, Slack, Telegram, Discord, Email, Webhook</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">12</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="12">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 12 / 16</span></div>
+  <h4>채널 섹션 전환</h4>
+  <p>Hermes Agent는 하나의 앱 화면에서만 쓰는 도구가 아닙니다. 여러 채널에서 호출되는 AI 개인비서 운영 환경입니다.</p>
+  <p>처음에는 모델이나 프롬프트만 보게 되지만, 실제 업무 자동화에서는 "어디서 부를 것인가"가 중요해집니다.</p>
+</aside>
+
+<!-- SLIDE 13: Table — Channels -->
+<section class="slide layout-table" data-num="13">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-3</span>
+  </div>
+  <div class="body">
+    <h2>채널별 쓰임</h2>
+    <table>
+      <thead><tr><th>채널</th><th>주 용도</th><th>확인 기준</th></tr></thead>
+      <tbody>
+        <tr><td class="k">CLI</td><td>설치 확인, 기본 chat, 로컬 작업</td><td>provider/model/tool이 먼저 안정되어야 한다</td></tr>
+        <tr><td class="k">Slack</td><td>업무 채널, 스레드 기반 요청</td><td>thread 맥락, 호출 규칙, 보고 위치를 정해야 한다</td></tr>
+        <tr><td class="k">Telegram</td><td>모바일 개인비서, 빠른 요청</td><td>개인/그룹 chat 권한과 응답 대상이 중요하다</td></tr>
+        <tr><td class="k">Discord</td><td>커뮤니티/팀 서버, 봇형 운영</td><td>channel 권한, thread, 멘션 규칙을 정해야 한다</td></tr>
+        <tr><td class="k">Email</td><td>비동기 보고, briefing</td><td>읽기/발송/삭제 권한을 분리해야 한다</td></tr>
+        <tr><td class="k">Webhook</td><td>외부 이벤트 기반 자동화</td><td>이벤트 payload와 승인 기준을 함께 설계해야 한다</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="meta-bottom"><span>1-3. 채널과 통신</span><span><span class="num">13</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="13">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 13 / 16</span></div>
+  <h4>채널별 특징</h4>
+  <p>핵심은 채널 수가 많다는 사실이 아닙니다. 어떤 채널을 쓰든 요청 해석, 도구 실행, 결과 전달, 실패 로그를 하나의 운영 흐름으로 봐야 합니다.</p>
+  <p>처음에는 CLI에서 시작하고, 안정되면 메시징 채널을 하나씩 붙이는 편이 좋습니다.</p>
+</aside>
+
+<!-- SLIDE 14: Statement — Gateway vs Channel -->
+<section class="slide layout-statement" data-num="14">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-3</span>
+  </div>
+  <div class="body">
+    <h2>gateway와 채널을 헷갈리지 않기</h2>
+    <div class="lede">Gateway는 채널 자체가 아니라 <strong>채널과 Hermes Agent를 이어주는 always-on 운영 축</strong>이다<span class="br"></span>gateway status가 OK여도 확인할 것이 있다<span class="br"></span><em>메시지가 들어오는가 → 올바른 profile이 응답하는가 → 결과가 올바른 채널로 돌아가는가 → 실패했을 때 로그를 어디서 보는가</em></div>
+  </div>
+  <div class="meta-bottom"><span>1-3. 채널과 통신</span><span><span class="num">14</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="14">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 14 / 16</span></div>
+  <h4>Gateway와 채널</h4>
+  <p>Gateway는 채널이 아니라 운영 축입니다. process가 살아 있어도 메시지가 안 오거나, delivery가 안 되거나, 권한 문제가 있을 수 있습니다.</p>
+  <p>gateway status OK ≠ 운영 완료. process, 인증, delivery target, 로그를 함께 봐야 합니다.</p>
+</aside>
+
+<!-- SLIDE 15: Grid — Trigger rules -->
+<section class="slide layout-grid cols-3" data-num="15">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-3</span>
+  </div>
+  <div class="body">
+    <h2>채널을 열기 전에 트리거 규칙을 정한다</h2>
+    <div class="cards">
+      <div class="card"><div class="num">01</div><h3>멘션 또는 명시 호출</h3><p>사람 대화와 봇 대화를 분리한다. 모든 메시지에 반응하는 봇은 가장 빨리 피로감을 만든다</p></div>
+      <div class="card"><div class="num">02</div><h3>봇별 역할 이름</h3><p>조사형/정리형/실행형/이미지형 응답이 섞이지 않도록 역할을 명확히 한다</p></div>
+      <div class="card"><div class="num">03</div><h3>사람 대화 중 자동 멈춤</h3><p>멀티봇 소음을 줄이기 위해 사람이 대화 중이면 자동 응답을 멈춘다</p></div>
+      <div class="card"><div class="num">04</div><h3>허용 사용자/채널</h3><p>원하지 않는 실행 요청을 막기 위해 채널별 허용 범위를 둔다</p></div>
+      <div class="card"><div class="num">05</div><h3>전달 채널 분리</h3><p>결과 전달 채널과 작업 채널을 구분하면 cron/delivery 실패를 찾기 쉽다</p></div>
+      <div class="card"><div class="num">06</div><h3>처음에는 하나만</h3><p>주 채널 하나를 안정화한 뒤 확장하는 편이 좋다</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-3. 채널과 통신</span><span><span class="num">15</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="15">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 15 / 16</span></div>
+  <h4>트리거 규칙</h4>
+  <p>열린 채널에 에이전트를 넣으면 호출 규칙이 곧 품질입니다. 특히 커뮤니티나 팀 채널에서는 "모든 메시지에 반응하는 봇"이 가장 빨리 피로감을 만듭니다.</p>
+  <p>처음에는 채널을 많이 붙이지 말고 주 채널 하나를 안정화한 뒤 확장하세요.</p>
+</aside>
+
+<!-- SLIDE 16: Closing — Comparison criteria -->
+<section class="slide layout-cover closing" data-num="16">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>CLOSING</span>
+  </div>
+  <div class="body">
+    <div>
+      <div class="eyebrow">PART 1 · 비교할 때의 기준</div>
+      <h1>다섯 가지 질문</h1>
+      <p class="subtitle">1. 작업의 중심이 코드인가, 업무 흐름인가?<br>2. 결과가 한 번의 수정으로 끝나는가, 반복 운영으로 남아야 하는가?<br>3. 메시징/gateway/cron 같은 상시 운영이 필요한가?<br>4. memory와 skill로 다음 작업에 재사용해야 하는가?<br>5. 여러 역할형 에이전트를 조율할 필요가 있는가?</p>
+    </div>
+    <div class="by">
+      <div class="who">
+        <span class="name">에르메스 에이전트 기초 가이드</span>
+        <span class="role">Part 1 · 개념과 비교</span>
+      </div>
+      <div class="stamp toc-area">
+        <span class="toc-label">다음</span>
+        <a class="toc-chapter" href="./part-02-setup.html">Part 2 · 설치와 운영</a>
+        <a class="toc-module" href="./part-02-setup.html#mod-2-1">2-2-1. CLI 첫 대화</a>
+        <a class="toc-module" href="./part-02-setup.html#mod-2-2">2-2-2. Provider/Model/Config</a>
+        <a class="toc-module" href="./part-02-setup.html#mod-2-3">2-2-3. Docker/Gateway</a>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>CLOSING</span><span><span class="num">16</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="16">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 16 / 16</span></div>
+  <h4>마무리</h4>
+  <p>이 다섯 가지 질문에서 "코드"가 중심이면 Claude Code/Codex를 먼저 보고, "업무 흐름"이 중심이면 Hermes Agent를 먼저 보면 됩니다.</p>
+  <p>다음 파트에서는 실제로 설치하고 세팅하는 방법을 다룹니다.</p>
+</aside>
+
+</main>
+
+<script src="./presenter.js"></script>
+</body>
+</html>
