@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>1-4. AI 에이전트 기억 시스템 · 에르메스 에이전트 기초 가이드</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="./hyun-keynote.css" />
+</head>
+<body>
+
+<div class="toolbar">
+  <button id="btnPresent">Present (P)</button>
+  <button id="btnNotes">Notes (N)</button>
+  <button id="btnPrint">Print PDF</button>
+</div>
+<div class="helpbar"><span class="blink">▸</span>&nbsp; ←/→ navigate · P present · N notes · ESC overview · Cmd+P export PDF</div>
+
+<main class="deck" id="deck">
+
+<!-- SLIDE 01: Cover -->
+<section id="part-04-cover" class="slide layout-cover" data-num="1">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>2026</span>
+  </div>
+  <div class="body">
+    <div>
+      <div class="eyebrow">PART 4 · AI 에이전트 기억 시스템</div>
+      <h1 class="chapter-full-title">기억은 저장이 아니라 분류다</h1>
+      <p class="subtitle">세션과 프로필, memory와 shared-memory, Obsidian과 RAG까지 — AI 에이전트가 무엇을 기억하고 어디에 두는지를 설계하는 방법</p>
+    </div>
+    <div class="by">
+      <div class="who">
+        <span class="name">에르메스 에이전트 기초 가이드</span>
+        <span class="role">Part 4 · AI 에이전트 기억 시스템</span>
+      </div>
+      <div class="stamp toc-area" aria-label="목차">
+        <span class="toc-label">목차</span>
+        <a class="toc-chapter" href="#part-04-cover">1-4. AI 에이전트 기억 시스템</a>
+        <a class="toc-module" href="#mod-4-1">1-4-1. 기억층의 역할 분리</a>
+        <a class="toc-module" href="#mod-4-2">1-4-2. 기억 오케스트레이션과 강화</a>
+        <a class="toc-module" href="#mod-4-3">1-4-3. 컨텍스트 관리와 성격 정의</a>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>COVER</span><span><span class="num">01</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="1">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 01 / 18</span></div>
+  <h4>오프닝</h4>
+  <p>에르메스 에이전트 기초 가이드 네 번째 파트입니다. 앞에서 개념, 설치, 팀 빌딩을 다뤘다면, 이번에는 AI 에이전트가 무엇을 기억하고 어디에 두는지를 설계하는 방법을 다룹니다.</p>
+  <p>핵심 메시지는 "기억은 많이 저장하는 것이 아니라, 올바른 층에 분류하는 것"입니다.</p>
+</aside>
+
+<!-- SLIDE 02: Opening statement — Memory is classification -->
+<section class="slide layout-statement huge" data-num="2">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-4</span>
+  </div>
+  <div class="body">
+    <h2>기억은 많이 저장하는 문제가 아니다</h2>
+    <div class="lede">분류되지 않은 기억은 매번 불필요한 컨텍스트를 불러오고<span class="br"></span>오래된 결정을 최신 기준처럼 보이게 만든다<span class="br"></span>좋은 기억 시스템은 <em>저장할 것과 저장하지 않을 것</em>을 나누고<span class="br"></span>저장하더라도 <strong>어느 층에 둘지</strong> 먼저 판단한다</div>
+  </div>
+  <div class="meta-bottom"><span>1-4. AI 에이전트 기억 시스템</span><span><span class="num">02</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="2">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 02 / 18</span></div>
+  <h4>기억의 본질</h4>
+  <p>AI 에이전트를 오래 쓸수록 기억이 쌓입니다. 이때 모든 것을 하나의 memory에 넣으면 장기 기억은 금방 무거워지고, 정작 매번 필요한 기준은 묻힙니다. 반대로 아무 곳에도 정리하지 않으면 에이전트는 같은 설명을 계속 다시 요구합니다.</p>
+  <p>핵심은 "나중에 다시 쓸 때 어떤 형태로 꺼내야 하는가"입니다.</p>
+</aside>
+
+<!-- SLIDE 03: Story — What should a personal AI remember -->
+<section class="slide layout-story" data-num="3">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-4</span>
+  </div>
+  <div class="body">
+    <h2>AI 개인비서는 무엇을 기억해야 할까</h2>
+    <div class="stack">
+      <div class="row"><span class="n">01</span><p>사용자의 <strong>반복 선호</strong> — 문체, 보고 형식, 기본 시간대</p></div>
+      <div class="row"><span class="n">02</span><p>에이전트의 <strong>역할과 도구 경계</strong> — 무엇을 직접 하고 무엇을 넘길 것인가</p></div>
+      <div class="row"><span class="n">03</span><p>팀 전체가 따라야 할 <strong>공통 규칙</strong> — 운영 기준, 보호 범위</p></div>
+      <div class="row"><span class="n">04</span><p>누적된 <strong>지식과 운영 기록</strong> — 결정 근거, 프로젝트 문맥</p></div>
+      <div class="row"><span class="n">05</span><p>과거 작업을 회상할 수 있는 <strong>대화 기록</strong> — 이전 논의, 지나간 결정</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-4. AI 에이전트 기억 시스템</span><span><span class="num">03</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="3">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 03 / 18</span></div>
+  <h4>기억의 다섯 가지 종류</h4>
+  <p>AI 개인비서가 기억해야 하는 것은 하나가 아닙니다. 반복 선호, 역할 경계, 팀 규칙, 누적 지식, 대화 기록 — 이 다섯 가지는 각각 다른 곳에 두어야 합니다.</p>
+  <p>모두를 하나의 memory에 넣으면 금방 무거워지고, 아무 곳에도 두지 않으면 매번 같은 질문을 반복하게 됩니다.</p>
+</aside>
+
+<!-- SLIDE 04: Compare — session vs memory vs profile -->
+<section class="slide layout-compare" data-num="4">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-4</span>
+  </div>
+  <div class="body">
+    <h2>세 가지 기억이 다루는 것</h2>
+    <div class="grid">
+      <div class="col">
+        <div class="tag">session</div>
+        <h3>지금 이 대화의 맥락</h3>
+        <ul>
+          <li>현재 대화에서만 유지</li>
+          <li>세션이 끝나면 사라짐</li>
+          <li>긴 대화에서는 compaction 대상</li>
+          <li>작업 중인 파일, 방금 한 결정</li>
+        </ul>
+      </div>
+      <div class="vline"></div>
+      <div class="col">
+        <div class="tag">memory</div>
+        <h3>앞으로도 계속 쓸 기준</h3>
+        <ul>
+          <li>세션을 넘어 계속 유지</li>
+          <li>사용자 선호, 반복 규칙</li>
+          <li>적고 강해야 한다</li>
+          <li>너무 길어지면 판단이 흐려짐</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-4. AI 에이전트 기억 시스템</span><span><span class="num">04</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="4">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 04 / 18</span></div>
+  <h4>session과 memory의 차이</h4>
+  <p>session은 지금 이 대화에서만 유지되는 맥락입니다. 대화가 끝나면 사라집니다. 반면 memory는 세션을 넘어 계속 유지되는 장기 기준입니다.</p>
+  <p>핵심은 "이 정보가 다음 대화에서도 필요한가?"입니다. 그렇다면 memory에 두고, 아니라면 session에만 둡니다. profile은 에이전트 자체의 역할과 도구 설정입니다.</p>
+</aside>
+
+<!-- SLIDE 05: Section Divider — 기억층의 역할 분리 -->
+<section id="mod-4-1" class="slide layout-divider" data-num="5">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>MODULE 1-4-1</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-4-1</div>
+    <h2>기억층의 역할 분리</h2>
+    <div class="lede">AGENTS.md, USER.md, shared-memory, Obsidian — 각각 무엇을 맡고 어디에 두어야 하는가</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">05</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="5">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 05 / 18</span></div>
+  <h4>섹션 전환</h4>
+  <p>첫 번째 모듈에서는 각 기억층이 무엇을 맡는지, 무엇을 넣고 무엇을 넣지 않아야 하는지를 다룹니다. AGENTS.md, USER.md, shared-memory, Obsidian이 각각 다른 역할을 가집니다.</p>
+</aside>
+
+<!-- SLIDE 06: Grid — AGENTS.md와 USER.md의 역할 -->
+<section class="slide layout-grid cols-2 compact-practice" data-num="6">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-4-1</span>
+  </div>
+  <div class="body">
+    <h2>AGENTS.md와 USER.md는 기억에서 어떤 역할을 할까</h2>
+    <div class="cards">
+      <div class="card"><div class="num">AGENTS.md</div><h3>에이전트가 어떻게 일할 것인가</h3><p>작업 원칙, 도구 사용 규칙, 검증 방식, 출력 형식을 정의한다</p></div>
+      <div class="card"><div class="num">USER.md</div><h3>사용자가 무엇을 원하는가</h3><p>문체 선호, 보고 형식, 반복 교정, 협업 방식을 기록한다</p></div>
+      <div class="card"><div class="num">SOUL.md</div><h3>에이전트가 누구인가</h3><p>정체성, 미션, 톤, 불확실성 대응, 금지할 습관을 정의한다</p></div>
+      <div class="card"><div class="num">skill</div><h3>반복 실행 절차</h3><p>명령 순서, QA 루틴, 체크리스트 등 다음에도 같은 순서로 실행할 일을 남긴다</p></div>
+    </div>
+    <div class="practice-checklist">
+      <h3>기억 위치 분리 원칙</h3>
+      <ul>
+        <li><strong>정체성</strong> SOUL.md — "이 에이전트는 누구인가"</li>
+        <li><strong>작업 규칙</strong> AGENTS.md — "어떻게 일할 것인가"</li>
+        <li><strong>사용자 선호</strong> USER.md / memory — "사용자는 무엇을 원하는가"</li>
+        <li><strong>반복 절차</strong> skill — "다음에도 같은 순서로 실행할 것"</li>
+      </ul>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-4-1. 기억층의 역할 분리</span><span><span class="num">06</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="6">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 06 / 18</span></div>
+  <h4>네 가지 기억 위치</h4>
+  <p>SOUL.md, AGENTS.md, USER.md, skill은 각각 다른 질문에 답합니다. "누구인가", "어떻게 일할 것인가", "사용자가 무엇을 원하는가", "반복되는 절차는 무엇인가" — 이 네 질문이 섞이면 유지보수가 어려워집니다.</p>
+  <p>예를 들어 "뽀동이는 콘텐츠 퀄리티를 책임지는 햄스터다"는 SOUL.md에, "WikiDocs 작업 전에는 H1, 이미지 경로, 본문 링크를 검증한다"는 AGENTS.md나 skill에 들어가야 합니다.</p>
+</aside>
+
+<!-- SLIDE 07: Table — 기억층별 역할 분리 -->
+<section class="slide layout-table" data-num="7">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-4-1</span>
+  </div>
+  <div class="body">
+    <h2>기억층별 역할 — 넣을 것과 넣으면 위험한 것</h2>
+    <table>
+      <thead><tr><th>기억층</th><th>맡는 역할</th><th>넣기 좋은 것</th><th>넣으면 위험한 것</th></tr></thead>
+      <tbody>
+        <tr><td class="k">memory</td><td>항상 필요한 짧은 장기 기준</td><td>사용자 선호, 반복 규칙</td><td>긴 로그, 일회성 작업</td></tr>
+        <tr><td class="k">shared-memory</td><td>팀 공통 작업 원본</td><td>운영 규칙, handoff, 공용 패키지</td><td>개인 메모, 미검증 원문</td></tr>
+        <tr><td class="k">skills</td><td>반복 가능한 절차</td><td>명령 순서, QA 루틴, 체크리스트</td><td>단순 참고 지식</td></tr>
+        <tr><td class="k">Obsidian</td><td>사람과 에이전트가 함께 관리하는 지식</td><td>프로젝트 지식, 결정 기록</td><td>정제되지 않은 원문 더미</td></tr>
+        <tr><td class="k">session_search</td><td>과거 대화 회상</td><td>이전 논의, 지나간 작업 맥락</td><td>장기 기준의 대체물</td></tr>
+        <tr><td class="k">OpenViking/RAG</td><td>검색과 회수 인덱스</td><td>Obsidian 기반 검색 대상</td><td>검토되지 않은 원문 더미</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="meta-bottom"><span>1-4-1. 기억층의 역할 분리</span><span><span class="num">07</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="7">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 07 / 18</span></div>
+  <h4>기억층별 분리</h4>
+  <p>각 기억층은 역할이 다릅니다. memory는 항상 필요한 짧은 기준, shared-memory는 팀 공통 작업 원본, skills는 반복 절차, Obsidian은 누적 지식 본체, session_search는 과거 회상, OpenViking/RAG은 검색 인덱스입니다.</p>
+  <p>넣으면 위험한 것을 보면 패턴이 보입니다. 긴 로그, 개인 메모, 미검증 원문, 정제되지 않은 더미 — 이런 것들은 다른 곳에 두어야 합니다.</p>
+</aside>
+
+<!-- SLIDE 08: Story — OpenClaw에서 Hermes로 기억 옮기기 -->
+<section class="slide layout-story" data-num="8">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-4-1</span>
+  </div>
+  <div class="body">
+    <h2>기억을 옮기는 것은 파일 복사가 아니다</h2>
+    <div class="stack">
+      <div class="row"><span class="n">01</span><p>과거 SOUL/IDENTITY → <strong>SOUL.md/AGENTS.md</strong>로 재배치 — 정체성과 작업 규칙을 분리한다</p></div>
+      <div class="row"><span class="n">02</span><p>사용자 선호 → <strong>USER.md/memory</strong> — 장기 선호만 남기고 일회성 대화는 버린다</p></div>
+      <div class="row"><span class="n">03</span><p>작업 로그 → <strong>session_search</strong> — memory에 넣지 않고 회상으로 찾는다</p></div>
+      <div class="row"><span class="n">04</span><p>팀 공통 규칙 → <strong>shared-memory</strong>로 승격 — 개인 profile에만 두면 에이전트마다 기준이 달라진다</p></div>
+      <div class="row"><span class="n">05</span><p>누적 지식 → <strong>Obsidian</strong>과 <strong>skill</strong>로 재분배 — 원문 그대로가 아니라 정제된 형태로</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-4-1. 기억층의 역할 분리</span><span><span class="num">08</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="8">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 08 / 18</span></div>
+  <h4>기억 이주</h4>
+  <p>다른 시스템에서 Hermes로 넘어올 때 기억을 그대로 복사하면 안 됩니다. 기억 이주는 기준 재구성입니다. 과거 설정을 현재 기억 구조에 맞게 나누어 재배치해야 합니다.</p>
+  <p>특히 주의할 것은 작업 로그를 memory에 넣는 실수와, 팀 공통 규칙을 개인 profile에만 두는 실수입니다.</p>
+</aside>
+
+<!-- SLIDE 09: Section Divider — 기억 오케스트레이션과 강화 -->
+<section id="mod-4-2" class="slide layout-divider" data-num="9">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>MODULE 1-4-2</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-4-2</div>
+    <h2>기억 오케스트레이션과 강화</h2>
+    <div class="lede">하비의 판단 기준, RAG와 memory의 차이, 기억 강화층을 붙일 때의 운영 기준까지</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">09</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="9">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 09 / 18</span></div>
+  <h4>섹션 전환</h4>
+  <p>두 번째 모듈에서는 하비의 기억 오케스트레이터 역할과 RAG 기억 강화층을 다룹니다. 기억을 어디에 둘지 판단하는 것과 필요한 지식을 검색해 오는 것은 다른 문제입니다.</p>
+</aside>
+
+<!-- SLIDE 10: Statement — 하비는 기억 오케스트레이터 -->
+<section class="slide layout-statement" data-num="10">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-4-2</span>
+  </div>
+  <div class="body">
+    <h2>하비는 기억 오케스트레이터다</h2>
+    <div class="lede">하비의 핵심 역할은 모든 것을 대신 기억하는 것이 아니다<span class="br"></span>들어온 정보를 보고 <strong>어디에 남겨야 다시 쓸 수 있는지 판단</strong>하는 것이다<span class="br"></span>이 역할이 없으면 AI 팀은 많은 정보를 갖고도 <em>매번 다시 묻는다</em></div>
+  </div>
+  <div class="meta-bottom"><span>1-4-2. 기억 오케스트레이션과 강화</span><span><span class="num">10</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="10">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 10 / 18</span></div>
+  <h4>기억 오케스트레이터</h4>
+  <p>하비는 요청을 받아 다른 에이전트에게 넘기는 라우터에 머물지 않습니다. 모든 기억층을 보고 어디에 무엇을 둘지 판단하는 기억 오케스트레이터입니다.</p>
+  <p>이 역할이 없으면 에이전트 팀은 정보를 많이 갖고 있어도 매번 같은 질문을 반복하게 됩니다. 누가 무엇을 기억해야 하는지, 어떤 원본을 먼저 봐야 하는지 판단되지 않기 때문입니다.</p>
+</aside>
+
+<!-- SLIDE 11: Table — 하비의 기억 위치 판단 -->
+<section class="slide layout-table" data-num="11">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-4-2</span>
+  </div>
+  <div class="body">
+    <h2>하비가 묻는 질문과 보내야 할 층</h2>
+    <table>
+      <thead><tr><th>질문</th><th>보내야 할 층</th></tr></thead>
+      <tbody>
+        <tr><td class="k">앞으로도 반복될 사용자 선호인가?</td><td>memory / USER.md</td></tr>
+        <tr><td class="k">에이전트 역할이나 도구 경계인가?</td><td>AGENTS.md / SOUL.md / profile</td></tr>
+        <tr><td class="k">팀 전체가 따라야 할 규칙인가?</td><td>shared-memory</td></tr>
+        <tr><td class="k">누적 지식이나 운영 기록인가?</td><td>Obsidian LLM Wiki</td></tr>
+        <tr><td class="k">반복 실행 절차인가?</td><td>skill / 체크리스트</td></tr>
+        <tr><td class="k">과거 작업을 회상해야 하나?</td><td>session_search / GitHub log</td></tr>
+        <tr><td class="k">읽는 사람에게 설명할 지식인가?</td><td>WikiDocs</td></tr>
+        <tr><td class="k">대규모 문서 검색이 필요한가?</td><td>OpenViking / RAG</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="meta-bottom"><span>1-4-2. 기억 오케스트레이션과 강화</span><span><span class="num">11</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="11">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 11 / 18</span></div>
+  <h4>판단 질문</h4>
+  <p>하비가 기억 오케스트레이터로 판단할 때 핵심 질문은 "이걸 기억할까?"가 아니라 "어떤 층에 남길까?"입니다. 이 표가 그 판단 기준입니다.</p>
+  <p>실제 운영에서는 이 분류가 자동으로 되지 않습니다. 하비가 잘못 판단하면 작업 로그가 memory에 들어가 장기 기억이 지저분해지거나, 공통 규칙이 개인 profile에만 있어 에이전트마다 기준이 달라집니다.</p>
+</aside>
+
+<!-- SLIDE 12: Compare — memory vs RAG -->
+<section class="slide layout-compare" data-num="12">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-4-2</span>
+  </div>
+  <div class="body">
+    <h2>memory와 RAG는 목적이 다르다</h2>
+    <div class="grid">
+      <div class="col">
+        <div class="tag">memory</div>
+        <h3>항상 필요한 장기 기준 주입</h3>
+        <ul>
+          <li>크기를 작게 유지한다</li>
+          <li>선호, 규칙, 역할 기준</li>
+          <li>너무 길어지면 판단이 흐려진다</li>
+          <li>"중요하니까 memory에 넣자"는 잘못된 판단</li>
+        </ul>
+      </div>
+      <div class="vline"></div>
+      <div class="col">
+        <div class="tag">OpenViking / RAG</div>
+        <h3>필요한 지식 검색과 회수</h3>
+        <ul>
+          <li>크기를 크게 확장 가능</li>
+          <li>문서, 노트, 결정 기록, 지식 조각</li>
+          <li>잘못 회수하면 근거가 왜곡된다</li>
+          <li>"나중에 찾아야 하니까 RAG 대상으로 만들자"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-4-2. 기억 오케스트레이션과 강화</span><span><span class="num">12</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="12">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 12 / 18</span></div>
+  <h4>memory와 RAG의 차이</h4>
+  <p>memory와 RAG를 같은 것으로 보면 설계가 흔들립니다. memory는 적고 강해야 하고, RAG는 넓고 회수 가능해야 합니다.</p>
+  <p>"중요하니까 memory에 넣자"와 "나중에 찾아야 하니까 RAG 대상으로 만들자"는 다른 판단입니다. 둘은 대체 관계가 아니라 보완 관계입니다.</p>
+</aside>
+
+<!-- SLIDE 13: Grid — RAG 회수층 기준과 운영 -->
+<section class="slide layout-grid cols-2 compact-practice" data-num="13">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-4-2</span>
+  </div>
+  <div class="body">
+    <h2>RAG 회수층을 붙일 때의 기준</h2>
+    <div class="cards">
+      <div class="card"><div class="num">항상 필요한 기준</div><h3>memory에 둔다</h3><p>항상 주입해야 할 짧은 기준은 RAG가 아닌 memory가 맡는다</p></div>
+      <div class="card"><div class="num">넓게 검색할 지식</div><h3>Obsidian/RAG 대상으로 본다</h3><p>크고 변하는 지식은 검색/회수 대상으로 둔다</p></div>
+      <div class="card"><div class="num">회수 품질</div><h3>질문 세트로 검증한다</h3><p>느낌이 아니라 검색 적중률과 근거 품질로 평가한다</p></div>
+      <div class="card"><div class="num">보호 정보</div><h3>RAG 대상에서 제외하거나 보호한다</h3><p>내부 경로, 토큰, 계정 정보는 검색 인덱스에 넣지 않는다</p></div>
+    </div>
+    <div class="practice-checklist">
+      <h3>RAG 판단 질문</h3>
+      <ul>
+        <li><strong>지식이 너무 커서</strong> memory에 넣기 어려운가? → RAG 필요</li>
+        <li><strong>자주 바뀌거나</strong> 계속 쌓이는가? → RAG 필요</li>
+        <li><strong>검색해서</strong> 일부만 가져와도 충분한가? → RAG 필요</li>
+        <li><strong>항상 모든 대화에</strong> 주입해야 하는가? → memory가 맞다</li>
+      </ul>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-4-2. 기억 오케스트레이션과 강화</span><span><span class="num">13</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="13">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 13 / 18</span></div>
+  <h4>RAG 회수층 기준</h4>
+  <p>OpenViking/RAG 같은 기억 강화층은 memory를 대체하지 않습니다. 항상 주입해야 할 짧은 기준은 memory에 두고, 크고 변하는 지식은 검색/회수 대상으로 둡니다.</p>
+  <p>핵심은 "프롬프트를 길게 만드는 것"이 아니라 "필요한 순간에 맞는 지식을 꺼내는 것"입니다.</p>
+</aside>
+
+<!-- SLIDE 14: Section Divider — 컨텍스트 관리와 성격 정의 -->
+<section id="mod-4-3" class="slide layout-divider" data-num="14">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>MODULE 1-4-3</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-4-3</div>
+    <h2>컨텍스트 관리와 성격 정의</h2>
+    <div class="lede">긴 대화에서 맥락을 잃지 않는 법, handoff가 필요한 순간, SOUL.md로 에이전트 정체성을 잡는 법까지</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">14</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="14">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 14 / 18</span></div>
+  <h4>섹션 전환</h4>
+  <p>마지막 모듈에서는 컨텍스트 관리와 성격 정의를 다룹니다. 긴 대화에서 맥락이 흐려지는 것을 관리하고, 에이전트의 정체성을 SOUL.md로 잡는 방법입니다.</p>
+</aside>
+
+<!-- SLIDE 15: Grid — context compaction과 handoff -->
+<section class="slide layout-grid cols-2 compact-practice" data-num="15">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-4-3</span>
+  </div>
+  <div class="body">
+    <h2>긴 대화에서 맥락이 흐려지는 신호</h2>
+    <div class="cards">
+      <div class="card"><div class="num">대화</div><h3>"아까 말한 것"이 많아진다</h3><p>범위가 암묵적으로 변함 → 현재 작업 목록과 완료 기준을 재정리해야 한다</p></div>
+      <div class="card"><div class="num">실행</div><h3>여러 장을 한 번에 고친다</h3><p>범위 밖 변경이 섞임 → git diff와 대상 파일을 검증해야 한다</p></div>
+      <div class="card"><div class="num">기록</div><h3>보호 기준이 흐려진다</h3><p>공유 글에 불필요한 세부값이 들어갈 수 있음 → 함께 읽어도 되는 이야기만 남긴다</p></div>
+      <div class="card"><div class="num">분리</div><h3>memory와 작업 로그가 섞인다</h3><p>다음 세션 판단이 오염됨 → memory와 session 기록을 분리해야 한다</p></div>
+    </div>
+    <div class="practice-checklist handoff-form">
+      <h3>handoff에 남겨야 하는 것</h3>
+      <ul>
+        <li><strong>Active Task</strong> 지금 이어서 해야 하는 일</li>
+        <li><strong>Completed</strong> 이미 끝난 검증 / 수정 / 발행</li>
+        <li><strong>Key Decisions</strong> 다시 뒤집으면 안 되는 판단</li>
+        <li><strong>Remaining Work</strong> 다음에 실제로 해야 할 작업</li>
+      </ul>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-4-3. 컨텍스트 관리와 성격 정의</span><span><span class="num">15</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="15">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 15 / 18</span></div>
+  <h4>컨텍스트 흐려짐과 handoff</h4>
+  <p>긴 대화는 편하지만 위험합니다. 앞에서 합의한 기준, 완료한 작업, 남은 범위가 계속 쌓이면 어느 순간 흐려집니다.</p>
+  <p>handoff는 대화를 요약하는 문서가 아닙니다. 다음 사람이 바로 이어받을 수 있게 현재 상태, 결정, 남은 일, 검증 기준을 남기는 작업입니다.</p>
+</aside>
+
+<!-- SLIDE 16: Grid — SOUL.md -->
+<section class="slide layout-grid cols-2 compact-practice" data-num="16">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-4-3</span>
+  </div>
+  <div class="body">
+    <h2>SOUL.md에 넣을 것과 넣지 않을 것</h2>
+    <div class="cards">
+      <div class="card"><div class="num">정체성</div><h3>이 에이전트가 누구인가</h3><p>"하비는 메인 창구형 AI 개인비서다" — 역할, 미션, 톤을 정의한다</p></div>
+      <div class="card"><div class="num">대화 기준</div><h3>어떻게 응답할 것인가</h3><p>핵심을 먼저 말하고, 모호하면 확인 질문을 하나만 하고, 모르면 확인한다</p></div>
+      <div class="card"><div class="num">작업 태도</div><h3>불확실성에 어떻게 대응할 것인가</h3><p>추측하지 않고 원본으로 확인한다 — "도움이 되는 AI" 기본 특성도 유지한다</p></div>
+      <div class="card"><div class="num">금지 습관</div><h3>상충하는 지시는 피한다</h3><p>"항상 짧게"와 "항상 상세히"를 동시에 넣으면 상황 판단을 잃는다</p></div>
+    </div>
+    <div class="practice-checklist">
+      <h3>SOUL.md에 넣지 않을 것</h3>
+      <ul>
+        <li><strong>프로젝트 경로</strong> → AGENTS.md / project context</li>
+        <li><strong>API 키나 토큰</strong> → .env / credential store</li>
+        <li><strong>오늘 작업 진행 상태</strong> → session / todo / GitHub log</li>
+        <li><strong>반복 실행 절차</strong> → skill</li>
+      </ul>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-4-3. 컨텍스트 관리와 성격 정의</span><span><span class="num">16</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="16">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 16 / 18</span></div>
+  <h4>SOUL.md</h4>
+  <p>SOUL.md는 에이전트의 뼈대를 넣는 곳입니다. 프로젝트별 세부 운영 규칙이나 현재 작업 상태까지 넣기 시작하면 성격 파일이 작업 로그가 됩니다.</p>
+  <p>좋은 문장은 추상 형용사보다 행동 기준을 담습니다. "친절하게 답한다"보다 "핵심을 먼저 말하고 부연 설명은 뒤에 붙인다"가 더 강합니다.</p>
+</aside>
+
+<!-- SLIDE 17: Statement — Closing statement -->
+<section class="slide layout-statement" data-num="17">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>1-4</span>
+  </div>
+  <div class="body">
+    <h2>기억 시스템은 저장소가 아니라 운영 구조다</h2>
+    <div class="lede">좋은 구조는 에이전트가 모든 것을 혼자 기억하게 만드는 것이 아니다<span class="br"></span>사람과 에이전트가 <strong>함께 관리한 지식</strong>을 필요한 순간에 꺼낼 수 있게 만드는 것이다<span class="br"></span>핵심은 저장량이 아니라 <em>분류, 정제, 승격, 검증, 재사용</em>의 운영 흐름이다</div>
+  </div>
+  <div class="meta-bottom"><span>1-4. AI 에이전트 기억 시스템</span><span><span class="num">17</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="17">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 17 / 18</span></div>
+  <h4>핵심 메시지</h4>
+  <p>AI 에이전트의 장기 기억은 하나의 저장소로 해결되지 않습니다. 짧은 기준, 팀 공통 규칙, 반복 절차, 프로젝트 지식, 과거 대화, 검색 인덱스가 각자 다른 역할을 가져야 합니다.</p>
+  <p>좋은 구조는 에이전트가 모든 것을 혼자 기억하게 만드는 것이 아니라, 사람과 에이전트가 함께 관리한 지식을 필요한 순간에 꺼낼 수 있게 만드는 것입니다.</p>
+</aside>
+
+<!-- SLIDE 18: Closing -->
+<section class="slide layout-cover closing" data-num="18">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에르메스 에이전트 기초 가이드 · KEYNOTE</span>
+    <span>CLOSING</span>
+  </div>
+  <div class="body">
+    <div>
+      <div class="eyebrow">PART 4 · AI 에이전트 기억 시스템</div>
+      <h1>오늘부터 적용할 것</h1>
+      <p class="subtitle">1. 새 정보가 들어오면 "어떤 층에 둘까?" 먼저 묻는다<br>2. memory는 항상 필요한 짧은 기준만 남긴다<br>3. 작업 로그를 memory에 넣지 않는다 — session_search로 찾는다<br>4. handoff는 요약이 아니라 다음 실행자가 바로 이어받을 수 있는 최소 상태다<br>5. SOUL.md에 정체성만 두고, 작업 규칙은 AGENTS.md와 skill로 분리한다</p>
+    </div>
+    <div class="by">
+      <div class="who">
+        <span class="name">에르메스 에이전트 기초 가이드</span>
+        <span class="role">Part 4 · AI 에이전트 기억 시스템</span>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>CLOSING</span><span><span class="num">18</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="18">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 18 / 18</span></div>
+  <h4>마무리</h4>
+  <p>기억 시스템을 설계한다는 것은 저장 용량을 늘리는 것이 아닙니다. 각 기억층의 역할을 나누고, 새 정보가 들어올 때마다 어디에 둘지 묻는 습관이 핵심입니다.</p>
+  <p>처음부터 완벽할 필요는 없습니다. memory, shared-memory, Obsidian부터 시작해서, 필요할 때 skill과 RAG를 붙여가면 됩니다. 중요한 것은 "어떤 층에 둘까?"라는 질문을 매번 던지는 것입니다.</p>
+</aside>
+
+</main>
+
+<script src="./presenter.js"></script>
+</body>
+</html>

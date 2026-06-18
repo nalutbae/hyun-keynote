@@ -269,7 +269,7 @@ a{color:inherit}
 .present .toolbar,.present .helpbar{display:none}
 .present .deck{padding:0;gap:0;min-height:100vh;height:100vh;justify-content:center;overflow:hidden}
 .present .deck .slide,.present .deck .notes{display:none}
-.present .deck .slide.active{display:block;transform:scale(var(--scale,1));transform-origin:center center}
+.present .deck .slide.active{display:block;flex-shrink:0;transform:scale(var(--scale,1));transform-origin:center center}
 .present.show-notes .deck .notes.active{display:block;position:fixed;bottom:calc(24px * var(--deck-scale));left:50%;transform:translateX(-50%);max-width:calc(1100px * var(--deck-scale));background:#1F1D19;color:#E8E3D4;border-color:#2A2722;z-index:50}
 .present.show-notes .deck .notes.active h4{color:#fff}
 .present.show-notes .deck .notes.active{font-size:calc(13px * var(--deck-scale))}

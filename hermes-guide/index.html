@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="robots" content="noindex,nofollow" />
 <title>에르메스 에이전트 기초 가이드 — HYUN KEYNOTE</title>
+<script>
+/* ── auth-gate: 미인증 시 CSS로 main 숨기기 ── */
+(function(){
+  var STORAGE_KEY = 'hyun-keynote-auth-hermes-guide';
+  if (sessionStorage.getItem(STORAGE_KEY) === 'true') return;
+  var s = document.createElement('style');
+  s.id = 'auth-gate-style';
+  s.textContent = 'main.page,main.deck,main{display:none!important}';
+  document.head.appendChild(s);
+})();
+</script>
 <style>
 :root{--bg:#FFFFFF;--bg-2:#F7F3EF;--ink:#0A0A0A;--ink-2:#3A3A38;--ink-3:#78746E;--rule:#0A0A0A;--rule-soft:#D8D2CC;--accent:#C15F3C;--accent-dark:#8F3E27;--green:#4F6651;--mono:'SF Mono','Apple SD Gothic Neo',ui-monospace,Menlo,Consolas,monospace;--sans:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Segoe UI',sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -51,14 +62,14 @@ h1{font-size:clamp(44px,7vw,84px);line-height:1;letter-spacing:-.04em;font-weigh
   <section class="shell hero">
     <div class="eyebrow">에르메스 에이전트 기초 가이드</div>
     <h1>에르메스 에이전트<br>기초 가이드</h1>
-    <p class="summary">에르메스 에이전트의 개념과 비교, 설치와 운영까지 두 파트로 구성되어 있습니다.</p>
+    <p class="summary">에르메스 에이전트의 개념과 비교, 설치와 운영, AI 팀 빌딩, 기억 시스템까지 네 파트로 구성되어 있습니다.</p>
   </section>
   <section class="shell list" aria-label="회차 목록">
     <article class="item">
       <div class="item-main">
-        <div class="item-kicker">1회차 · 2파트 · 35슬라이드</div>
-        <h2 class="item-title">개념과 비교, 설치와 운영</h2>
-        <div class="item-meta"><span>Part 1: 개념과 비교 16슬라이드</span><span>Part 2: 설치와 운영 19슬라이드</span></div>
+        <div class="item-kicker">1회차 · 4파트 · 71슬라이드</div>
+        <h2 class="item-title">개념과 비교, 설치와 운영, AI 팀 빌딩, 기억 시스템</h2>
+        <div class="item-meta"><span>Part 1: 개념과 비교</span><span>Part 2: 설치와 운영</span><span>Part 3: AI 팀 빌딩</span><span>Part 4: 기억 시스템</span></div>
       </div>
       <a class="item-link" href="./1/index.html">열기 →</a>
     </article>
@@ -69,5 +80,70 @@ h1{font-size:clamp(44px,7vw,84px);line-height:1;letter-spacing:-.04em;font-weigh
     </div>
   </footer>
 </main>
+<script>
+/* ── auth-gate modal ── */
+(function () {
+  'use strict';
+  var GATE_KEY = 'hermes-guide';
+  var API_URL = 'https://hyun-portfolio.vercel.app/api/ext/check';
+  var STORAGE_KEY = 'hyun-keynote-auth-' + GATE_KEY;
+
+  if (sessionStorage.getItem(STORAGE_KEY) === 'true') {
+    var styleEl = document.getElementById('auth-gate-style');
+    if (styleEl) styleEl.remove();
+    return;
+  }
+
+  function init() {
+    var body = document.body;
+    var style = document.createElement('style');
+    style.textContent = '.auth-overlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;font-family:var(--sans,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",sans-serif)}.auth-card{background:var(--bg,#FFFFFF);padding:48px 40px 40px;max-width:400px;width:calc(100% - 48px);text-align:center;position:relative}.auth-mark{width:18px;height:18px;border:1.5px solid var(--ink,#0A0A0A);border-radius:50%;position:relative;margin:0 auto 24px}.auth-mark::after{content:"";position:absolute;top:50%;left:50%;width:7px;height:7px;background:var(--accent,#C15F3C);border-radius:50%;transform:translate(-50%,-50%)}.auth-card h2{font-family:var(--mono,"JetBrains Mono",ui-monospace,Menlo,monospace);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink,#0A0A0A);margin:0 0 6px}.auth-card .auth-subtitle{font-size:14px;color:var(--ink-3,#78746E);line-height:1.5;margin:0 0 28px}.auth-input-wrap{position:relative;margin-bottom:20px}.auth-input{width:100%;padding:12px 16px;font-family:var(--mono,"JetBrains Mono",monospace);font-size:14px;border:1.5px solid var(--rule,#0A0A0A);background:#fff;color:var(--ink,#0A0A0A);outline:none;letter-spacing:.08em;transition:border-color .14s}.auth-input:focus{border-color:var(--accent,#C15F3C)}.auth-input::placeholder{color:var(--ink-3,#78746E);letter-spacing:.04em}.auth-btn{width:100%;padding:12px 20px;font-family:var(--mono,"JetBrains Mono",monospace);font-size:12px;letter-spacing:.14em;text-transform:uppercase;border:1.5px solid var(--rule,#0A0A0A);background:var(--rule,#0A0A0A);color:#fff;cursor:pointer;transition:background .14s,color .14s,border-color .14s}.auth-btn:hover,.auth-btn:focus-visible{background:var(--accent,#C15F3C);border-color:var(--accent,#C15F3C);outline:none}.auth-btn:disabled{opacity:.6;cursor:not-allowed}.auth-error{font-size:13px;color:#C73E1D;margin-top:14px;min-height:18px;line-height:1.4}@media(max-width:480px){.auth-card{padding:36px 24px 32px}}';
+    document.head.appendChild(style);
+
+    var overlay = document.createElement('div'); overlay.className = 'auth-overlay';
+    var card = document.createElement('div'); card.className = 'auth-card';
+    var mark = document.createElement('div'); mark.className = 'auth-mark'; card.appendChild(mark);
+    var heading = document.createElement('h2'); heading.textContent = 'HYUN KEYNOTE'; card.appendChild(heading);
+    var subtitle = document.createElement('p'); subtitle.className = 'auth-subtitle'; subtitle.textContent = '카테고리에 접근하려면 비밀번호를 입력하세요'; card.appendChild(subtitle);
+    var inputWrap = document.createElement('div'); inputWrap.className = 'auth-input-wrap';
+    var input = document.createElement('input'); input.type = 'password'; input.className = 'auth-input'; input.placeholder = '비밀번호 입력'; input.autocomplete = 'off'; input.setAttribute('aria-label', '비밀번호'); inputWrap.appendChild(input); card.appendChild(inputWrap);
+    var btn = document.createElement('button'); btn.className = 'auth-btn'; btn.textContent = '확인'; card.appendChild(btn);
+    var errorEl = document.createElement('div'); errorEl.className = 'auth-error'; card.appendChild(errorEl);
+    overlay.appendChild(card); body.appendChild(overlay); input.focus();
+
+    function authenticate() {
+      var password = input.value.trim();
+      if (!password) { input.focus(); return; }
+      btn.disabled = true; btn.textContent = '확인 중\u2026'; errorEl.textContent = '';
+      var url = API_URL + '?key=' + encodeURIComponent(GATE_KEY) + '&password=' + encodeURIComponent(password);
+      fetch(url, { method: 'POST' })
+        .then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(function (data) {
+          if (data && data.valid === true) {
+            sessionStorage.setItem(STORAGE_KEY, 'true');
+            var styleEl = document.getElementById('auth-gate-style');
+            if (styleEl) styleEl.remove();
+            var mainEl = document.querySelector('main.page') || document.querySelector('main.deck') || document.querySelector('main');
+            if (mainEl) mainEl.style.display = '';
+            overlay.remove(); style.remove();
+          } else {
+            errorEl.textContent = '비밀번호가 올바르지 않습니다';
+            input.value = ''; input.focus(); btn.disabled = false; btn.textContent = '확인';
+          }
+        })
+        .catch(function () {
+          errorEl.textContent = '서버 연결에 실패했습니다';
+          btn.disabled = false; btn.textContent = '확인'; input.focus();
+        });
+    }
+    btn.addEventListener('click', authenticate);
+    input.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); authenticate(); } });
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); } else { init(); }
+})();
+</script>
 </body>
 </html>
