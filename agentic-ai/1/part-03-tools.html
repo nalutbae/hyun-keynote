@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>1-3. 기본 내장 도구 테스트 및 프로필 설계 · 1회차 에이전틱 AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="./hyun-keynote.css" />
+</head>
+<body>
+
+<div class="toolbar">
+  <button id="btnPresent">Present (P)</button>
+  <button id="btnNotes">Notes (N)</button>
+  <button id="btnPrint">Print PDF</button>
+</div>
+<div class="helpbar"><span class="blink">▸</span>&nbsp; ←/→ navigate · P present · N notes · ESC overview · Cmd+P export PDF</div>
+
+<main class="deck" id="deck">
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 1: Cover                          -->
+<!-- ════════════════════════════════════════ -->
+<section id="part-03-cover" class="slide layout-cover" data-num="1">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>2026</span>
+  </div>
+  <div class="body">
+    <div>
+      <div class="eyebrow">PART 3 · 기본 내장 도구 테스트 및 프로필 설계</div>
+      <h1 class="chapter-full-title">1-3. 기본 내장 도구 테스트 및 프로필 설계</h1>
+      <p class="subtitle">직접 도구를 써보고, 나만의 AI 비서를 만드는 실습 시간</p>
+    </div>
+    <div class="by">
+      <div class="who">
+        <span class="name">에이전틱 AI · 1회차</span>
+        <span class="role">Part 3 · 도구 테스트 및 프로필 설계</span>
+      </div>
+      <div class="stamp toc-area" aria-label="목차">
+        <span class="toc-label">목차</span>
+        <a class="toc-chapter" href="#part-03-cover">1-3. 기본 내장 도구 테스트 및 프로필 설계</a>
+        <a class="toc-module" href="#mod-1-3-1">1-3-1. 내장 도구 작동 확인</a>
+        <a class="toc-module" href="#mod-1-3-2">1-3-2. 나만의 AI 비서 설계 (SOUL.md)</a>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>COVER</span><span><span class="num">01</span> / 14</span></div>
+</section>
+<aside class="notes" data-for="1">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 01 / 14</span></div>
+  <h4>오프닝 · 00:00–02:00</h4>
+  <p>파트 3에 오신 것을 환영합니다. 1교시와 2교시에서 이론과 설치를 마쳤으니, 이제 직접 써보는 시간입니다.</p>
+  <p>"드디어 실습 시간입니다! 2교시까지 이론과 설치를 마쳤으니, 이제 직접 Hermes를 움직여 보겠습니다."</p>
+  <p>"오늘 두 가지를 합니다. 첫째, 내장 도구가 어떻게 작동하는지 확인하고, 둘째, 나만의 AI 비서를 만들어 보겠습니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 2: Section Divider 3.1             -->
+<!-- ════════════════════════════════════════ -->
+<section id="mod-1-3-1" class="slide layout-divider" data-num="2">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>MODULE 1-3-1</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-3-1</div>
+    <h2>내장 도구 작동 확인</h2>
+    <div class="lede">날씨 검색, 우측 패널 관찰, 도구 호출 과정 이해하기</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">02</span> / 14</span></div>
+</section>
+<aside class="notes" data-for="2">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 02 / 14</span></div>
+  <h4>모듈 전환 · 02:00–03:00</h4>
+  <p>도구 테스트 모듈을 시작합니다.</p>
+  <p>"먼저 Hermes의 내장 도구가 어떻게 작동하는지 확인해 보겠습니다. 가장 직관적인 도구인 날씨 검색부터 시작합니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 3: 날씨 검색 실습                  -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-statement" data-num="3">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-3-1</span>
+  </div>
+  <div class="body">
+    <h2>실습: 오늘 서울 강남구 날씨를 검색해서 알려줘</h2>
+    <div class="lede">이 문장을 Hermes 채팅창에 그대로 입력하세요.<span class="br"></span>AI가 <strong>자동으로 도구를 호출</strong>하여 날씨 정보를 가져오는 과정을 우측 패널에서 확인합니다.<span class="br"></span><em>이것이 에이전틱 AI의 핵심입니다 — 질문만 하면 AI가 알아서 도구를 사용합니다.</em></div>
+  </div>
+  <div class="meta-bottom"><span>1-3-1. 내장 도구 작동 확인</span><span><span class="num">03</span> / 14</span></div>
+</section>
+<aside class="notes" data-for="3">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 03 / 14</span></div>
+  <h4>날씨 검색 실습 · 03:00–10:00</h4>
+  <p>가장 중요한 실습입니다. 수강생이 직접 입력해 보고, 결과를 확인합니다.</p>
+  <p>"이제 채팅창에 '오늘 서울 강남구 날씨를 검색해서 알려줘'라고 입력해 보세요."</p>
+  <p>"우측 패널을 보면, AI가 자동으로 도구를 호출하는 과정이 보입니다. '웹 검색 도구를 사용합니다' 같은 메시지가 나오면, 바로 그 도구를 호출하고 있다는 뜻입니다."</p>
+  <p>"결과가 나왔나요? 서울 강남구의 현재 날씨가 표시되나요? 이게 바로 에이전틱 AI의 핵심입니다. 여러분은 질문만 했고, AI가 알아서 도구를 사용했습니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 4: 우측 패널 관찰                  -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-grid cols-2" data-num="4">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-3-1</span>
+  </div>
+  <div class="body">
+    <h2>우측 패널에서 관찰할 것</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>도구 호출 (Tool Call)</h3>
+        <p>AI가 어떤 도구를 사용하는지, 어떤 매개변수를 전달하는지 실시간으로 표시됩니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>도구 결과 (Tool Result)</h3>
+        <p>도구가 반환한 데이터가 표시됩니다. 날씨 정보, 검색 결과, 파일 내용 등이 여기에 나타납니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>추론 과정 (Reasoning)</h3>
+        <p>AI가 왜 그 도구를 선택했는지, 결과를 어떻게 해석하는지 추론 과정이 표시됩니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>최종 응답 (Response)</h3>
+        <p>모든 과정을 거친 후, 사용자에게 전달되는 최종 답변입니다. 자연어로 정리되어 표시됩니다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-3-1. 내장 도구 작동 확인</span><span><span class="num">04</span> / 14</span></div>
+</section>
+<aside class="notes" data-for="4">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 04 / 14</span></div>
+  <h4>패널 관찰 · 10:00–15:00</h4>
+  <p>우측 패널의 4가지 요소를 설명합니다. 아까 날씨 검색 결과를 보면서 설명합니다.</p>
+  <p>"우측 패널을 보면 4가지가 나타납니다. 첫째, 도구 호출 — AI가 어떤 도구를 사용하는지 보여줍니다. 날씨 검색의 경우 '웹 검색 도구를 사용합니다'라고 나왔죠?"</p>
+  <p>"둘째, 도구 결과 — 검색 결과 데이터가 여기에 나옵니다. 날씨 데이터, 온도, 습도 등이 표시됩니다."</p>
+  <p>"셋째, 추론 과정 — AI가 왜 그 도구를 선택했는지 설명합니다. 넷째, 최종 응답 — 모든 걸 종합해서 자연어로 정리된 답변이 나옵니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 5: 다른 도구도 시도                -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-statement" data-num="5">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-3-1</span>
+  </div>
+  <div class="body">
+    <h2>더 해보기: 다른 질문도 시도해 보세요</h2>
+    <div class="lede">• "최신 뉴스 중 AI 관련 기사를 찾아줘"<span class="br"></span>• "1 더하기 2는 얼마야?"<span class="br"></span>• "오늘 날짜는?"<span class="br"></span><strong>도구가 필요한 질문과 필요 없는 질문의 차이를 우측 패널에서 확인해 보세요.</strong></div>
+  </div>
+  <div class="meta-bottom"><span>1-3-1. 내장 도구 작동 확인</span><span><span class="num">05</span> / 14</span></div>
+</section>
+<aside class="notes" data-for="5">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 05 / 14</span></div>
+  <h4>추가 실습 · 15:00–20:00</h4>
+  <p>세 가지 질문을 각각 입력해 보면서 도구 호출의 차이를 관찰합니다.</p>
+  <p>"이제 다른 질문도 해보세요. 뉴스 검색은 도구를 호출할 거고, 수학 계산은 도구 없이도 답할 수 있습니다."</p>
+  <p>"날짜 질문은 시스템 정보를 활용할 수도 있고, 웹 검색을 할 수도 있습니다. AI가 어떤 선택을 하는지 우측 패널에서 확인해 보세요."</p>
+  <p>핵심 포인트: "도구가 필요한 질문과 필요 없는 질문의 차이를 이해하는 것이 중요합니다. 에이전틱 AI는 상황에 따라 알아서 도구를 선택합니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 6: Section Divider 3.2             -->
+<!-- ════════════════════════════════════════ -->
+<section id="mod-1-3-2" class="slide layout-divider" data-num="6">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>MODULE 1-3-2</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-3-2</div>
+    <h2>나만의 AI 비서 설계<br>(SOUL.md)</h2>
+    <div class="lede">나의 업무와 성향에 맞는 AI 비서를 만들어 보겠습니다</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">06</span> / 14</span></div>
+</section>
+<aside class="notes" data-for="6">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 06 / 14</span></div>
+  <h4>모듈 전환 · 20:00–21:00</h4>
+  <p>SOUL.md 모듈을 시작합니다.</p>
+  <p>"지금까지 도구가 어떻게 작동하는지 봤습니다. 이제 더 중요한 걸 하겠습니다. 바로 '나만의 AI 비서'를 만드는 것입니다."</p>
+  <p>"Hermes에서는 SOUL.md라는 파일을 통해 AI의 성격과 행동 방식을 정의할 수 있습니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 7: SOUL.md 개념                   -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-statement" data-num="7">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-3-2</span>
+  </div>
+  <div class="body">
+    <h2>SOUL.md = AI 비서의 사용 설명서</h2>
+    <div class="lede">SOUL.md는 AI에게 <strong>"너는 누구고, 어떻게 행동해야 하는지"</strong>를 알려주는 파일입니다.<span class="br"></span>비유하자면, <em>새 직원에게 주는 업무 가이드</em>와 같습니다.<span class="br"></span>작성 방식에 따라 같은 AI도 완전히 다르게 행동합니다.</div>
+  </div>
+  <div class="meta-bottom"><span>1-3-2. SOUL.md</span><span><span class="num">07</span> / 14</span></div>
+</section>
+<aside class="notes" data-for="7">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 07 / 14</span></div>
+  <h4>SOUL.md 개념 · 21:00–25:00</h4>
+  <p>SOUL.md의 개념을 비유로 설명합니다.</p>
+  <p>"새 직원이 입사하면 업무 가이드를 주죠? '이렇게 일해라, 이건 이렇게 처리해라'라고. SOUL.md가 바로 그 역할을 합니다."</p>
+  <p>"SOUL.md가 없으면 AI는 일반적인 답변을 합니다. 있으면 내 업무 방식에 맞춘 답변을 합니다. 은행원 SOUL.md를 가진 AI는 은행 업무에 특화된 답변을, 쇼핑몰 SOUL.md를 가진 AI는 쇼핑몰 운영에 특화된 답변을 합니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 8: Edit Soul 버튼                  -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-grid cols-2" data-num="8">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-3-2</span>
+  </div>
+  <div class="body">
+    <h2>SOUL.md 편집하는 방법</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>Edit Soul 버튼</h3>
+        <p>Hermes Desktop 좌측 사이드바 상단에 있는 'Edit Soul' 버튼을 클릭합니다. 텍스트 편집 창이 열립니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>텍스트 작성</h3>
+        <p>마크다운 형식으로 AI의 성격, 역할, 행동 원칙을 작성합니다. 저장하면 즉시 반영됩니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>마크다운 문법</h3>
+        <p>제목은 #, 목록은 -, 강조는 **로 감싸기. HTML 태그도 일부 지원합니다. 복잡한 문법은 몰라도 됩니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>저장 후 확인</h3>
+        <p>Save 버튼을 누르고, 새 대화를 시작하여 AI의 응답이 달라졌는지 확인합니다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-3-2. SOUL.md</span><span><span class="num">08</span> / 14</span></div>
+</section>
+<aside class="notes" data-for="8">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 08 / 14</span></div>
+  <h4>편집 방법 · 25:00–28:00</h4>
+  <p>실제 화면을 보면서 SOUL.md 편집 방법을 설명합니다.</p>
+  <p>"화면 왼쪽 사이드바 상단에 'Edit Soul' 버튼이 보이시죠? 클릭하면 텍스트 편집 창이 열립니다."</p>
+  <p>"여기에 마크다운으로 AI의 성격과 역할을 적습니다. #은 제목, -는 목록, **는 강조입니다. 복잡한 건 몰라도 됩니다."</p>
+  <p>"Save를 누르면 즉시 반영됩니다. 새 대화를 시작해서 AI의 응답이 달라졌는지 확인해 보세요."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 9: 선택지 슬라이드 — 영업직         -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-cover" data-num="9">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-3-2</span>
+  </div>
+  <div class="body">
+    <div>
+      <div class="eyebrow">선택지 1</div>
+      <h1 style="font-size:calc(72px * var(--deck-scale));">영업직 양식</h1>
+    </div>
+    <div class="by">
+      <div class="who">
+        <span class="name">영업직 AI 비서</span>
+        <span class="role">고객 관리 · 제안서 작성 · 일정 관리</span>
+      </div>
+      <div class="stamp toc-area" aria-label="SOUL.md 내용">
+        <span class="toc-label">SOUL.md 요약</span>
+        <span class="toc-chapter">역할: 영업 지원 AI 비서</span>
+        <span class="toc-module">성격: 정중, 간결, 행동 지향</span>
+        <span class="toc-module">원칙: 응답은 3문장 이내, 액션 아이템 포함</span>
+        <span class="toc-module">전문: 고객 이메일 요약, 제안서 초안, 일정 제안</span>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>영업직 양식</span><span><span class="num">09</span> / 14</span></div>
+</section>
+<aside class="notes" data-for="9">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 09 / 14</span></div>
+  <h4>영업직 양식 · 28:00–30:00</h4>
+  <p>첫 번째 선택지를 설명합니다. 코드 블록으로 실제 SOUL.md 내용을 보여줍니다.</p>
+  <p>"영업직 양식은 정중하고 간결한 응답을 중시합니다. 고객 이메일을 요약하고, 제안서 초안을 작성하고, 일정을 제안하는 데 특화되어 있습니다."</p>
+  <p>"핵심 원칙은 세 가지입니다. 첫째, 응답은 항상 3문장 이내. 둘째, 액션 아이템을 반드시 포함. 셋째, 다음 단계를 제안."</p>
+  <p>실제 SOUL.md 코드 (강사용 참고):
+  ```markdown
+  # 영업 지원 AI 비서
+
+  ## 역할
+  당신은 영업직을 지원하는 AI 비서입니다.
+
+  ## 성격
+  - 정중하고 간결하게 응답합니다
+  - 항상 다음 액션을 제안합니다
+  - 고객 관계를 최우선으로 생각합니다
+
+  ## 행동 원칙
+  - 응답은 3문장 이내로 작성합니다
+  - 모든 응답에 액션 아이템을 포함합니다
+  - 고객 이메일은 항상 요약해서 전달합니다
+  ```</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 10: 선택지 슬라이드 — 구매대행      -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-cover" data-num="10">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-3-2</span>
+  </div>
+  <div class="body">
+    <div>
+      <div class="eyebrow">선택지 2</div>
+      <h1 style="font-size:calc(72px * var(--deck-scale));">구매대행 쇼핑몰 사장님 양식</h1>
+    </div>
+    <div class="by">
+      <div class="who">
+        <span class="name">쇼핑몰 AI 비서</span>
+        <span class="role">재고 관리 · 가격 비교 · 발주 자동화</span>
+      </div>
+      <div class="stamp toc-area" aria-label="SOUL.md 내용">
+        <span class="toc-label">SOUL.md 요약</span>
+        <span class="toc-chapter">역할: 쇼핑몰 운영 지원 AI 비서</span>
+        <span class="toc-module">성격: 실용적, 데이터 중심, 자동화 지향</span>
+        <span class="toc-module">원칙: 수치 기반 응답, 자동화 제안 우선</span>
+        <span class="toc-module">전문: 재고 분석, 경쟁사 가격 비교, 발주서 작성</span>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>구매대행 양식</span><span><span class="num">10</span> / 14</span></div>
+</section>
+<aside class="notes" data-for="10">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 10 / 14</span></div>
+  <h4>구매대행 양식 · 30:00–32:00</h4>
+  <p>두 번째 선택지를 설명합니다.</p>
+  <p>"쇼핑몰 사장님 양식은 데이터 중심, 자동화 지향입니다. 재고가 부족하면 알려주고, 경쟁사 가격을 비교해주고, 발주서를 자동으로 작성해 줍니다."</p>
+  <p>"핵심 원칙: 응답은 항상 수치를 포함하고, 자동화 가능한 부분을 먼저 제안합니다."</p>
+  <p>실제 SOUL.md 코드 (강사용 참고):
+  ```markdown
+  # 쇼핑몰 운영 지원 AI 비서
+
+  ## 역할
+  당신은 구매대행 쇼핑몰 사장님을 지원하는 AI 비서입니다.
+
+  ## 성격
+  - 실용적이고 데이터 중심으로 응답합니다
+  - 자동화 가능한 업무를 먼저 제안합니다
+  - 수치와 근거를 항상 포함합니다
+
+  ## 행동 원칙
+  - 재고 관련 정보는 항상 수량과 기한을 포함합니다
+  - 가격 비교 시 최소 3개 소스를 활용합니다
+  - 발주서는 즉시 실행 가능한 형태로 작성합니다
+  ```</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 11: 선택지 슬라이드 — 은행원         -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-cover" data-num="11">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-3-2</span>
+  </div>
+  <div class="body">
+    <div>
+      <div class="eyebrow">선택지 3</div>
+      <h1 style="font-size:calc(72px * var(--deck-scale));">은행원 양식</h1>
+    </div>
+    <div class="by">
+      <div class="who">
+        <span class="name">은행업무 AI 비서</span>
+        <span class="role">리스크 분석 · 규제 추적 · 보고서 작성</span>
+      </div>
+      <div class="stamp toc-area" aria-label="SOUL.md 내용">
+        <span class="toc-label">SOUL.md 요약</span>
+        <span class="toc-chapter">역할: 은행업무 지원 AI 비서</span>
+        <span class="toc-module">성격: 신중, 정확, 규정 준수</span>
+        <span class="toc-module">원칙: 규정 인용 필수, 리스크 항상 명시</span>
+        <span class="toc-module">전문: 계약서 분석, 규제 변경 추적, 보고서 초안</span>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>은행원 양식</span><span><span class="num">11</span> / 14</span></div>
+</section>
+<aside class="notes" data-for="11">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 11 / 14</span></div>
+  <h4>은행원 양식 · 32:00–34:00</h4>
+  <p>세 번째 선택지를 설명합니다.</p>
+  <p>"은행원 양식은 신중하고 정확한 응답을 중시합니다. 규정을 항상 인용하고, 리스크를 항상 명시합니다."</p>
+  <p>"핵심 원칙: 응답에 항상 관련 규정을 인용하고, 리스크 요소를 명시합니다. '이것은 안전해 보입니다'가 아니라 '이 규정에 따르면 이 리스크가 존재합니다'라고 답변합니다."</p>
+  <p>실제 SOUL.md 코드 (강사용 참고):
+  ```markdown
+  # 은행업무 지원 AI 비서
+
+  ## 역할
+  당신은 은행원을 지원하는 AI 비서입니다.
+
+  ## 성격
+  - 신중하고 정확하게 응답합니다
+  - 규정과 규제를 항상 확인합니다
+  - 리스크를 먼저 지적합니다
+
+  ## 행동 원칙
+  - 모든 응답에 관련 규정을 인용합니다
+  - 리스크 요소를 항상 명시합니다
+  - 금융 관련 정보는 출처를 반드시 표기합니다
+  - "안전합니다"보다 "이 규정에 따르면 이 리스크가 존재합니다"로 답변합니다
+  ```</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 12: Save 후 확인                   -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-grid cols-2" data-num="12">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-3-2</span>
+  </div>
+  <div class="body">
+    <h2>Save 후 확인 방법</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>저장</h3>
+        <p>Edit Soul 편집창에서 Save 버튼을 클릭합니다. SOUL.md가 즉시 저장됩니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>새 대화 시작</h3>
+        <p>Cmd+N으로 새 대화를 시작합니다. 기존 대화에서는 SOUL.md가 반영되지 않습니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>차이 확인</h3>
+        <p>같은 질문을 해보고, SOUL.md 적용 전후 응답 차이를 비교합니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>수정 반복</h3>
+        <p>원하는 응답이 나올 때까지 SOUL.md를 수정하고, 새 대화에서 다시 테스트합니다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-3-2. SOUL.md</span><span><span class="num">12</span> / 14</span></div>
+</section>
+<aside class="notes" data-for="12">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 12 / 14</span></div>
+  <h4>저장 & 확인 · 34:00–38:00</h4>
+  <p>수강생이 직접 SOUL.md를 편집하고, 차이를 확인하는 시간입니다.</p>
+  <p>"이제 세 가지 양식 중 하나를 골라서 Edit Soul에 붙여넣고 Save를 누르세요."</p>
+  <p>"Save 후 반드시 새 대화를 시작해야 합니다. Cmd+N을 누르거나, 사이드바에서 새 대화를 만드세요."</p>
+  <p>"같은 질문을 해보세요. 예를 들어 '오늘 할 일을 정리해줘'라고 하면, SOUL.md에 따라 완전히 다른 응답이 나옵니다."</p>
+  <p>영업직: 일정 중심 응답, 쇼핑몰: 재고/발주 중심 응답, 은행원: 규정/리스크 중심 응답.</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 13: 마무리 — 1강 홈워크              -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-statement huge" data-num="13">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-3</span>
+  </div>
+  <div class="body">
+    <h2>1강 홈워크</h2>
+    <div class="lede">오늘 배운 내용을 바탕으로 <strong>나만의 SOUL.md</strong>를 작성해 오세요.<span class="br"></span>직무에 맞는 AI 비서를 설계하고, 새 대화에서 응답 차이를 확인합니다.<span class="br"></span><em>다음 2강에서는 더 깊이 있는 도구 활용과 자동화를 다룹니다.</em></div>
+  </div>
+  <div class="meta-bottom"><span>1-3. 도구 테스트 및 프로필 설계</span><span><span class="num">13</span> / 14</span></div>
+</section>
+<aside class="notes" data-for="13">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 13 / 14</span></div>
+  <h4>홈워크 · 55:00–58:00</h4>
+  <p>홈워크를 안내합니다.</p>
+  <p>"오늘 배운 내용을 바탕으로, 여러분의 직무에 맞는 SOUL.md를 직접 작성해 오세요. 영업직, 쇼핑몰, 은행원 외에도 자신만의 양식을 만들어도 됩니다."</p>
+  <p>"중요한 건, 새 대화를 시작해서 SOUL.md 적용 전후의 응답 차이를 확인하는 것입니다. 그 차이가 에이전틱 AI의 힘입니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 14: Closing                        -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-cover closing" data-num="14">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>2026</span>
+  </div>
+  <div class="body">
+    <div>
+      <h1>1회차 완료!</h1>
+      <p class="subtitle">AI 패러다임 변화부터 Hermes Desktop 설치, 내장 도구 테스트, 프로필 설계까지. 다음 2회차에서 더 깊이 다룹니다.</p>
+    </div>
+    <div class="by">
+      <div class="who">
+        <span class="name">에이전틱 AI · 1회차</span>
+        <span class="role">3교시 완료</span>
+      </div>
+      <div class="stamp toc-area" aria-label="전체 목차">
+        <span class="toc-label">1회차 요약</span>
+        <a class="toc-chapter" href="./part-01-paradigm.html">1교시: AI 패러다임 변화와 에이전트 이해</a>
+        <a class="toc-module" href="./part-02-install.html">2교시: Hermes Desktop 설치 및 환경 설정</a>
+        <a class="toc-module" href="./part-03-tools.html">3교시: 기본 내장 도구 테스트 및 프로필 설계</a>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>CLOSING</span><span><span class="num">14</span> / 14</span></div>
+</section>
+<aside class="notes" data-for="14">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 14 / 14</span></div>
+  <h4>클로징 · 58:00–60:00</h4>
+  <p>1회차 전체를 요약하고 마무리합니다.</p>
+  <p>"오늘 1회차 3교시를 모두 마쳤습니다. 정리하면, 1교시에서는 AI의 발전 과정을 배웠고, 2교시에서는 직접 설치했고, 3교시에서는 내장 도구를 써보고 프로필을 만들었습니다."</p>
+  <p>"홈워크 잊지 마세요. 나만의 SOUL.md를 작성해 오시는 겁니다."</p>
+  <p>"다음 2회차에서는 더 깊이 있는 도구 활용과 자동화를 다루겠습니다. 감사합니다!"</p>
+</aside>
+
+</main>
+<script src="./presenter.js"></script>
+</body>
+</html>

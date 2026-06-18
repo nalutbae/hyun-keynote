@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="에이전틱 AI 과정 — 회차별 프리젠테이션 목록" />
+<title>에이전틱 AI — HYUN KEYNOTE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" />
+<style>
+:root{
+  --bg:#FFFFFF;--bg-2:#F7F3EF;--ink:#0A0A0A;--ink-2:#3A3A38;--ink-3:#78746E;
+  --rule:#0A0A0A;--rule-soft:#D8D2CC;--accent:#C15F3C;--accent-dark:#8F3E27;
+  --green:#4F6651;--blue:#3B5F8A;
+  --mono:'JetBrains Mono','SF Mono',ui-monospace,Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:'ss01','case','tnum'}
+a{color:inherit;text-decoration:none}
+
+.page{min-height:100vh;display:flex;flex-direction:column}
+.shell{width:min(1120px,calc(100vw - 40px));margin:0 auto}
+
+/* ── Top line ── */
+.topline{border-bottom:1.5px solid var(--rule);padding:34px 0 18px}
+.topline-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+.brand a{display:flex;align-items:center;gap:12px}
+.mark{width:14px;height:14px;border:1.5px solid var(--ink);border-radius:50%;position:relative;flex:0 0 auto}
+.mark::after{content:'';position:absolute;top:50%;left:50%;width:5px;height:5px;background:var(--accent);border-radius:50%;transform:translate(-50%,-50%)}
+.breadcrumb{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.breadcrumb a{color:var(--ink-2);border-bottom:1px solid var(--rule-soft);padding-bottom:1px;transition:border-color .14s,color .14s}
+.breadcrumb a:hover{color:var(--accent);border-color:var(--accent)}
+
+/* ── Hero ── */
+.hero{padding:88px 0 70px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+h1{font-size:clamp(44px,7vw,84px);line-height:.96;letter-spacing:-.04em;font-weight:800;max-width:780px;word-break:keep-all}
+.summary{font-size:19px;line-height:1.55;color:var(--ink-2);max-width:760px;margin-top:26px}
+
+/* ── List ── */
+.list{border-top:1.5px solid var(--rule);margin-bottom:82px}
+.item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center;border-bottom:1px solid var(--rule-soft);padding:26px 0}
+.item:focus-within{outline:3px solid #FAEEE9;outline-offset:4px}
+.item-main{min-width:0}
+.item-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+.item-title{font-size:26px;line-height:1.22;letter-spacing:-.018em;font-weight:760}
+.item-desc{font-size:14px;color:var(--ink-3);margin-top:6px;line-height:1.45;max-width:560px}
+.item-meta{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.item-link{display:inline-flex;align-items:center;gap:10px;border:1.5px solid var(--rule);padding:12px 14px;font-family:var(--mono);font-size:12px;letter-spacing:.13em;text-transform:uppercase;background:#fff;transition:background .14s,color .14s,border-color .14s;white-space:nowrap}
+.item-link:hover,.item-link:focus-visible{background:var(--accent);border-color:var(--accent);color:#fff;outline:none}
+
+/* ── Footer ── */
+.footer{margin-top:auto;border-top:1.5px solid var(--rule);padding:18px 0 34px}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+
+/* ── Responsive ── */
+@media(max-width:760px){
+  .shell{width:min(100% - 28px,1120px)}
+  .hero{padding:54px 0 44px}
+  .item{grid-template-columns:1fr;gap:18px;padding:22px 0}
+  .item-title{font-size:21px}
+  .item-link{justify-content:center;width:100%}
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="topline">
+    <div class="shell topline-inner">
+      <div class="brand"><a href="../index.html"><span class="mark"></span> HYUN KEYNOTE</a></div>
+      <div class="breadcrumb"><a href="../index.html">전체 카테고리</a> · 에이전틱 AI</div>
+    </div>
+  </header>
+
+  <section class="shell hero">
+    <div class="eyebrow">Agentic AI</div>
+    <h1>에이전틱 AI<span style="color:var(--accent)">.</span></h1>
+    <p class="summary">AI 패러다임 변화부터 Hermes Desktop 실전 활용까지. 에이전틱 AI로 업무를 자동화하는 방법을 배웁니다.</p>
+  </section>
+
+  <section class="shell list" aria-label="회차 목록">
+    <article class="item">
+      <div class="item-main">
+        <div class="item-kicker">1회차 · 3시간</div>
+        <h2 class="item-title">에이전틱 AI 패러다임과 Hermes Desktop 첫걸음</h2>
+        <div class="item-desc">AI 발전 과정, Hermes Desktop 설치, 내장 도구 활용, 프로필 설계까지. 3파트 구성.</div>
+        <div class="item-meta"><span>1회차 공개</span><span>회차별 구성</span><span>한국어</span></div>
+      </div>
+      <a class="item-link" href="./1/index.html">열기 →</a>
+    </article>
+  </section>
+
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand"><a href="../index.html"><span class="mark"></span> HYUN KEYNOTE</a></div>
+    </div>
+  </footer>
+</main>
+</body>
+</html>

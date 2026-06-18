@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>1-1. AI 패러다임의 변화와 에이전트 이해 · 1회차 에이전틱 AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="./hyun-keynote.css" />
+</head>
+<body>
+
+<div class="toolbar">
+  <button id="btnPresent">Present (P)</button>
+  <button id="btnNotes">Notes (N)</button>
+  <button id="btnPrint">Print PDF</button>
+</div>
+<div class="helpbar"><span class="blink">▸</span>&nbsp; ←/→ navigate · P present · N notes · ESC overview · Cmd+P export PDF</div>
+
+<main class="deck" id="deck">
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 1: Cover                          -->
+<!-- ════════════════════════════════════════ -->
+<section id="part-01-cover" class="slide layout-cover" data-num="1">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>2026</span>
+  </div>
+  <div class="body">
+    <div>
+      <div class="eyebrow">PART 1 · AI 패러다임의 변화와 에이전트 이해</div>
+      <h1 class="chapter-full-title">1-1. AI 패러다임의 변화와 에이전트 이해</h1>
+      <p class="subtitle">규칙 기반 AI에서 에이전틱 AI까지, 4단계 발전 과정을 따라갑니다</p>
+    </div>
+    <div class="by">
+      <div class="who">
+        <span class="name">에이전틱 AI · 1회차</span>
+        <span class="role">Part 1 · 패러다임 변화와 에이전트 이해</span>
+      </div>
+      <div class="stamp toc-area" aria-label="목차">
+        <span class="toc-label">목차</span>
+        <a class="toc-chapter" href="#part-01-cover">1-1. AI 패러다임의 변화와 에이전트 이해</a>
+        <a class="toc-module" href="#mod-1-1-1">1-1-1. AI 발전 과정</a>
+        <a class="toc-module" href="#mod-1-1-2">1-1-2. 에이전틱 AI 서비스</a>
+        <a class="toc-module" href="#mod-1-1-3">1-1-3. Hermes Agent 구조</a>
+        <a class="toc-module" href="#mod-1-1-4">1-1-4. 직무 활용 예시</a>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>COVER</span><span><span class="num">01</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="1">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 01 / 18</span></div>
+  <h4>오프닝 · 00:00–02:00</h4>
+  <p>파트 1에 오신 것을 환영합니다. 오늘 첫 시간에는 AI가 어떻게 발전해 왔고, 그 발전이 우리 업무에 어떤 의미가 있는지 이해하는 것이 목표입니다.</p>
+  <p>"여러분, AI라는 말은 이제 일상이 되었죠? 하지만 AI가 처음부터 지금 같았던 것은 아닙니다. 오늘은 그 변화의 발자취를 따라가면서, 왜 '에이전틱 AI'가 지금 주목받는지 알아보겠습니다."</p>
+  <p>목차를 간단히 소개하고, 4개 모듈로 구성되어 있음을 안내합니다. 약 60분 소요.</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 2: Section Divider 1.0             -->
+<!-- ════════════════════════════════════════ -->
+<section id="mod-1-1-1" class="slide layout-divider" data-num="2">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>MODULE 1-1-1</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-1-1</div>
+    <h2>AI의 발전 과정과<br>활용 형태의 변모</h2>
+    <div class="lede">규칙 기반에서 머신러닝, 생성형 AI, 그리고 에이전틱 AI까지</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">02</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="2">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 02 / 18</span></div>
+  <h4>모듈 전환 · 02:00–03:00</h4>
+  <p>첫 번째 모듈은 AI의 발전 과정입니다. AI가 4단계로 진화했다는 점을 먼저 이야기합니다.</p>
+  <p>"AI라고 하면 ChatGPT를 떠올리시겠지만, 사실 AI의 역사는 훨씬 깁니다. 오늘은 4단계로 나누어서 설명하겠습니다. 각 단계가 어떻게 다른지, 왜 다음 단계로 넘어갔는지를 이해하는 것이 중요합니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 3: AI 4단계 타임라인 개요          -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-statement" data-num="3">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-1-1</span>
+  </div>
+  <div class="body">
+    <h2>AI는 4단계를 거쳐 진화했습니다</h2>
+    <div class="lede"><strong>규칙 기반 → 머신러닝 → 생성형 AI → 에이전틱 AI</strong><span class="br"></span>각 단계마다 인간의 개입 방식이 근본적으로 바뀝니다.<span class="br"></span>에이전틱 AI는 <em>인간의 의도를 이해하고 스스로 행동하는</em> 단계입니다.</div>
+  </div>
+  <div class="meta-bottom"><span>1-1-1. AI 발전 과정</span><span><span class="num">03</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="3">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 03 / 18</span></div>
+  <h4>핵심 개념 · 03:00–06:00</h4>
+  <p>4단계를 한 줄로 소개합니다. 각 단계의 핵심 차이는 '인간의 개입 정도'입니다.</p>
+  <p>"규칙 기반은 사람이 모든 규칙을 직접 짜야 했습니다. 머신러닝은 데이터를 주면 패턴을 찾아줍니다. 생성형 AI는 질문에 답을 만들어냅니다. 그리고 에이전틱 AI는 목표만 주면 스스로 계획하고 실행합니다."</p>
+  <p>강조: "에이전틱 AI의 핵심은 '자율성'입니다. 사람이 구체적인 지시를 하나하나 내리는 게 아니라, 목표만 말하면 AI가 알아서 길을 찾아갑니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 4: 1단계 규칙 기반 AI              -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-grid cols-2" data-num="4">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-1-1</span>
+  </div>
+  <div class="body">
+    <h2>1단계: 규칙 기반 AI (~2000년대 초반)</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>동작 원리</h3>
+        <p>사람이 "A면 B하라"는 규칙을 직접 코딩합니다. IF-THEN 규칙 기반으로, 예외 상황을 모두 사람이 미리 정해야 합니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>활용 형태</h3>
+        <p>신용카드 부정 탐지, 스팸 메일 필터링, 전문가 시스템(의료 진단 보조). 규칙이 복잡해질수록 유지보수가 불가능해집니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>한계</h3>
+        <p>새로운 상황에 대응하지 못합니다. 규칙에 없는 패턴은 처리 불가. "규칙의 저주"라고 부르는 현상이 발생합니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>한계 예시</h3>
+        <p>은행에서 "5만 원 이상 해외 거래는 차단" 규칙 → 출장 중인 고객이 정상 결제도 불가. 예외 처리 규칙이 끝없이 늘어납니다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-1-1. AI 발전 과정</span><span><span class="num">04</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="4">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 04 / 18</span></div>
+  <h4>1단계 설명 · 06:00–12:00</h4>
+  <p>규칙 기반 AI는 여러분이 가장 쉽게 이해할 수 있는 형태입니다. 은행 업무와 비슷하게 생각해보세요.</p>
+  <p>"은행에서 대출 심사 규정을 생각해보세요. '연소득 4천만 원 이상, 신용등급 5등급 이내' 같은 조건을 직접 만들어야 합니다. 규칙이 100개, 1000개가 되면, 어느 규칙이 충돌하는지도 모르게 됩니다. 이게 규칙 기반 AI의 치명적 한계입니다."</p>
+  <p>스팸 필터 예시: "제목에 '무료'가 있으면 스팸" → 정상 메일도 걸러짐. 규칙 추가 → 또 예외 발생. 끝없는 싸움.</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 5: 2단계 머신러닝 & 딥러닝         -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-grid cols-2" data-num="5">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-1-1</span>
+  </div>
+  <div class="body">
+    <h2>2단계: 머신러닝 & 딥러닝 (2010년대)</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>동작 원리</h3>
+        <p>데이터를 주면 AI가 스스로 패턴을 학습합니다. 사람이 규칙을 짜는 게 아니라, 데이터에서 규칙을 찾아냅니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>활용 형태</h3>
+        <p>추천 시스템(넷플릭스, 유튜브), 음성 인식(Siri), 이미지 분류(의료 영상 진단), 이상 탐지(금융 사기 탐지).</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>한계</h3>
+        <p>학습 데이터에 없는 상황은 처리 불가. "블랙박스" 문제로 왜 그런 결론을 냈는지 설명이 어렵습니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>전환점</h3>
+        <p>2012년 ImageNet 대회에서 딥러닝이 압승. 2016년 알파고 vs 이세돌이 대중적 인식의 전환점이 되었습니다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-1-1. AI 발전 과정</span><span><span class="num">05</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="5">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 05 / 18</span></div>
+  <h4>2단계 설명 · 12:00–18:00</h4>
+  <p>머신러닝은 규칙을 사람이 짜지 않아도 된다는 점에서 혁신적이었습니다. 하지만 여전히 인간이 많은 개입을 해야 합니다.</p>
+  <p>"규칙 기반에서는 사람이 규칙을 짰다면, 머신러닝은 데이터를 주면 패턴을 찾아냅니다. 넷플릭스가 '이 영화를 본 사람들이 좋아할 영화'를 추천하는 게 머신러닝입니다."</p>
+  <p>한계 강조: "하지만 학습 데이터에 없는 건 모릅니다. 2020년 코로나 같은 전례 없는 상황에서는 머신러닝 모델들이 예측에 실패했습니다. 또 '왜 이 결론을 냈는지' 설명하기 어려운 블랙박스 문제도 있습니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 6: 3단계 생성형 AI                 -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-grid cols-2" data-num="6">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-1-1</span>
+  </div>
+  <div class="body">
+    <h2>3단계: 생성형 AI (2022~2024)</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>동작 원리</h3>
+        <p>자연어로 질문하면 AI가 답변, 코드, 이미지 등을 생성합니다. 프롬프트(지시문)가 핵심 입력입니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>활용 형태</h3>
+        <p>챗봇(ChatGPT, 클로드), 코드 생성(Copilot), 문서 요약, 번역, 이미지 생성(미드저니, DALL-E).</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>한계</h3>
+        <p>한 번에 하나의 질문에만 답합니다. 복잡한 업무 흐름은 스스로 처리하지 못합니다. 할루시네이션(환각) 문제도 존재합니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>은행 예시</h3>
+        <p>"이 계약서의 리스크를 분석해줘" → 분석 결과를 주지만, 실제 조치는 인간이 직접 해야 합니다. AI는 조언자일 뿐입니다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-1-1. AI 발전 과정</span><span><span class="num">06</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="6">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 06 / 18</span></div>
+  <h4>3단계 설명 · 18:00–24:00</h4>
+  <p>생성형 AI는 여러분이 가장 잘 아는 단계입니다. ChatGPT를 써보신 분?</p>
+  <p>"ChatGPT가 2022년 말에 나왔을 때, 세상이 바뀌었다고들 했죠. 질문만 하면 답을 주니까요. 하지만 한계가 있습니다. 한 번에 하나의 질문에만 답합니다. '이 계약서 리스크 분석해줘'라고 하면 분석은 해주지만, 다음에 뭘 해야 하는지는 알려주지 않습니다."</p>
+  <p>은행 비유: "생성형 AI는 똑똑한 컨설턴트와 같습니다. 질문하면 답은 잘해주지만, 스스로 업무를 진행하지는 않습니다. 여전히 인간이 각 단계에서 개입해야 합니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 7: 4단계 에이전틱 AI               -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-statement" data-num="7">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-1-1</span>
+  </div>
+  <div class="body">
+    <h2>4단계: 에이전틱 AI —<br>목표만 말하면 알아서 한다</h2>
+    <div class="lede">생성형 AI가 <strong>조언자</strong>라면, 에이전틱 AI는 <em>실행자</em>입니다.<span class="br"></span>"이 계약서 리스크 분석하고, 이상 항목은 법무팀에 메일 보내줘"라고 하면,<span class="br"></span>AI가 <strong>계획을 세우고, 필요한 도구를 호출하며, 결과를 검증</strong>합니다.</div>
+  </div>
+  <div class="meta-bottom"><span>1-1-1. AI 발전 과정</span><span><span class="num">07</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="7">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 07 / 18</span></div>
+  <h4>4단계 핵심 · 24:00–28:00</h4>
+  <p>에이전틱 AI의 본질을 설명합니다. "조언자 vs 실행자" 비유가 가장 직관적입니다.</p>
+  <p>"지금까지의 AI는 질문에 답하는 조언자였습니다. 에이전틱 AI는 목표를 주면 스스로 계획을 세우고 실행하는 실행자입니다."</p>
+  <p>은행 비유: "생성형 AI는 '이 계약서의 리스크가 뭔가요?'라고 물어보면 답을 줍니다. 에이전틱 AI는 '계약서 100개 리스크 분석해줘'라고 하면, 파일을 열고, 분석하고, 이상 항목은 법무팀에 메일까지 보내줍니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 8: Section Divider 1.1             -->
+<!-- ════════════════════════════════════════ -->
+<section id="mod-1-1-2" class="slide layout-divider" data-num="8">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>MODULE 1-1-2</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-1-2</div>
+    <h2>에이전틱 AI의<br>실제 서비스와 핵심 도구</h2>
+    <div class="lede">Cursor, OpenClaw, Claude Code — 에이전틱 도구의 진화</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">08</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="8">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 08 / 18</span></div>
+  <h4>모듈 전환 · 28:00–29:00</h4>
+  <p>두 번째 모듈은 실제 에이전틱 AI 서비스를 살펴보는 시간입니다.</p>
+  <p>"이론은 충분하니, 이제 실제로 어떤 도구들이 있는지 봅시다. 3가지 대표적인 에이전틱 AI 도구를 비교해보겠습니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 9: 진화 타임라인                  -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-statement" data-num="9">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-1-2</span>
+  </div>
+  <div class="body">
+    <h2>에이전틱 코딩 도구의 진화</h2>
+    <div class="lede"><strong>Cursor</strong> → <strong>OpenClaw (오픈소스)</strong> → <strong>Claude Code</strong><span class="br"></span>각 도구는 앞선 도구의 한계를 극복하며 발전했습니다.<span class="br"></span>그리고 Hermes Agent는 <em>범용 에이전틱 AI</em>로 코딩을 넘어 모든 업무에 적용 가능합니다.</div>
+  </div>
+  <div class="meta-bottom"><span>1-1-2. 에이전틱 AI 서비스</span><span><span class="num">09</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="9">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 09 / 18</span></div>
+  <h4>진화 개요 · 29:00–31:00</h4>
+  <p>세 가지 도구를 한 줄씩 소개하고, 다음 슬라이드에서 각각 자세히 다룹니다.</p>
+  <p>"Cursor는 코드 에디터 안에서 AI를 쓰는 도구였습니다. OpenClaw는 그 한계를 넘어 터미널에서도 작동하게 만들었죠. Claude Code는 더 나아가 자율적으로 코드를 작성하고 수정합니다. 그리고 Hermes는 코딩뿐 아니라 모든 업무에 적용할 수 있는 범용 에이전트입니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 10: Cursor 상세                   -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-grid cols-2" data-num="10">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-1-2</span>
+  </div>
+  <div class="body">
+    <h2>Cursor — 에이전틱 코딩의 시초</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>개념</h3>
+        <p>VS Code 기반 에디터에 AI를 통합. 코드 작성 중 자동완성, 채팅으로 코드 수정, 멀티 파일 편집을 지원합니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>강점</h3>
+        <p>기존 개발 워크플로우에 자연스럽게 통합. IDE 안에서 벗어나지 않고 AI를 활용할 수 있습니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>한계</h3>
+        <p>에디터 환경에 종속. 터미널 명령, 파일 시스템 조작 등 에디터 밖 작업에는 제한적입니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>의의</h3>
+        <p>"AI가 내 옆에서 코딩을 돕는다"는 개념을 처음으로 제대로 구현한 도구. 에이전틱 코딩의 출발점.</p>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-1-2. 에이전틱 AI 서비스</span><span><span class="num">10</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="10">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 10 / 18</span></div>
+  <h4>Cursor 설명 · 31:00–34:00</h4>
+  <p>Cursor는 에이전틱 코딩이라는 개념을 대중화시킨 선구자입니다.</p>
+  <p>"Cursor를 써보신 분 계신가요? VS Code와 비슷한 에디터인데, 옆에 AI 채팅창이 있어서 '이 함수를 최적화해줘'라고 하면 코드를 수정해줍니다. 아주 편리하죠."</p>
+  <p>"하지만 에디터 안에서만 작동합니다. 터미널 명령을 실행하거나, 파일을 만들고, 다른 프로그램과 연동하는 건 어렵습니다. 이 한계를 넘고 싶어서 등장한 게 다음 도구입니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 11: OpenClaw 상세                 -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-grid cols-2" data-num="11">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-1-2</span>
+  </div>
+  <div class="body">
+    <h2>OpenClaw — 오픈소스 에이전틱 코딩</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>개념</h3>
+        <p>터미널 기반 오픈소스 코딩 에이전트. 에디터 없이도 파일 읽기, 쓰기, 터미널 명령 실행이 가능합니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>강점</h3>
+        <p>에디터 환경을 벗어나 터미널에서 자유롭게 작업. 오픈소스이므로 커스터마이징과 확장이 자유롭습니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>한계</h3>
+        <p>설정이 복잡하고, 초보자가 쓰기에는 진입 장벽이 높습니다. 커뮤니티 중심이라 안정성이 떨어질 수 있습니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>의의</h3>
+        <p>"에디터를 벗어나 터미널에서 AI가 작동한다"는 가능성을 보여줌. 코딩 에이전트의 범위를 넓힌 도구.</p>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-1-2. 에이전틱 AI 서비스</span><span><span class="num">11</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="11">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 11 / 18</span></div>
+  <h4>OpenClaw 설명 · 34:00–37:00</h4>
+  <p>OpenClaw는 Cursor의 한계를 넘어선 도구입니다.</p>
+  <p>"Cursor가 에디터 안에 갇혀 있었다면, OpenClaw는 터미널에서 작동합니다. 파일을 읽고, 쓰고, 터미널 명령을 실행할 수 있으니 훨씬 자유롭죠. 오픈소스라서 원하는 대로 고칠 수도 있습니다."</p>
+  <p>"하지만 설정이 복잡하고, 에러 메시지도 영어로 나오니까 처음 쓰는 분들은 어려울 수 있습니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 12: Claude Code 상세              -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-grid cols-2" data-num="12">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-1-2</span>
+  </div>
+  <div class="body">
+    <h2>Claude Code — 자율적 코딩 에이전트</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>개념</h3>
+        <p>Anthropic의 Claude를 기반으로 한 터미널 코딩 에이전트. 자율적으로 코드를 읽고, 수정하고, 테스트까지 실행합니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>강점</h3>
+        <p>높은 자율성. "이 버그를 고쳐줘"라고 하면 파일을 찾고, 원인을 분석하고, 수정까지 자동으로 진행합니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>한계</h3>
+        <p>코딩에 특화. 코딩 외 업무(이메일, 문서 작성, 데이터 분석 등)에는 사용 불가. Claude 모델에 종속.</p>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>의의</h3>
+        <p>"자율적 코딩"이라는 개념을 현실로 만든 도구. 하지만 여전히 코딩 영역에만 국한된다는 한계가 있습니다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-1-2. 에이전틱 AI 서비스</span><span><span class="num">12</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="12">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 12 / 18</span></div>
+  <h4>Claude Code 설명 · 37:00–40:00</h4>
+  <p>Claude Code는 코딩 에이전트의 완성형에 가깝습니다.</p>
+  <p>"Claude Code는 '이 버그를 고쳐줘'라고만 하면, 파일을 읽고, 원인을 파악하고, 수정할 코드를 작성하고, 테스트까지 실행합니다. 거의 사람처럼 일하죠."</p>
+  <p>"하지만 코딩만 합니다. '오늘 회의록을 정리해줘'나 '이 데이터로 리포트를 만들어줘' 같은 요청은 처리하지 못합니다. 이게 바로 코딩 특화 에이전트의 한계입니다."</p>
+  <p>다음 슬라이드에서 비교표로 정리합니다.</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 13: 생성형 AI vs 에이전틱 AI 비교  -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-compare" data-num="13">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-1-2</span>
+  </div>
+  <div class="body">
+    <h2>생성형 AI vs 에이전틱 AI</h2>
+    <div class="grid">
+      <div class="col">
+        <div class="tag">생성형 AI</div>
+        <h3>질문에 답하는 조언자</h3>
+        <ul>
+          <li>프롬프트 기반 1회성 응답</li>
+          <li>인간이 각 단계에서 개입</li>
+          <li>도구 접근 불가 (파일, 터미널 등)</li>
+          <li>컨텍스트(맥락) 유지 어려움</li>
+          <li>예: ChatGPT, 클로드 챗봇</li>
+        </ul>
+      </div>
+      <div class="vline"></div>
+      <div class="col">
+        <div class="tag">에이전틱 AI</div>
+        <h3>목표를 달성하는 실행자</h3>
+        <ul>
+          <li>목표 기반 다단계 자동 실행</li>
+          <li>AI가 스스로 계획, 실행, 검증</li>
+          <li>도구 호출 가능 (파일, API, 터미널)</li>
+          <li>장기 기억과 컨텍스트 유지</li>
+          <li>예: Hermes Agent, Claude Code</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-1-2. 에이전틱 AI 서비스</span><span><span class="num">13</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="13">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 13 / 18</span></div>
+  <h4>비교 설명 · 40:00–44:00</h4>
+  <p>양쪽을 하나씩 비교하며 읽어줍니다. 가장 중요한 차이는 '조언자 vs 실행자'입니다.</p>
+  <p>"생성형 AI는 질문에 답은 잘하지만, 다음에 뭘 해야 할지는 알려주지 않습니다. 에이전틱 AI는 목표만 주면 알아서 계획을 세우고, 필요한 도구를 부르고, 결과를 검증합니다."</p>
+  <p>은행 비유: "생성형 AI는 '이 계약서의 리스크가 뭐예요?'라고 물으면 답은 해줍니다. 에이전틱 AI는 '리스크 분석해서 이상 항목은 법무팀에 메일 보내줘'라고 하면, 분석부터 메일 발송까지 다 해줍니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 14: Section Divider 1.2            -->
+<!-- ════════════════════════════════════════ -->
+<section id="mod-1-1-3" class="slide layout-divider" data-num="14">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>MODULE 1-1-3</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-1-3</div>
+    <h2>Hermes Agent의<br>3대 핵심 구조</h2>
+    <div class="lede">장기 기억 · 도구 활용 · 스킬 시스템</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">14</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="14">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 14 / 18</span></div>
+  <h4>모듈 전환 · 44:00–45:00</h4>
+  <p>세 번째 모듈은 Hermes Agent의 핵심 구조를 이해하는 시간입니다.</p>
+  <p>"지금까지 에이전틱 AI가 뭔지, 어떤 도구들이 있는지 알아봤습니다. 이제 우리가 직접 쓸 Hermes Agent가 어떻게 구성되어 있는지 파헤쳐 보겠습니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 15: Hermes 3대 핵심 구조 (3칸)    -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-grid cols-3" data-num="15">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-1-3</span>
+  </div>
+  <div class="body">
+    <h2>Hermes Agent의 3대 핵심</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>장기 기억<br>Memory</h3>
+        <p>대화가 끝나도 기억합니다. 사용자의 선호, 프로젝트 정보, 이전 작업 내용을 세션 간에 유지합니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>도구 활용<br>Tools</h3>
+        <p>웹 검색, 파일 읽기/쓰기, 터미널 명령, 이메일 발송 등 다양한 도구를 직접 호출하여 작업을 수행합니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>스킬 시스템<br>Skills</h3>
+        <p>반복 작업을 스킬로 저장하고 재사용합니다. "이렇게 하세요"를 한 번 가르치면, 다음에는 자동으로 수행합니다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-1-3. Hermes Agent 구조</span><span><span class="num">15</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="15">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 15 / 18</span></div>
+  <h4>3대 핵심 · 45:00–50:00</h4>
+  <p>Hermes Agent가 다른 AI와 다른 점은 이 세 가지입니다. 하나씩 자세히 설명합니다.</p>
+  <p>"일반 챗봇은 대화가 끝나면 기억도 사라집니다. Hermes는 장기 기억이 있어서, 지난번에 말씀하신 내용을 기억합니다."</p>
+  <p>"도구 활용은 Hermes가 단순히 대화만 하는 게 아니라, 실제로 파일을 만들고, 웹을 검색하고, 이메일을 보낼 수 있다는 뜻입니다."</p>
+  <p>"스킬 시스템은 '이렇게 하세요'를 한 번만 가르치면, 다음부터는 자동으로 한다는 뜻입니다. 은행에서 '대출 심사는 이 순서대로 해주세요'라고 한 번 알려주면, 다음부터는 자동으로 처리합니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 16: Section Divider 1.3            -->
+<!-- ════════════════════════════════════════ -->
+<section id="mod-1-1-4" class="slide layout-divider" data-num="16">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>MODULE 1-1-4</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-1-4</div>
+    <h2>우리 직무 활용 예시</h2>
+    <div class="lede">영업직, 구매대행, 은행원 — 각 직무에서 에이전틱 AI가 어떻게 도움이 되는지</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">16</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="16">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 16 / 18</span></div>
+  <h4>모듈 전환 · 50:00–51:00</h4>
+  <p>마지막 모듈은 실제 직무 활용 예시입니다.</p>
+  <p>"지금까지 이론과 도구를 알아봤습니다. 이제 '그래서 우리 업무에 어떻게 쓰이나요?'라는 질문에 답해보겠습니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 17: 직무별 활용 예시 (3칸)         -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-grid cols-3" data-num="17">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-1-4</span>
+  </div>
+  <div class="body">
+    <h2>직무별 에이전틱 AI 활용</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">영업직</div>
+        <h3>고객 관리 자동화</h3>
+        <p>고객 이메일 요약, 미팅 후 자동 follow-up, 제안서 초안 작성, CRM 데이터 분석 및 인사이트 리포트 생성</p>
+      </div>
+      <div class="card">
+        <div class="num">구매대행</div>
+        <h3>쇼핑몰 사장님</h3>
+        <p>재고 부족 알림, 경쟁사 가격 모니터링, 발주서 자동 작성, 고객 리뷰 분석 및 개선점 도출</p>
+      </div>
+      <div class="card">
+        <div class="num">은행원</div>
+        <h3>업무 효율화</h3>
+        <p>계약서 리스크 분석, 규제 변경 사항 모니터링, 보고서 초안 작성, 이상 거래 탐지 및 알림</p>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-1-4. 직무 활용 예시</span><span><span class="num">17</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="17">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 17 / 18</span></div>
+  <h4>직무 예시 · 51:00–56:00</h4>
+  <p>세 가지 직무 예시를 하나씩 설명합니다. 수강생의 실제 업무와 연결 지어 설명합니다.</p>
+  <p>"영업직이면 고객 이메일이 하루에 몇 통이나 오나요? Hermes가 이메일을 읽고 요약해주면, 미팅 전 준비 시간이 절반으로 줄어듭니다."</p>
+  <p>"쇼핑몰을 운영하시는 분들은 재고 관리가 가장 힘드시죠? Hermes가 재고가 떨어지면 알려주고, 경쟁사 가격까지 비교해 줍니다."</p>
+  <p>"은행원 분들은 규제가 계속 바뀌잖아요? Hermes가 규제 변경 사항을 추적하고, 우리 은행에 미치는 영향까지 분석해 줍니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 18: 마무리 + 2교시 연결 멘트       -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-cover closing" data-num="18">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>2026</span>
+  </div>
+  <div class="body">
+    <div>
+      <h1>1교시 마무리</h1>
+      <p class="subtitle">AI의 발전 과정을 이해하고, 에이전틱 AI가 무엇인지, Hermes Agent가 어떻게 구성되어 있는지 배웠습니다.</p>
+    </div>
+    <div class="by">
+      <div class="who">
+        <span class="name">에이전틱 AI · 1회차</span>
+        <span class="role">Part 1 완료</span>
+      </div>
+      <div class="stamp toc-area" aria-label="다음 파트">
+        <span class="toc-label">다음</span>
+        <a class="toc-chapter" href="./part-02-install.html">2교시: Hermes Desktop 설치 및 환경 설정</a>
+        <a class="toc-module" href="./part-02-install.html">직접 다운로드하고 설치하는 실습 시간</a>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>CLOSING</span><span><span class="num">18</span> / 18</span></div>
+</section>
+<aside class="notes" data-for="18">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 18 / 18</span></div>
+  <h4>마무리 · 56:00–60:00</h4>
+  <p>1교시 내용을 간단히 요약합니다.</p>
+  <p>"오늘 1교시에서 배운 내용을 정리하겠습니다. 첫째, AI는 4단계로 발전했습니다. 규칙 기반, 머신러닝, 생성형 AI, 그리고 에이전틱 AI. 둘째, 에이전틱 AI는 조언자가 아니라 실행자입니다. 목표만 주면 알아서 합니다. 셋째, Hermes Agent는 장기 기억, 도구 활용, 스킬 시스템이라는 3대 핵심으로 구성되어 있습니다."</p>
+  <p>2교시 연결: "이제 이론은 충분합니다. 2교시에서는 직접 Hermes Desktop을 설치하고, 화면을 보면서 익숙해지는 시간을 갖겠습니다."</p>
+  <p>휴식 안내 후 2교시로 이동합니다.</p>
+</aside>
+
+</main>
+<script src="./presenter.js"></script>
+</body>
+</html>
