@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>1-4. Hermes Agent 주요 모델 가이드 · 1회차 에이전틱 AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="./hyun-keynote.css" />
+</head>
+<body>
+
+<div class="toolbar">
+  <button id="btnPresent">Present (P)</button>
+  <button id="btnNotes">Notes (N)</button>
+  <button id="btnPrint">Print PDF</button>
+</div>
+<div class="helpbar"><span class="blink">▸</span>&nbsp; ←/→ navigate · P present · N notes · ESC overview · Cmd+P export PDF</div>
+
+<main class="deck" id="deck">
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 1: Cover                          -->
+<!-- ════════════════════════════════════════ -->
+<section id="part-04-cover" class="slide layout-cover" data-num="1">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>2026</span>
+  </div>
+  <div class="body">
+    <div>
+      <div class="eyebrow">PART 4 · Hermes Agent 주요 모델 가이드</div>
+      <h1 class="chapter-full-title">1-4. Hermes Agent 주요 모델 가이드</h1>
+      <p class="subtitle">OpenAI부터 OpenRouter까지 — 에이전트에 최적화된 5대 벤더별 모델 총정리</p>
+    </div>
+    <div class="by">
+      <div class="who">
+        <span class="name">에이전틱 AI · 1회차</span>
+        <span class="role">Part 4 · Hermes Agent 주요 모델 가이드</span>
+      </div>
+      <div class="stamp toc-area" aria-label="목차">
+        <span class="toc-label">목차</span>
+        <a class="toc-chapter" href="#part-04-cover">1-4. Hermes Agent 주요 모델 가이드</a>
+        <a class="toc-module" href="#mod-1-4-1">1-4-1. OpenAI</a>
+        <a class="toc-module" href="#mod-1-4-2">1-4-2. Anthropic Claude</a>
+        <a class="toc-module" href="#mod-1-4-3">1-4-3. Ollama — 로컬 LLM</a>
+        <a class="toc-module" href="#mod-1-4-4">1-4-4. DeepSeek</a>
+        <a class="toc-module" href="#mod-1-4-5">1-4-5. OpenRouter</a>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>COVER</span><span><span class="num">01</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="1">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 01 / 16</span></div>
+  <h4>오프닝 · 00:00–02:00</h4>
+  <p>파트 4에 오신 것을 환영합니다. 지금까지 구조를 배웠다면, 이제는 그 구조를 움직일 엔진, 즉 AI 모델을 선택하는 시간입니다.</p>
+  <p>"에이전트의 성능은 결국 어떤 모델을 쓰느냐에 달려 있습니다. 오늘은 OpenAI, Claude, Ollama, DeepSeek, OpenRouter까지 5개 벤더의 모델을 가격과 기능 중심으로 정리해 드리겠습니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 2: 핵심 원칙                        -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-statement huge" data-num="2">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-4</span>
+  </div>
+  <div class="body">
+    <h2>좋은 모델 선택이 에이전트 성능을 결정한다</h2>
+    <div class="lede">Hermes Agent는 매 턴마다 시스템 프롬프트, 도구 정의, 메모리 등<span class="br"></span>약 14,000토큰 이상의 고정 오버헤드가 발생한다<span class="br"></span>벤더의 <strong>가격 정책</strong>과 <strong>컨텍스트 창 크기</strong>를 신중히 고려해야 하며<span class="br"></span>도구 호출(Function Calling) 능력이 에이전트 성능의 핵심이다</div>
+  </div>
+  <div class="meta-bottom"><span>1-4 · 02 / 16</span><span><span class="num">02</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="2">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 02 / 16</span></div>
+  <h4>핵심 원칙 · 02:00–04:00</h4>
+  <p>에이전트는 매 턴 약 14,000토큰의 오버헤드를 발생시킵니다. 따라서 가격 정책과 컨텍스트 창 크기를 반드시 고려해야 합니다.</p>
+  <p>"단순 채팅과 달리, 에이전트는 매번 시스템 프롬프트와 도구 정의를 전송합니다. 입력 토큰 비용이 생각보다 크게 나올 수 있습니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 3: 5대 벤더 한눈에 비교             -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-grid cols-3" data-num="3">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-4</span>
+  </div>
+  <div class="body">
+    <h2>5대 벤더, 한눈에 비교</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>OpenAI</h3>
+        <p>안정적 도구 호출, 자동 프롬프트 캐싱으로 반복 오버헤드 90% 할인</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>Anthropic Claude</h3>
+        <p>에이전트 커뮤니티 1순위 추천, Computer Use·코드베이스 분석 독보적</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>Ollama</h3>
+        <p>API 비용 0원, 100% 로컬 개인화, VRAM에 따라 컨텍스트·속도 제한</p>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>DeepSeek</h3>
+        <p>Frontier급 성능에 90% 이상 저렴, 극도의 가성비 상용 API</p>
+      </div>
+      <div class="card">
+        <div class="num">05</div>
+        <h3>OpenRouter</h3>
+        <p>400+ 모델 통합, 자동 페일오버, 20여 개 무료 모델 제공</p>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-4 · 03 / 16</span><span><span class="num">03</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="3">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 03 / 16</span></div>
+  <h4>벤더 개요 · 04:00–07:00</h4>
+  <p>5대 벤더를 한눈에 비교합니다. 각 벤더는 뚜렷한 강점과 용도가 있습니다.</p>
+  <p>"OpenAI는 안정성, Claude는 에이전트 특화, Ollama는 무료, DeepSeek는 가성비, OpenRouter는 통합 관리가 핵심입니다. 용도에 맞게 선택하는 것이 중요합니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 4: Section Divider — OpenAI       -->
+<!-- ════════════════════════════════════════ -->
+<section id="mod-1-4-1" class="slide layout-divider" data-num="4">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>MODULE 1-4-1</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-4-1</div>
+    <h2>OpenAI</h2>
+    <div class="lede">가장 안정적인 Function Calling, 프롬프트 캐싱 자동 적용으로 반복 오버헤드 비용 절감</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">04</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="4">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 04 / 16</span></div>
+  <h4>모듈 전환 · 07:00–08:00</h4>
+  <p>OpenAI 모듈을 시작합니다. 가장 안정적인 Function Calling과 자동 프롬프트 캐싱이 핵심입니다.</p>
+  <p>"OpenAI는 Hermes Agent에서 가장 무난하게 작동합니다. 특히 프롬프트 캐싱 덕분에 매 턴 반복되는 시스템 프롬프트 비용을 90% 절감할 수 있습니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 5: OpenAI 주요 모델                -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-table" data-num="5">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-4-1</span>
+  </div>
+  <div class="body">
+    <h2>OpenAI — 주요 모델</h2>
+    <table>
+      <thead>
+        <tr><th>모델</th><th>특징</th><th>입력($/1M)</th><th>출력($/1M)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="k">gpt-5.4 / 5.5 Pro</td><td>최고 사양 플래그십, 복잡한 멀티스텝 의사결정</td><td>2.50~5.00</td><td>15.00~30.00</td></tr>
+        <tr><td class="k">o3-mini / o4-mini</td><td>복잡한 코딩·브라우저·서브에이전트 최적화 추론</td><td>0.75</td><td>4.50</td></tr>
+        <tr><td class="k">gpt-4o / 4o-mini</td><td>범용 에이전트 표준 모델</td><td>2.50</td><td>10.00</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="meta-bottom"><span>1-4-1 · 05 / 16</span><span><span class="num">05</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="5">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 05 / 16</span></div>
+  <h4>OpenAI 모델 · 08:00–12:00</h4>
+  <p>OpenAI의 주요 모델을 가격과 특징으로 비교합니다.</p>
+  <p>"GPT-5.4/5.5 Pro는 최고 성능이지만 출력 비용이 매우 높습니다. o3-mini는 추론에 최적화되어 있고, GPT-4o는 범용 표준입니다. 프롬프트 캐싱이 적용되면 입력 비용이 90% 절감된다는 점을 기억하세요."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 6: Section Divider — Claude       -->
+<!-- ════════════════════════════════════════ -->
+<section id="mod-1-4-2" class="slide layout-divider" data-num="6">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>MODULE 1-4-2</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-4-2</div>
+    <h2>Anthropic Claude</h2>
+    <div class="lede">Hermes Agent 커뮤니티·공식 문서 가장 추천, Computer Use·코드베이스 분석 독보적</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">06</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="6">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 06 / 16</span></div>
+  <h4>모듈 전환 · 12:00–13:00</h4>
+  <p>Claude 모듈을 시작합니다. 커뮤니티와 공식 문서에서 가장 추천하는 벤더입니다.</p>
+  <p>"Claude는 Hermes Agent 개발자들 사이에서 1순위로 꼽힙니다. 특히 Computer Use와 코드베이스 분석 능력이 탁월합니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 7: Claude 주요 모델                -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-table" data-num="7">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-4-2</span>
+  </div>
+  <div class="body">
+    <h2>Claude — 주요 모델</h2>
+    <table>
+      <thead>
+        <tr><th>모델</th><th>특징</th><th>입력($/1M)</th><th>출력($/1M)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="k">claude-sonnet-4</td><td>자율 에이전트 워크플로우 최적화, 도구 이행률 최고</td><td>3.00</td><td>15.00</td></tr>
+        <tr><td class="k">claude-3.7-sonnet</td><td>Extended Thinking 내장, 복잡한 코드베이스 분석</td><td>3.00</td><td>15.00</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="meta-bottom"><span>1-4-2 · 07 / 16</span><span><span class="num">07</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="7">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 07 / 16</span></div>
+  <h4>Claude 모델 · 13:00–16:00</h4>
+  <p>Claude의 두 주요 모델을 비교합니다.</p>
+  <p>"Sonnet 4는 최신 자율 에이전트 워크플로우에 최적화되어 있습니다. 3.7 Sonnet은 Extended Thinking이 내장되어 있어 복잡한 코드베이스 분석에 강점을 보입니다. 가격은 둘 다 입력 $3, 출력 $15로 동일합니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 8: Section Divider — Ollama       -->
+<!-- ════════════════════════════════════════ -->
+<section id="mod-1-4-3" class="slide layout-divider" data-num="8">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>MODULE 1-4-3</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-4-3</div>
+    <h2>Ollama — 로컬 LLM</h2>
+    <div class="lede">API 비용 0원, 100% 개인화, VRAM에 따라 컨텍스트·속도 제한</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">08</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="8">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 08 / 16</span></div>
+  <h4>모듈 전환 · 16:00–17:00</h4>
+  <p>Ollama 모듈을 시작합니다. API 비용이 0원인 것이 가장 큰 장점입니다.</p>
+  <p>"Ollama는 모든 처리가 로컬에서 이루어지기 때문에 API 비용이 전혀 들지 않습니다. 다만, VRAM 크기에 따라 사용 가능한 모델 크기와 컨텍스트 창이 제한됩니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 9: Ollama 주요 모델                -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-table" data-num="9">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-4-3</span>
+  </div>
+  <div class="body">
+    <h2>Ollama — 주요 모델</h2>
+    <table>
+      <thead>
+        <tr><th>모델</th><th>규모</th><th>특징</th><th>입력($)</th><th>출력($)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="k">hermes3:8b / hermes3:70b</td><td>8B / 70B</td><td>Nous Research 직접 튜닝, Function Calling 최적화</td><td>0</td><td>0</td></tr>
+        <tr><td class="k">qwen3:32b</td><td>32B</td><td>로컬 최고 추천, 도구 호출·한국어 강점</td><td>0</td><td>0</td></tr>
+        <tr><td class="k">gemma4</td><td>9B ~ 16B</td><td>로컬 추론·코드 강점, Google 개발</td><td>0</td><td>0</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="meta-bottom"><span>1-4-3 · 09 / 16</span><span><span class="num">09</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="9">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 09 / 16</span></div>
+  <h4>Ollama 모델 · 17:00–20:00</h4>
+  <p>Ollama에서 사용할 수 있는 주요 모델을 소개합니다.</p>
+  <p>"Hermes 3는 Nous Research가 직접 튜닝한 모델로, Hermes Agent와 궁합이 가장 좋습니다. Qwen 3.5/3.6은 로컬에서 한국어 성능이 뛰어나 실무에 가장 추천합니다. 모두 무료라는 것이 가장 큰 장점입니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 10: Section Divider — DeepSeek    -->
+<!-- ════════════════════════════════════════ -->
+<section id="mod-1-4-4" class="slide layout-divider" data-num="10">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>MODULE 1-4-4</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-4-4</div>
+    <h2>DeepSeek</h2>
+    <div class="lede">Frontier급 성능에 90% 이상 저렴, 극도의 가성비 상용 API</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">10</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="10">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 10 / 16</span></div>
+  <h4>모듈 전환 · 20:00–21:00</h4>
+  <p>DeepSeek 모듈을 시작합니다. Frontier급 성능을 90% 이상 저렴하게 제공합니다.</p>
+  <p>"DeepSeek는 OpenAI나 Claude와 동급의 성능을 내면서도 가격이 10분의 1 수준입니다. 특히 V4 Flash는 입력 $0.14로 극단적인 가성비를 자랑합니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 11: DeepSeek 주요 모델             -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-table" data-num="11">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-4-4</span>
+  </div>
+  <div class="body">
+    <h2>DeepSeek — 주요 모델</h2>
+    <table>
+      <thead>
+        <tr><th>모델</th><th>특징</th><th>입력($/1M)</th><th>출력($/1M)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="k">deepseek-r1</td><td>671B MoE, o1/o3 대등 추론 성능</td><td>0.55</td><td>2.19</td></tr>
+        <tr><td class="k">deepseek-v4-flash</td><td>2026 최신, 초저가 단순 도구 호출 최적화</td><td>0.14</td><td>0.28</td></tr>
+        <tr><td class="k">deepseek-v3 / v3.2</td><td>671B MoE 범용 모델, 안정적 성능</td><td>0.27</td><td>1.10</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="meta-bottom"><span>1-4-4 · 11 / 16</span><span><span class="num">11</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="11">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 11 / 16</span></div>
+  <h4>DeepSeek 모델 · 21:00–24:00</h4>
+  <p>DeepSeek의 주요 모델을 가격과 특징으로 비교합니다.</p>
+  <p>"R1은 671B MoE로 o1/o3와 대등한 추론 성능을 내면서도 입력 $0.55에 불과합니다. V4 Flash는 입력 $0.14로 거의 무료에 가까운 수준입니다. 비용 민감 프로젝트라면 DeepSeek를 먼저 고려하세요."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 12: Section Divider — OpenRouter  -->
+<!-- ════════════════════════════════════════ -->
+<section id="mod-1-4-5" class="slide layout-divider" data-num="12">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>MODULE 1-4-5</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1-4-5</div>
+    <h2>OpenRouter</h2>
+    <div class="lede">400+ 모델을 단일 API로, 자동 페일오버, 20여 개 무료 모델 제공</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">12</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="12">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 12 / 16</span></div>
+  <h4>모듈 전환 · 24:00–25:00</h4>
+  <p>OpenRouter 모듈을 시작합니다. 단일 API 키로 400개 이상의 모델을 사용할 수 있습니다.</p>
+  <p>"OpenRouter는 모든 벤더의 모델을 하나의 API 키로 통합 관리할 수 있습니다. 공급자 장애 시 자동 페일오버도 지원하고, 무료 모델도 20여 개나 제공합니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 13: OpenRouter 주요 특징           -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-grid cols-2 compact-practice" data-num="13">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-4-5</span>
+  </div>
+  <div class="body">
+    <h2>OpenRouter — 주요 특징 및 추천 slugs</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>통합 관리</h3>
+        <p>단일 API 키로 모든 벤더 모델 호출 가능. provider와 model slug만 바꾸면 즉시 전환됩니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>자동 페일오버</h3>
+        <p>공급자 장애 시 자동으로 다른 공급자로 전환. 서비스 중단 없이 안정적인 운영이 가능합니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>추천 slugs</h3>
+        <p>anthropic/claude-sonnet-4, openai/gpt-5.4 등 벤더별 slug 지원. Qwen3.6 Plus는 $0.325/$1.95로 가성비 우수.</p>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>무료 모델</h3>
+        <p>openrouter/free — Llama, Mistral 등 20여 개 모델을 무료로 테스트 가능. 초기 학습과 실험에 최적.</p>
+      </div>
+    </div>
+    <div class="practice-checklist">
+      <h3>OpenRouter 설정 예시</h3>
+      <ul>
+        <li><strong>provider</strong>: openrouter</li>
+        <li><strong>model</strong>: anthropic/claude-sonnet-4</li>
+      </ul>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-4-5 · 13 / 16</span><span><span class="num">13</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="13">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 13 / 16</span></div>
+  <h4>OpenRouter 특징 · 25:00–30:00</h4>
+  <p>OpenRouter의 핵심 기능과 설정 방법을 설명합니다.</p>
+  <p>"OpenRouter는 provider를 openrouter로, model을 벤더별 slug로 설정하기만 하면 바로 사용할 수 있습니다. 처음 시작하신다면 OpenRouter로 여러 모델을 테스트해 보는 것을 강력히 추천합니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 14: 5대 벤더 종합 추천 요약           -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-table" data-num="14">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-4</span>
+  </div>
+  <div class="body">
+    <h2>5대 벤더 종합 추천 요약</h2>
+    <table>
+      <thead>
+        <tr><th>벤더</th><th>추천 활용 목적</th><th>비용 부담</th><th>추천 최신 모델</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="k">OpenAI</td><td>안정적인 도구 활용 및 종합 자동화 업무</td><td>중등~높음</td><td>o3-mini, gpt-5.4</td></tr>
+        <tr><td class="k">Anthropic</td><td>Hermes Agent 최적 권장, 컴퓨터 제어 및 코딩</td><td>중등</td><td>claude-sonnet-4</td></tr>
+        <tr><td class="k">Ollama</td><td>100% 개인정보 보호, 무제한 무료 로컬 구동</td><td>무료</td><td>hermes3:8b/70b, qwen3:32b</td></tr>
+        <tr><td class="k">DeepSeek</td><td>상용 API 중 압도적인 가성비 추론 에이전트 구축</td><td>매우 낮음</td><td>deepseek-r1, v4-flash</td></tr>
+        <tr><td class="k">OpenRouter</td><td>단 하나의 키로 수많은 모델을 유연하게 교체 및 테스트</td><td>모델별 상이 (+5.5%)</td><td>상기 전 모델 및 openrouter/free</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="meta-bottom"><span>1-4 · 14 / 16</span><span><span class="num">14</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="14">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 14 / 16</span></div>
+  <h4>종합 요약 · 30:00–35:00</h4>
+  <p>5대 벤더를 한눈에 비교합니다. 용도와 비용을 동시에 고려한 선택 가이드입니다.</p>
+  <p>"이 표 하나로 5개 벤더의 포지셔닝이 정리됩니다. 비용은 무료인 Ollama부터 중등인 Claude, 높은 OpenAI까지. 용도에 맞게 선택하세요. OpenRouter를 게이트웨이로 쓰면 이 모든 모델을 하나의 키로 쓸 수 있습니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 15: 용도별 추천 가이드              -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-story" data-num="15">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>1-4</span>
+  </div>
+  <div class="body">
+    <h2>용도별 추천 가이드</h2>
+    <div class="stack">
+      <div class="row"><span class="n">01</span><p><strong>실무 에이전트 운영</strong> → claude-sonnet-4 (가장 안정적인 도구 이행률)</p></div>
+      <div class="row"><span class="n">02</span><p><strong>비용 민감 프로젝트</strong> → deepseek-v4-flash ($0.14/1M 입력)</p></div>
+      <div class="row"><span class="n">03</span><p><strong>복잡한 코딩·추론</strong> → o3-mini / deepseek-r1</p></div>
+      <div class="row"><span class="n">04</span><p><strong>100% 로컬·보안</strong> → Ollama + hermes3:8b / qwen3:32b</p></div>
+      <div class="row"><span class="n">05</span><p><strong>모델 탐색·테스트</strong> → OpenRouter (단일 키로 전환, openrouter/free 활용)</p></div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1-4 · 15 / 16</span><span><span class="num">15</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="15">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 15 / 16</span></div>
+  <h4>추천 가이드 · 35:00–40:00</h4>
+  <p>용도별로 어떤 모델을 선택해야 하는지 정리합니다.</p>
+  <p>"실무에서는 Claude Sonnet 4가 가장 안정적입니다. 비용이 중요하다면 DeepSeek V4 Flash, 복잡한 코딩은 o3-mini나 R1, 보안이 중요하면 Ollama로 로컬에서, 그리고 모델 탐색은 OpenRouter로 시작하세요."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 16: Closing                        -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-cover closing" data-num="16">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · 1회차 · KEYNOTE</span>
+    <span>2026</span>
+  </div>
+  <div class="body">
+    <div>
+      <div class="eyebrow">PART 4 · Hermes Agent 주요 모델 가이드</div>
+      <h1>좋은 모델과 좋은 설계가 만날 때 에이전트는 완성된다</h1>
+      <p class="subtitle">벤더 특성과 가격 정책을 이해하고, 용도에 맞는 모델을 선택하세요. OpenRouter로 시작해 점진적으로 최적화하는 것을 추천합니다.</p>
+    </div>
+    <div class="by">
+      <div class="who">
+        <span class="name">에이전틱 AI · 1회차</span>
+        <span class="role">4교시 완료</span>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>CLOSING</span><span><span class="num">16</span> / 16</span></div>
+</section>
+<aside class="notes" data-for="16">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 16 / 16</span></div>
+  <h4>클로징 · 40:00–42:00</h4>
+  <p>파트 4를 마무리합니다. 모델 선택의 핵심을 다시 강조합니다.</p>
+  <p>"오늘 4교시에서는 5대 벤더의 모델을 가격과 특징 중심으로 살펴봤습니다. 좋은 모델과 좋은 설계가 만날 때 진정한 에이전트가 완성됩니다. OpenRouter로 시작해 점진적으로 최적화하세요. 감사합니다!"</p>
+</aside>
+
+</main>
+<script src="./presenter.js"></script>
+</body>
+</html>
