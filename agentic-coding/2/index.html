@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>1회차 · 에이전틱 코딩 — 개발 패러다임의 변화와 필수 기초</title>
+<style>
+:root{--bg:#FFFFFF;--bg-2:#F7F3EF;--ink:#0A0A0A;--ink-2:#3A3A38;--ink-3:#78746E;--rule:#0A0A0A;--rule-soft:#D8D2CC;--accent:#C15F3C;--accent-dark:#8F3E27;--green:#4F6651;--mono:'SF Mono','Apple SD Gothic Neo',ui-monospace,Menlo,Consolas,monospace;--sans:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Segoe UI',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+.page{min-height:100vh;display:flex;flex-direction:column}
+.shell{width:min(1120px,calc(100vw - 40px));margin:0 auto}
+.topline{border-bottom:1.5px solid var(--rule);padding:34px 0 18px}
+.topline-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+.brand a{display:flex;align-items:center;gap:12px}
+.mark{width:14px;height:14px;border:1.5px solid var(--ink);border-radius:50%;position:relative;flex:0 0 auto}
+.mark::after{content:'';position:absolute;top:50%;left:50%;width:5px;height:5px;background:var(--accent);border-radius:50%;transform:translate(-50%,-50%)}
+.breadcrumb{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.breadcrumb a{color:var(--ink-2);border-bottom:1px solid var(--rule-soft);padding-bottom:1px;transition:border-color .14s,color .14s}
+.breadcrumb a:hover{color:var(--accent);border-color:var(--accent)}
+.count{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.hero{padding:88px 0 70px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+h1{font-size:clamp(44px,7vw,84px);line-height:1;letter-spacing:-.04em;font-weight:800;max-width:780px}
+.summary{font-size:19px;line-height:1.55;color:var(--ink-2);max-width:760px;margin-top:26px}
+.list{border-top:1.5px solid var(--rule);margin-bottom:82px}
+.item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center;border-bottom:1px solid var(--rule-soft);padding:26px 0}
+.item:focus-within{outline:3px solid #FAEEE9;outline-offset:4px}
+.item-main{min-width:0}
+.item-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+.item-title{font-size:26px;line-height:1.22;letter-spacing:-.018em;font-weight:760}
+.item-meta{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.item-link{display:inline-flex;align-items:center;gap:10px;border:1.5px solid var(--rule);padding:12px 14px;font-family:var(--mono);font-size:12px;letter-spacing:.13em;text-transform:uppercase;background:#fff;transition:background .14s,color .14s,border-color .14s}
+.item-link:hover,.item-link:focus-visible{background:var(--accent);border-color:var(--accent);color:#fff;outline:none}
+.footer{margin-top:auto;border-top:1.5px solid var(--rule);padding:18px 0 34px}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+@media (max-width:760px){.shell{width:min(100% - 28px,1120px)}.hero{padding:54px 0 44px}.item{grid-template-columns:1fr;gap:18px;padding:22px 0}.item-title{font-size:21px}.item-link{justify-content:center;width:100%}}
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="topline">
+    <div class="shell topline-inner">
+      <div class="brand"><a href="../../index.html"><span class="mark"></span> HYUN KEYNOTE</a></div>
+      <div class="breadcrumb"><a href="../../index.html">전체 카테고리</a> · <a href="../index.html">에이전틱 코딩</a> · 2회차</div>
+    </div>
+  </header>
+  <section class="shell hero">
+    <div class="eyebrow">1회차 · 3시간 강의</div>
+    <h1>개발 패러다임의 변화와 필수 기초 2</h1>
+    <p class="summary">에이전틱 코딩 과정 2회차 수업 자료입니다. 에이전틱 코딩 시대 배경, Hermes Agent를 활용한 첫 실습까지. 각 항목은 브라우저에서 바로 열립니다.</p>
+  </section>
+  <section class="shell list" aria-label="강의 자료 목록">
+    <article class="item"><div class="item-main"><div class="item-kicker">Part 1</div><h2 class="item-title">설치부터 하자 - 시간이 걸리는 작업</h2><div class="item-meta"><span>HTML</span><span>강의 노트</span></div></div><a class="item-link" href="./part-0-install.html">열기 →</a></article>
+    <article class="item"><div class="item-main"><div class="item-kicker">Part 2</div><h2 class="item-title">에이전틱 코딩의 시대 — 패러다임 변화와 도구 소개</h2><div class="item-meta"><span>HTML</span><span>강의 노트</span></div></div><a class="item-link" href="./part-03-agentic.html">열기 →</a></article>
+    <article class="item"><div class="item-main"><div class="item-kicker">Part 3</div><h2 class="item-title">Hermes Agent 실습 — 첫 번째 에이전틱 코딩</h2><div class="item-meta"><span>HTML</span><span>실습 가이드</span></div></div><a class="item-link" href="./part-04-hermes.html">열기 →</a></article>
+  </section>
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand"><a href="../../index.html"><span class="mark"></span> HYUN KEYNOTE</a></div>
+    </div>
+  </footer>
+</main>
+</body>
+</html>

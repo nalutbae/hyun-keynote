@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Hermes Desktop 설치 및 환경 설정 · 에이전틱 AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="./hyun-keynote.css" />
+</head>
+<body>
+
+<div class="toolbar">
+  <button id="btnPresent">Present (P)</button>
+  <button id="btnNotes">Notes (N)</button>
+  <button id="btnPrint">Print PDF</button>
+</div>
+<div class="helpbar"><span class="blink">▸</span>&nbsp; ←/→ navigate · P present · N notes · ESC overview · Cmd+P export PDF</div>
+
+<main class="deck" id="deck">
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 1: Cover                          -->
+<!-- ════════════════════════════════════════ -->
+<section id="part-02-cover" class="slide layout-cover" data-num="1">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · KEYNOTE</span>
+    <span>2026</span>
+  </div>
+  <div class="body">
+    <div>
+      <div class="eyebrow">Hermes Desktop 설치 및 환경 설정</div>
+      <h1 class="chapter-full-title">Hermes Desktop 설치 및 환경 설정</h1>
+      <p class="subtitle">직접 다운로드하고 설치하는 실습 시간</p>
+    </div>
+    <div class="by">
+      <div class="who">
+        <span class="name">에이전틱 AI</span>
+        <span class="role">설치 및 환경 설정</span>
+      </div>
+      <div class="stamp toc-area" aria-label="목차">
+        <span class="toc-label">목차</span>
+        <a class="toc-chapter" href="#part-0-cover">Hermes Desktop 설치 및 환경 설정</a>
+        <a class="toc-module" href="#mod-1">1. 다운로드 및 설치</a>
+        <a class="toc-module" href="#mod-2">2. LLM 프로바이더 연동</a>
+        <a class="toc-module" href="#mod-3">3. UI 구조 익히기</a>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>COVER</span><span><span class="num">01</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="1">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 01 / 15</span></div>
+  <h4>오프닝 · 00:00–02:00</h4>
+  <p>직접 손으로 해보는 시간입니다.</p>
+  <p>"여러분, 1교시에서 에이전틱 AI가 뭔지 배웠죠? 이제 직접 써봐야겠죠? 오늘 2교시에서는 Hermes Desktop을 설치하고, LLM 프로바이더를 연동하고, 화면 구성을 익히겠습니다."</p>
+  <p>실습 환경 확인: 노트북이 켜져 있는지, 인터넷이 연결되어 있는지 확인합니다.</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 2: Section Divider 2.1             -->
+<!-- ════════════════════════════════════════ -->
+<section id="mod-1" class="slide layout-divider" data-num="2">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · KEYNOTE</span>
+    <span>MODULE 1</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 1</div>
+    <h2>Hermes Desktop<br>다운로드 및 설치</h2>
+    <div class="lede">4단계로 설치를 완료합니다</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">02</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="2">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 02 / 15</span></div>
+  <h4>모듈 전환 · 02:00–03:00</h4>
+  <p>설치 실습 모듈을 시작합니다.</p>
+  <p>"먼저 Hermes Desktop을 다운로드하고 설치하겠습니다. 4단계만 거치면 됩니다. 하나씩 따라해 보세요."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 3: 설치 Step 1                    -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-grid cols-2" data-num="3">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · KEYNOTE</span>
+    <span>1</span>
+  </div>
+  <div class="body">
+    <h2>Step 1: 웹사이트 접속</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>nousresearch.com 접속</h3>
+        <p>브라우저에서 nousresearch.com을 열고, 다운로드 페이지로 이동합니다.</p>
+        <p><a href="https://hermes-agent.nousresearch.com/" target="_blank">다운로드 페이지 바로가기</a></p>
+        <p><a href="https://hermes-agent.nousresearch.com/docs" target="_blank">공식문서 페이지 바로가기</a></p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>운영체제 확인</h3>
+        <p>사용 중인 운영체제(Mac/Windows/Linux)에 맞는 버전을 확인합니다. 자동 감지됩니다.</p>
+      </div>
+    </div>
+    <div class="practice-checklist">
+      <h3>✓ 확인 포인트</h3>
+      <ul>
+        <li><strong>웹사이트</strong> nousresearch.com 정상 접속</li>
+        <li><strong>운영체제</strong> Mac / Windows / Linux 버전 확인</li>
+        <li><strong>네트워크</strong> 인터넷 연결 상태 확인</li>
+      </ul>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1. 다운로드 및 설치</span><span><span class="num">03</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="3">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 03 / 15</span></div>
+  <h4>Step 1 실습 · 03:00–08:00</h4>
+  <p>전체 강습생이 따라올 수 있도록 천천히 진행합니다.</p>
+  <p>"먼저 브라우저를 열고 nousresearch.com으로 들어가 보세요. 다운로드 버튼이 보이시나요? 여러분 운영체제에 맞는 버전을 확인해 주세요."</p>
+  <p>문제 발생 시: "화면이 안 보이시는 분은 손 들어주세요. 함께 확인해 드리겠습니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 4: 설치 Step 2                    -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-grid cols-2" data-num="4">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · KEYNOTE</span>
+    <span>1</span>
+  </div>
+  <div class="body">
+    <h2>Step 2: 다운로드</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>Download 버튼 클릭</h3>
+        <p>다운로드 페이지에서 Download 버튼을 클릭합니다. 약 200MB 파일(+α)이 다운로드됩니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>다운로드 완료 대기</h3>
+        <p>Desktop 자체는 인터넷 속도에 따라 1~5분 소요. 하지만 추가 설치로 인해 오래 걸림.</p>
+      </div>
+    </div>
+    <div class="practice-checklist">
+      <h3>✓ 확인 포인트</h3>
+      <ul>
+        <li><strong>파일</strong> 다운로드 폴더에 .dmg(Mac) 또는 .exe(Windows) 존재</li>
+        <li><strong>용량</strong> 약 200MB 정상 다운로드</li>
+      </ul>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1. 다운로드 및 설치</span><span><span class="num">04</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="4">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 04 / 15</span></div>
+  <h4>Step 2 실습 · 08:00–12:00</h4>
+  <p>다운로드 시간 동안 다음 단계를 미리 설명합니다.</p>
+  <p>"Download 버튼을 클릭하세요. 파일이 약 200MB 정도지만 추가로 받아야 하는 파일들이 많습니다. 다운로드되는 동안 다음 설치 과정을 미리 보겠습니다."</p>
+  <p>다운로드가 느린 수강생에게: "인터넷 속도에 따라 시간이 걸릴 수 있습니다. 다운로드가 완료되면 바로 다음 단계로 넘어가시면 됩니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 5: 설치 Step 3                    -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-grid cols-2" data-num="5">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · KEYNOTE</span>
+    <span>1</span>
+  </div>
+  <div class="body">
+    <h2>Step 3: 설치 파일 실행</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">Mac(실리콘 칩)</div>
+        <h3>.dmg 파일 설치</h3>
+        <p>다운로드한 .dmg 파일을 열고, Hermes 아이콘을 Applications 폴더로 드래그합니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">Windows</div>
+        <h3>.exe 파일 설치</h3>
+        <p>다운로드한 .exe 파일을 실행하고, 설치 마법사를 따라 Next를 클릭합니다.</p>
+      </div>
+    </div>
+    <div class="practice-checklist">
+      <h3>⚠️ 자주 발생하는 문제</h3>
+      <ul>
+        <li><strong>Mac</strong> "확인되지 않은 개발자" 경고 → 우클릭 후 열기</li>
+        <li><strong>Windows</strong> SmartScreen 경고 → 추가 정보 → 실행</li>
+      </ul>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>1. 다운로드 및 설치</span><span><span class="num">05</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="5">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 05 / 15</span></div>
+  <h4>Step 3 실습 · 12:00–18:00</h4>
+  <p>가장 많은 문제가 발생하는 단계입니다. 미리 자주 발생하는 문제를 안내합니다.</p>
+  <p>"Mac 사용자는 .dmg 파일을 열고, Hermes 아이콘을 Applications로 드래그하시면 됩니다. Windows는 .exe 파일을 더블클릭하시고, 설치 마법사를 따라가시면 됩니다."</p>
+  <p>"Mac에서 '확인되지 않은 개발자'라는 경고가 뜨면, 우클릭 후 '열기'를 클릭하세요. Windows에서 SmartScreen 경고가 뜨면 '추가 정보' → '실행'을 클릭하시면 됩니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 6: 설치 Step 4                    -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-statement" data-num="6">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · KEYNOTE</span>
+    <span>1</span>
+  </div>
+  <div class="body">
+    <h2>Step 4: 설치 완료 확인</h2>
+    <div class="lede">Hermes Desktop을 실행하면 초기 설정 화면이 나옵니다.<span class="br"></span><strong>아직 아무것도 입력하지 마세요.</strong><span class="br"></span>다음 모듈에서 함께 LLM 프로바이더를 연동하겠습니다.</div>
+  </div>
+  <div class="meta-bottom"><span>1. 다운로드 및 설치</span><span><span class="num">06</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="6">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 06 / 15</span></div>
+  <h4>Step 4 확인 · 18:00–22:00</h4>
+  <p>모든 수강생이 설치를 완료했는지 확인합니다.</p>
+  <p>"Hermes Desktop을 실행해 보세요. 초기 설정 화면이 보이시나요? 아직 아무것도 입력하지 마세요. 다음 모듈에서 함께 OpenRouter를 연동하겠습니다."</p>
+  <p>설치가 안 된 수강생에게: "아직 설치가 안 된 분은 손 들어주세요. 함께 해결하겠습니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 7: Section Divider 2.2             -->
+<!-- ════════════════════════════════════════ -->
+<section id="mod-2" class="slide layout-divider" data-num="7">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · KEYNOTE</span>
+    <span>MODULE 2</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 2</div>
+    <h2>LLM 프로바이더 연동</h2>
+    <div class="lede">OpenRouter를 통해 다양한 AI 모델에 접속합니다</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">07</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="7">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 07 / 15</span></div>
+  <h4>모듈 전환 · 22:00–23:00</h4>
+  <p>LLM 프로바이더 연동 모듈을 시작합니다.</p>
+  <p>"설치가 완료되셨죠? 이제 AI 모델을 연결해야 합니다. Hermes는 여러 AI 모델을 사용할 수 있는데, 그걸 가능하게 하는 게 OpenRouter입니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 8: OpenRouter Step 1               -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-grid cols-2" data-num="8">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · KEYNOTE</span>
+    <span>2</span>
+  </div>
+  <div class="body">
+    <h2>Step 1: Settings → Providers → OpenRouter</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>설정 메뉴 열기</h3>
+        <p>Hermes Desktop 좌측 사이드바 하단 ⚙️ 아이콘을 클릭하거나, 메뉴에서 Settings를 선택합니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>Providers 탭 이동</h3>
+        <p>설정 창에서 Providers 탭을 선택합니다. OpenRouter 항목을 찾아 Connect 버튼을 클릭합니다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>2. LLM 프로바이더 연동</span><span><span class="num">08</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="8">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 08 / 15</span></div>
+  <h4>Step 1 실습 · 23:00–27:00</h4>
+  <p>실제 화면을 보면서 따라합니다.</p>
+  <p>"화면 왼쪽 아래에 톱니바퀴 아이콘이 보이시죠? 그걸 클릭하세요. 그러면 설정 창이 열립니다. Providers 탭을 클릭하고, OpenRouter 옆에 Connect 버튼을 누르세요."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 9: OpenRouter Step 2               -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-grid cols-2" data-num="9">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · KEYNOTE</span>
+    <span>2</span>
+  </div>
+  <div class="body">
+    <h2>Step 2: API Key 발급</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>openrouter.ai 가입</h3>
+        <p>브라우저에서 openrouter.ai를 열고 계정을 만듭니다. Google이나 GitHub 계정으로 간편 가입이 가능합니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>API Key 생성</h3>
+        <p>로그인 후 우측 상단 프로필 → Keys → Create Key를 클릭합니다. 키 이름은 'Hermes Desktop'으로 설정합니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>Key 복사</h3>
+        <p>생성된 키를 복사합니다. 키는 한 번만 표시되므로 안전한 곳에 보관하세요. 분실 시 새로 만들어야 합니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">⚠️</div>
+        <h3>주의사항</h3>
+        <p>API Key는 비밀번호와 같습니다. 절대 공개场所(공개 채팅, SNS 등)에 공유하지 마세요. 과금 문제가 발생할 수 있습니다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>2. LLM 프로바이더 연동</span><span><span class="num">09</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="9">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 09 / 15</span></div>
+  <h4>Step 2 실습 · 27:00–34:00</h4>
+  <p>API Key 발급이 가장 헷갈리는 단계입니다. 천천히 진행합니다.</p>
+  <p>"이제 openrouter.ai에 가입해 보겠습니다. 구글이나 깃허브 계정으로 바로 가입할 수 있습니다."</p>
+  <p>"가입이 완료되면, 우측 상단 프로필을 클릭하고 Keys 메뉴로 들어가세요. Create Key 버튼을 누르고, 이름은 'Hermes Desktop'이라고 적으세요."</p>
+  <p>강조: "키가 화면에 한 번만 표시됩니다. 반드시 복사해서 메모장 같은 곳에 붙여넣으세요. 키를 잊어버리면 새로 만들어야 합니다."</p>
+  <p>보안 경고: "API Key는 비밀번호입니다. 절대 공개 장소에 올리지 마세요."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 10: OpenRouter Step 3-4            -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-grid cols-2" data-num="10">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · KEYNOTE</span>
+    <span>2</span>
+  </div>
+  <div class="body">
+    <h2>Step 3-4: Key 입력 & 기본 모델 선택</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">03</div>
+        <h3>API Key 붙여넣기</h3>
+        <p>Hermes Desktop의 OpenRouter Connect 화면에 복사한 키를 붙여넣고 Save를 클릭합니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>Default Model 선택</h3>
+        <p>모델 목록에서 <strong>Claude 3.5 Sonnet</strong>을 추천합니다. 속도와 품질의 균형이 가장 좋습니다.</p>
+      </div>
+    </div>
+    <div class="practice-checklist">
+      <h3>✓ 연동 완료 확인</h3>
+      <ul>
+        <li><strong>연결 상태</strong> OpenRouter 항목에 녹색 표시등 확인</li>
+        <li><strong>모델 표시</strong> Claude 3.5 Sonnet이 기본 모델로 표시</li>
+        <li><strong>테스트</strong> 채팅창에 "안녕하세요" 입력 후 응답 확인</li>
+      </ul>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>2. LLM 프로바이더 연동</span><span><span class="num">10</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="10">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 10 / 15</span></div>
+  <h4>Step 3-4 실습 · 34:00–40:00</h4>
+  <p>키를 붙여넣고 모델을 선택합니다.</p>
+  <p>"이제 아까 복사한 키를 Hermes의 OpenRouter 입력창에 붙여넣으세요. Save를 누르면 녹색 표시등이 켜집니다."</p>
+  <p>"기본 모델은 Claude 3.5 Sonnet을 추천합니다. 속도도 빠르고 응답 품질도 좋아서 입문자에게 가장 적합합니다."</p>
+  <p>"연동이 완료되면 채팅창에 '안녕하세요'라고 입력해 보세요. AI가 응답하면 성공입니다!"</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 11: Section Divider 2.3            -->
+<!-- ════════════════════════════════════════ -->
+<section id="mod-3" class="slide layout-divider" data-num="11">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · KEYNOTE</span>
+    <span>MODULE 3</span>
+  </div>
+  <div class="body">
+    <div class="part">MODULE · 3</div>
+    <h2>UI 구조 익히기</h2>
+    <div class="lede">왼쪽 사이드바 / 하단 채팅창 / 오른쪽 패널</div>
+  </div>
+  <div class="meta-bottom"><span>SECTION BREAK</span><span><span class="num">11</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="11">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 11 / 15</span></div>
+  <h4>모듈 전환 · 40:00–41:00</h4>
+  <p>UI 구조 익히기 모듈을 시작합니다.</p>
+  <p>"LLM 연동까지 완료되셨죠? 이제 Hermes Desktop의 화면 구성을 이해해 보겠습니다. 세 가지 영역만 기억하시면 됩니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 12: UI 구조 개요                  -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-grid cols-3" data-num="12">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · KEYNOTE</span>
+    <span>3</span>
+  </div>
+  <div class="body">
+    <h2>Hermes Desktop 3개 영역</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>왼쪽 사이드바</h3>
+        <p>대화 목록, 설정(⚙️), 프로필 전환. 이전 대화를 찾거나 새 대화를 시작할 수 있습니다.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>하단 채팅창</h3>
+        <p>메시지 입력 영역. 여기에 질문이나 지시를 입력합니다. Enter로 전송, Shift+Enter로 줄바꿈.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>오른쪽 패널</h3>
+        <p>도구 실행 결과, 파일 편집 내역, 검색 결과 등 AI의 작업 과정을 실시간으로 보여줍니다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>3. UI 구조 익히기</span><span><span class="num">12</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="12">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 12 / 15</span></div>
+  <h4>UI 설명 · 41:00–47:00</h4>
+  <p>Hermes Desktop의 세 영역을 실제 화면을 보며 설명합니다.</p>
+  <p>"화면을 보시면 세 영역으로 나뉘어 있습니다. 왼쪽에 사이드바, 아래에 채팅창, 오른쪽에 패널이 있습니다."</p>
+  <p>"왼쪽 사이드바는 이전 대화 목록과 설정이 있습니다. 대화가 많아지면 여기서 찾을 수 있습니다."</p>
+  <p>"하단 채팅창은 여러분이 AI와 대화하는 곳입니다. 여기에 질문이나 지시를 입력하면 됩니다."</p>
+  <p>"오른쪽 패널은 AI가 뭘 하고 있는지 실시간으로 보여줍니다. 파일을 읽거나, 웹을 검색하거나, 터미널 명령을 실행하면 여기에 표시됩니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 13: 핵심 단축키                    -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-table" data-num="13">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · KEYNOTE</span>
+    <span>3</span>
+  </div>
+  <div class="body">
+    <h2>자주 쓰는 단축키</h2>
+    <table>
+      <thead>
+        <tr><th>단축키</th><th>기능</th><th>설명</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="k">Enter</td><td>메시지 전송</td><td>입력한 내용을 AI에게 전송합니다</td></tr>
+        <tr><td class="k">Shift + Enter</td><td>줄바꿈</td><td>메시지를 보내지 않고 줄을 바꿉니다</td></tr>
+        <tr><td class="k">Cmd + N</td><td>새 대화</td><td>새로운 대화 세션을 시작합니다</td></tr>
+        <tr><td class="k">Cmd + ,</td><td>설정 열기</td><td>설정 창을 엽니다 (프로바이더, 모델 등)</td></tr>
+        <tr><td class="k">Cmd + Shift + S</td><td>스킬 보기</td><td>설치된 스킬 목록을 확인합니다</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="meta-bottom"><span>3. UI 구조 익히기</span><span><span class="num">13</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="13">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 13 / 15</span></div>
+  <h4>단축키 · 47:00–50:00</h4>
+  <p>자주 쓰는 단축키를 설명합니다. 직접 따라해 보도록 합니다.</p>
+  <p>"가장 많이 쓰는 건 Enter와 Shift+Enter입니다. Enter는 메시지를 보내고, Shift+Enter는 줄바꿈입니다."</p>
+  <p>"Cmd+N으로 새 대화를 시작할 수 있고, Cmd+쉼표로 설정을 열 수 있습니다."</p>
+  <p>"지금 한 번씩 눌러보세요. 새 대화가 열리나요? 설정 창이 열리나요?"</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 14: UI 탐색 실습                   -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-statement" data-num="14">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · KEYNOTE</span>
+    <span>3</span>
+  </div>
+  <div class="body">
+    <h2>직접 탐색해 보세요</h2>
+    <div class="lede">Hermes Desktop에 "<strong>안녕하세요, 반갑습니다</strong>"라고 입력해 보세요.<span class="br"></span>AI의 응답이 오른쪽 패널에 표시되는 것을 확인합니다.<span class="br"></span><em>모든 준비가 끝났습니다. 3교시에서 본격적인 실습을 시작합니다.</em></div>
+  </div>
+  <div class="meta-bottom"><span>3. UI 구조 익히기</span><span><span class="num">14</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="14">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 14 / 15</span></div>
+  <h4>실습 · 50:00–55:00</h4>
+  <p>수강생이 직접 Hermes Desktop을 조작해 보는 시간입니다.</p>
+  <p>"이제 직접 채팅창에 '안녕하세요, 반갑습니다'라고 입력해 보세요. AI가 응답하나요?"</p>
+  <p>"응답이 오른쪽 패널에 표시되는 것을 확인하세요. AI가 뭘 하고 있는지 실시간으로 보이는 게 Hermes의 특징입니다."</p>
+  <p>문제 발생 시: "응답이 안 오면, OpenRouter 연결 상태를 먼저 확인해 보세요. 설정에서 녹색 표시등이 켜져 있는지 확인합니다."</p>
+</aside>
+
+<!-- ════════════════════════════════════════ -->
+<!-- SLIDE 15: 마무리 + 3교시 연결            -->
+<!-- ════════════════════════════════════════ -->
+<section class="slide layout-cover closing" data-num="15">
+  <div class="meta-top">
+    <span class="deck-title"><span class="mark"></span> 에이전틱 AI · KEYNOTE</span>
+    <span>2026</span>
+  </div>
+  <div class="body">
+    <div>
+      <h1>2교시 마무리</h1>
+      <p class="subtitle">Hermes Desktop 설치, LLM 프로바이더 연동, UI 구조 파악을 완료했습니다. 이제 기본 도구를 직접 써볼 준비가 되었습니다.</p>
+    </div>
+    <div class="by">
+      <div class="who">
+        <span class="name">에이전틱 AI · 1회차</span>
+        <span class="role">Part 2 완료</span>
+      </div>
+      <div class="stamp toc-area" aria-label="다음 파트">
+        <span class="toc-label">다음</span>
+        <a class="toc-chapter" href="./part-03-tools.html">3교시: 기본 내장 도구 테스트 및 프로필 설계</a>
+        <a class="toc-module" href="./part-03-tools.html">날씨 검색, 우측 패널 관찰, SOUL.md 편집</a>
+      </div>
+    </div>
+  </div>
+  <div class="meta-bottom"><span>CLOSING</span><span><span class="num">15</span> / 15</span></div>
+</section>
+<aside class="notes" data-for="15">
+  <div class="head"><span><span class="accent">●</span> SPEAKER NOTES</span><span>SLIDE 15 / 15</span></div>
+  <h4>마무리 · 55:00–60:00</h4>
+  <p>2교시 내용을 간단히 요약합니다.</p>
+  <p>"오늘 2교시에서 배운 내용을 정리하겠습니다. 첫째, Hermes Desktop을 다운로드하고 설치했습니다. 둘째, OpenRouter를 통해 AI 모델을 연동했습니다. 셋째, 세 가지 화면 영역을 이해했습니다."</p>
+  <p>3교시 연결: "이제 기본 준비는 끝났습니다. 3교시에서는 실제로 내장 도구를 사용해 보고, 나만의 AI 비서를 만들어 보겠습니다."</p>
+  <p>휴식 안내 후 3교시로 이동합니다.</p>
+</aside>
+
+</main>
+<script src="./presenter.js"></script>
+</body>
+</html>
